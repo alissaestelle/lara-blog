@@ -16,5 +16,6 @@
                 "trailingComma": "none"
             }
         }
-    ]
+    ],
+    "tailwindConfig": "./tailwind.config.js"
 }
