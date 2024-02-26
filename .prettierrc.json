@@ -1,0 +1,25 @@
+{
+    "plugins": ["@prettier/plugin-php", "prettier-plugin-blade"],
+    "overrides": [
+        {
+            "files": ["*.php"],
+            "options": {
+                "phpVersion": "8.0",
+                "braceStyle": "per-cs",
+                "singleQuote": true,
+                "trailingCommaPHP": false
+            }
+        },
+        {
+            "files": ["resources/views/*.blade.php"],
+            "options": {
+                "parser": "blade",
+                "bracketSameLine": true,
+                "printWidth": 100,
+                "singleAttributePerLine": false,
+                "singleQuote": true,
+                "trailingComma": "none"
+            }
+        }
+    ]
+}
