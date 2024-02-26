@@ -1,15 +1,10 @@
 {
-    "plugins": ["@prettier/plugin-php", "prettier-plugin-blade"],
+    "plugins": [
+        "@prettier/plugin-php",
+        "prettier-plugin-blade",
+        "prettier-plugin-tailwindcss"
+    ],
     "overrides": [
-        {
-            "files": ["*.php"],
-            "options": {
-                "phpVersion": "8.0",
-                "braceStyle": "per-cs",
-                "singleQuote": true,
-                "trailingCommaPHP": false
-            }
-        },
         {
             "files": ["resources/views/*.blade.php"],
             "options": {
