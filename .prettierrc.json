@@ -15,6 +15,21 @@
                 "singleQuote": true,
                 "trailingComma": "none"
             }
+        },
+        {
+            "files": ["*.html"],
+            "options": {
+                "bracketSameLine": true,
+                "printWidth": 100,
+                "singleAttributePerLine": false,
+                "singleQuote": true
+            }
+        },
+        {
+            "files": ["*.php"],
+            "options": {
+                "singleQuote": true
+            }
         }
     ],
     "tailwindConfig": "./tailwind.config.js"

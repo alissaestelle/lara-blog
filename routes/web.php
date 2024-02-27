@@ -20,3 +20,14 @@ Route::get('/', function () {
 Route::get('/app', function () {
     return view('app');
 });
+
+Route::get('/posts/{p}', function ($p) {
+    $path = __DIR__ . "/../resources/posts/{$p}.html";
+    // $post = file_get_contents(__DIR__ . "/../resources/posts/{$p}.html");
+
+    $post = !file_exists($path) ? redirect('/app') : file_get_contents($path);
+
+    return view('post', [
+        'post' => $post,
+    ]);
+});
