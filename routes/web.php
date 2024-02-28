@@ -23,9 +23,16 @@ Route::get('/app', function () {
 
 Route::get('/posts/{p}', function ($p) {
     $path = __DIR__ . "/../resources/posts/{$p}.html";
-    // $post = file_get_contents(__DIR__ . "/../resources/posts/{$p}.html");
 
-    $post = !file_exists($path) ? redirect('/app') : file_get_contents($path);
+    if (!file_exists($path)) {
+        return redirect('/app');
+    }
+
+    $post = cache()->remember(
+        "posts.{$p}",
+        1200,
+        fn() => file_get_contents($path)
+    );
 
     return view('post', [
         'post' => $post,
