@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,28 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/app', function () {
-    return view('app');
+Route::get('/', function () {
+    return view('app', [
+        'posts' => Post::all(),
+    ]);
 });
 
 Route::get('/posts/{p}', function ($p) {
-    $path = __DIR__ . "/../resources/posts/{$p}.html";
-
-    if (!file_exists($path)) {
-        return redirect('/app');
-    }
-
-    $post = cache()->remember(
-        "posts.{$p}",
-        1200,
-        fn() => file_get_contents($path)
-    );
-
     return view('post', [
-        'post' => $post,
+        'post' => Post::find($p),
     ]);
 });
