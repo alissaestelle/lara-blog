@@ -12,6 +12,15 @@ class Post
     // class Post extends Model
     // use HasFactory;
 
+    function __construct(
+        public string $title,
+        public int $date,
+        public string $tag,
+        public string $excerpt,
+        public string $body
+    ) {
+    }
+
     static function all()
     {
         $files = File::files(resource_path('posts/'));
