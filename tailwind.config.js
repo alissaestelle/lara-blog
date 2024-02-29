@@ -3,6 +3,7 @@ export default {
     content: [
         "./resources/**/*.html",
         "./resources/**/*.blade.php",
+        "./resources/**/*.php",
         "./resources/**/*.js",
     ],
     theme: {
