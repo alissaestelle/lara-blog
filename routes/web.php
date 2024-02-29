@@ -22,7 +22,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
 
-    return view('app', [
+    return view('/app', [
         'posts' => Post::all(),
     ]);
 });
