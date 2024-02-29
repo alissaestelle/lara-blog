@@ -47,7 +47,7 @@
                     <article class="flex max-w-80 flex-col items-start">
                         <div class="flex items-center gap-x-4 text-xs">
                             <time datetime="<?= $post->date ?>" class="text-gray-500">
-                                <?= date('F jS, Y', strtotime($post->date)) ?>
+                                <?= date('F jS, Y', $post->date) ?>
                             </time>
                             <a
                                 href="#"

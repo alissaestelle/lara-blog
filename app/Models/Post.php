@@ -25,7 +25,7 @@ class Post
 
     static function all()
     {
-        $files = File::files(resource_path('posts/'));
+        $files = File::files(resource_path('posts'));
 
         function filterMeta($data)
         {
@@ -33,10 +33,12 @@ class Post
             return new Post($title, $url, $date, $tag, $excerpt, $data->body());
         }
 
+        // Extracting Metadata & Content 
         $posts = collect($files)
             ->map(fn($file) => YamlFrontMatter::parseFile($file))
             ->map(fn($doc) => filterMeta($doc));
 
+            // dd($posts[0]);
         return $posts;
     }
 
