@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,7 @@ class Post
 
     function __construct(
         public string $title,
+        public string $url,
         public int $date,
         public string $tag,
         public string $excerpt,
@@ -25,22 +27,22 @@ class Post
     {
         $files = File::files(resource_path('posts/'));
 
-        return array_map(fn($file) => $file->getContents(), $files);
+        function filterMeta($data)
+        {
+            extract($data->matter());
+            return new Post($title, $url, $date, $tag, $excerpt, $data->body());
+        }
+
+        $posts = collect($files)
+            ->map(fn($file) => YamlFrontMatter::parseFile($file))
+            ->map(fn($doc) => filterMeta($doc));
+
+        return $posts;
     }
 
     static function find($p)
     {
-        $path = resource_path("posts/{$p}.html");
-
-        if (!file_exists($path)) {
-            throw new ModelNotFoundException();
-            // return redirect('/app');
-        }
-
-        return cache()->remember(
-            "posts.{$p}",
-            1200,
-            fn() => file_get_contents($path)
-        );
+        $post = static::all()->firstWhere('url', $p);
+        return $post;
     }
 }

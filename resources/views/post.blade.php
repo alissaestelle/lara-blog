@@ -46,7 +46,32 @@
                     <article class="max-w-[90%]
                      flex items-center justify-center">
                         <div class="flex flex-col items-start">
-                            <?= $post ?>
+                            <div class="flex items-center gap-x-4 text-xs">
+                                <time datetime="<?= $post->date ?>" class="text-gray-500"><?= $post->date ?></time>
+                                <a
+                                    href="#"
+                                    class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                                    <?= $post->tag ?>
+                                </a>
+                            </div>
+                            <div class="group relative">
+                                <h3 class="mt-4 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                    <span class="absolute inset-0"></span>
+                                    <?= $post->title ?>
+                                </h3>
+                                <div class="flex items-center gap-8">
+                                    <div>
+                                        <?= $post->body ?>
+                                    </div>
+                                    <div class="min-w-fit">
+                                        <a
+                                            href="/"
+                                            class="relative z-10 rounded-full bg-fuchsia-900 px-6 py-1.5 font-medium text-white hover:border hover:bg-gray-50 hover:text-fuchsia-900">
+                                            View All
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 </div>
