@@ -21,12 +21,6 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 // });
 
 Route::get('/', function () {
-    // foreach ($files as $file) {
-    //     $doc = YamlFrontMatter::parseFile($file);
-    //     extract($doc->matter());
-
-    //     $posts[] = new Post($title, $date, $tag, $excerpt, $doc->body());
-    // }
 
     return view('app', [
         'posts' => Post::all(),

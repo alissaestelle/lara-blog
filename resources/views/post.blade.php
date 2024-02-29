@@ -23,12 +23,6 @@
                         </p>
                     </div>
                     <div class="relative flex items-center gap-x-4">
-                        {{--
-                            <img
-                            src="../images/aew.png"
-                            alt="Alissa Wiley"
-                            class="h-20 w-20 rounded-full bg-gray-50" />
-                        --}}
                         <div class="text-sm leading-6">
                             <p class="font-semibold text-gray-900">
                                 <a href="#">
@@ -36,7 +30,6 @@
                                     AEW
                                 </a>
                             </p>
-                            {{-- <p class="text-gray-600">Co-Founder / CTO</p> --}}
                         </div>
                     </div>
                 </div>
@@ -47,7 +40,9 @@
                      flex items-center justify-center">
                         <div class="flex flex-col items-start">
                             <div class="flex items-center gap-x-4 text-xs">
-                                <time datetime="<?= $post->date ?>" class="text-gray-500"><?= $post->date ?></time>
+                                <time datetime="<?= $post->date ?>" class="text-gray-500">
+                                    <?= date('F jS, Y', $post->date) ?>
+                                </time>
                                 <a
                                     href="#"
                                     class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">

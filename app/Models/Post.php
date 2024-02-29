@@ -2,17 +2,10 @@
 
 namespace App\Models;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
-
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 
 class Post
 {
-    // class Post extends Model
-    // use HasFactory;
-
     function __construct(
         public string $title,
         public string $url,
@@ -25,6 +18,9 @@ class Post
 
     static function all()
     {
+        //  1. Extract Metadata & Content from YFM Pkg
+        //  2. Move Metadata/Content to Post Obj
+
         $files = File::files(resource_path('posts'));
 
         function filterMeta($data)
@@ -33,12 +29,20 @@ class Post
             return new Post($title, $url, $date, $tag, $excerpt, $data->body());
         }
 
-        // Extracting Metadata & Content 
         $posts = collect($files)
+            // Map Over Each File & Get File Contents
             ->map(fn($file) => YamlFrontMatter::parseFile($file))
-            ->map(fn($doc) => filterMeta($doc));
+            // Move Those Contents to New Post Obj
+            ->map(fn($doc) => filterMeta($doc))
+            ->sortByDesc('date');
 
-            // dd($posts[0]);
+        // Cache Post Array to Minimize Repetitive Tasks
+
+        // $cache = cache()->remember(
+        //     'posts.all', 60,
+        //     fn() => $posts);
+
+        // Return Cached Array
         return $posts;
     }
 
