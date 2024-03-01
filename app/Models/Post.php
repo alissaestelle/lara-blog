@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\File;
 
@@ -49,6 +51,9 @@ class Post
     static function find($p)
     {
         $post = static::all()->firstWhere('url', $p);
+
+        $post ?? throw new ModelNotFoundException();
+
         return $post;
     }
 }

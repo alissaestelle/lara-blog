@@ -1,8 +1,8 @@
 <x-layout>
-    <x-slot name="banner">
+    <x-slot:banner>
         <x-banner></x-banner>
     </x-slot>
-    <x-slot name="main">
+    <x-slot:main>
         <div
             class="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <article class="max-w-[90%] flex items-center justify-center">
