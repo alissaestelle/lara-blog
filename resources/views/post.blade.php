@@ -5,7 +5,7 @@
     <x-slot:main>
         <div
             class="mx-auto mt-10 max-w-2xl border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <article class="max-w-[90%] flex items-center justify-center">
+            <article class="flex items-center justify-center">
                 <div class="flex flex-col items-start">
                     <div class="flex items-center gap-x-4 text-xs">
                         <time datetime="{{ $post->date }}" class="text-gray-500">
@@ -21,7 +21,7 @@
                         <h3
                             class="mt-4 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                             <span class="absolute inset-0"></span>
-                            {{ $post->title }}
+                            {!! $post->title !!}
                         </h3>
                         <div class="flex items-center gap-8">
                             <div>

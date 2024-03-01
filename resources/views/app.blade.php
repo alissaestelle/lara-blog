@@ -12,7 +12,7 @@
                     <div class="flex items-center gap-x-4 text-xs">
                         <time
                             datetime="{{ $post->date }}"
-                            class="{{ $loop->first ? 'text-sky-700' : 'text-gray-500' }}"
+                            {{-- class="{{ $loop->first ? 'text-fuchsia-800' : 'text-gray-500' }}" --}}
                         >
                             {{ date('F jS, Y', $post->date) }}
                         </time>

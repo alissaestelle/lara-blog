@@ -2,58 +2,36 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Post
+class Post extends Model
 {
-    function __construct(
-        public string $title,
-        public string $url,
-        public int $date,
-        public string $tag,
-        public string $excerpt,
-        public string $body
-    ) {
-    }
+    use HasFactory;
 
-    static function all()
+    protected $guarded = ['id'];
+
+    /*
+
+    protected $fillable = [
+        'title',
+        'url',
+        'published',
+        'tag',
+        'excerpt',
+        'body',
+    ]
+
+
+    /*
+
+    This method specifies which attribute should be used to find a matching Post.
+    A URL param isn't needed for this method as long as the object attribute matches the one configuration in the method below.
+
+    function getRouteKeyName()
     {
-        //  1. Extract Metadata & Content from YFM Pkg
-        //  2. Move Metadata/Content to Post Obj
-
-        $files = File::files(resource_path('posts'));
-
-        function filterMeta($data)
-        {
-            extract($data->matter());
-            return new Post($title, $url, $date, $tag, $excerpt, $data->body());
-        }
-
-        $posts = collect($files)
-            // Map Over Each File & Get File Contents
-            ->map(fn($file) => YamlFrontMatter::parseFile($file))
-            // Move Those Contents to New Post Obj
-            ->map(fn($doc) => filterMeta($doc))
-            ->sortByDesc('date');
-
-        // Cache Post Array to Minimize Repetitive Tasks
-
-        // $cache = cache()->remember(
-        //     'posts.all', 60,
-        //     fn() => $posts);
-
-        // Return Cached Array
-        return $posts;
+        return 'url'
     }
 
-    static function find($p)
-    {
-        $post = static::all()->firstWhere('url', $p);
-
-        $post ?? throw new ModelNotFoundException();
-
-        return $post;
-    }
+    */
 }

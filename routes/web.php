@@ -25,8 +25,20 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/posts/{p}', function ($p) {
+Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $post)->find()
     return view('post', [
-        'post' => Post::find($p),
+        'post' => $post,
     ]);
 });
+
+/*
+
+Old Get Req:
+
+Route::get('/posts/{p}', function ($id) {
+    return view('post', [
+        'post' => Post::find($id),
+    ]);
+});
+
+*/
