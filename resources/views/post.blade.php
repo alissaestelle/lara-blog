@@ -8,13 +8,13 @@
             <article class="flex items-center justify-center">
                 <div class="flex flex-col items-start">
                     <div class="flex items-center gap-x-4 text-xs">
-                        <time datetime="{{ $post->date }}" class="text-gray-500">
-                            {{ date('F jS, Y', $post->date) }}
+                        <time datetime="{{ $post->published }}" class="text-gray-500">
+                            {{ date('F jS, Y', strtotime($post->published)) }}
                         </time>
                         <a
-                            href="#"
+                            href="/tag/{{ $post->tag->url }}"
                             class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-                            {{ $post->tag }}
+                            {{ $post->tag->name }}
                         </a>
                     </div>
                     <div class="group relative">

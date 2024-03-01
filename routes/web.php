@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+/*
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+*/
 
 Route::get('/', function () {
 
-    return view('/app', [
+    return view('app', [
         'posts' => Post::all(),
     ]);
 });
@@ -28,6 +34,12 @@ Route::get('/', function () {
 Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $post)->find()
     return view('post', [
         'post' => $post,
+    ]);
+});
+
+Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)->find()
+    return view('app', [
+        'posts' => $tag->posts,
     ]);
 });
 

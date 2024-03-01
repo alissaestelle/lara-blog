@@ -11,23 +11,23 @@
                 <article class="flex max-w-80 flex-col items-start">
                     <div class="flex items-center gap-x-4 text-xs">
                         <time
-                            datetime="{{ $post->date }}"
+                            datetime="{{ $post->published }}"
                             {{-- class="{{ $loop->first ? 'text-fuchsia-800' : 'text-gray-500' }}" --}}
                         >
-                            {{ date('F jS, Y', $post->date) }}
+                        {{ date('F jS, Y', strtotime($post->published)) }}
                         </time>
                         <a
-                            href="#"
+                            href="/tag/{{ $post->tag->url }}"
                             class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                         >
-                            {{ $post->tag }}
+                            {{ $post->tag->name }}
                         </a>
                     </div>
                     <div class="group relative">
                         <h3
                             class="mt-4 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
                         >
-                            <a href="posts/{{ $post->url }}">
+                            <a href="/posts/{{ $post->url }}">
                                 <span class="absolute inset-0"></span>
 
                                 {{ $post->title }}

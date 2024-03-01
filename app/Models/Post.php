@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,11 +18,16 @@ class Post extends Model
         'title',
         'url',
         'published',
-        'tag',
         'excerpt',
         'body',
     ]
 
+    */
+
+    function tag()
+    {
+        return $this->belongsTo(Tag::class, 'tagID');
+    }
 
     /*
 
