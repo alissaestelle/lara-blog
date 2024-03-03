@@ -26,8 +26,12 @@ Route::get('/', function () {
 
 Route::get('/', function () {
 
+    \Illuminate\Support\Facades\DB::listen(function ($q) {
+        logger($q->sql);
+    });
+
     return view('app', [
-        'posts' => Post::all(),
+        'posts' => Post::with('tag')->get(),
     ]);
 });
 
