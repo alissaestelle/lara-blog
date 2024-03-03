@@ -1,10 +1,13 @@
 <div class="flex flex-col gap-y-2 mx-auto max-w-2xl lg:mx-0">
     <div>
-        <h2
-            class="mt-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
-        >
-            Untitled #777
-        </h2>
+        <a href="/">
+            <h2
+                class="mt-3 text-3xl font-bold tracking-tight leading-6 text-gray-900 hover:text-gray-600 sm:text-4xl"
+            >
+                <span class="absolute inset-0"></span>
+                Untitled #777
+            </h2>
+        </a>
         <p class="mt-2 text-lg leading-8 text-gray-600">
             <span class="italic">exploring a garden of forking paths</span>
         </p>
