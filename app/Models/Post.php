@@ -24,6 +24,11 @@ class Post extends Model
 
     */
 
+    function user()
+    {
+        return $this->belongsTo(User::class, 'userID');
+    }
+
     function tag()
     {
         return $this->belongsTo(Tag::class, 'tagID');
@@ -31,13 +36,14 @@ class Post extends Model
 
     /*
 
-    This method specifies which attribute should be used to find a matching Post.
+    This method specifies the attribute that should be used to find a Post instance.
     A URL param isn't needed for this method as long as the object attribute matches the one configuration in the method below.
 
     function getRouteKeyName()
     {
-        return 'url'
+        return 'url';
     }
 
     */
+
 }

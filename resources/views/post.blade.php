@@ -21,19 +21,24 @@
                 --}}
                 <div class="group relative">
                     <h3
-                        class="mt-4 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                        <span class="absolute inset-0"></span>
+                        class="mt-4 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                         {!! $post->title !!}
                     </h3>
                     <div class="mt-4 flex flex-col items-start">
                         <div class="flex items-center gap-x-8 text-xs">
                             <div class="self-start">
-                                <span class="mr-1">By Alissa Wiley in</span>
-                                <a
-                                    href="/tag/{{ $post->tag->url }}"
+                                <span class="mr-1 text-sm">
+                                    By
+                                    <a href="#">{{ $post->user->name }}</a>
+                                    in
+                                </span>
+
+                                <span
                                     class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium border text-gray-600 hover:bg-gray-100">
-                                    {{ $post->tag->name }}
-                                </a>
+                                    <a href="/tag/{{ $post->tag->url }}">
+                                        {{ $post->tag->name }}
+                                    </a>
+                                </span>
                             </div>
                             <div>
                                 <time datetime="{{ $post->published }}" class="text-gray-500">
@@ -41,16 +46,19 @@
                                 </time>
                             </div>
                         </div>
-                            <div>
-                                {{-- Use {!! !!} for Any Content Containing HTML --}}
-                                {!! $post->body !!}
-                            </div>
-                            <div class="mt-6">
-                                <a
-                                    href="/"
-                                    class="relative z-10 rounded-full bg-fuchsia-900 px-5 py-1 font-medium text-white hover:border hover:bg-gray-50 hover:text-fuchsia-900">
-                                    Back
-                                </a>
+                        <div>
+                            {{-- Use {!! !!} for Any Content Containing HTML --}}
+                            {{-- {!! $post->body !!} --}}
+                            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                                {{ $post->body }}
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a
+                                href="/"
+                                class="relative z-10 rounded-full bg-fuchsia-900 px-5 py-1 font-medium text-white hover:border hover:bg-gray-50 hover:text-fuchsia-900">
+                                Back
+                            </a>
                         </div>
                     </div>
                 </div>

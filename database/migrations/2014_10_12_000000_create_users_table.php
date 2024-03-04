@@ -18,7 +18,6 @@ return new class extends Migration
             $table->timestamp('verified')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean('admin');
             $table->timestamps();
         });
     }

@@ -4,7 +4,6 @@
             <h2
                 class="mt-3 text-3xl font-bold tracking-tight leading-6 text-gray-900 hover:text-gray-600 sm:text-4xl"
             >
-                <span class="absolute inset-0"></span>
                 Untitled #777
             </h2>
         </a>
