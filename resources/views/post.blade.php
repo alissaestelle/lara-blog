@@ -21,7 +21,7 @@
                 --}}
                 <div class="group relative">
                     <h3
-                        class="mt-4 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                        class="mt-4 text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600">
                         {!! $post->title !!}
                     </h3>
                     <div class="mt-4 flex flex-col items-start">
@@ -29,7 +29,7 @@
                             <div class="self-start">
                                 <span class="mr-1 text-sm">
                                     By
-                                    <a href="#">{{ $post->user->name }}</a>
+                                    <a href="/author/{{ $post->author->id }}">{{ $post->author->name }}</a>
                                     in
                                 </span>
 
@@ -49,7 +49,7 @@
                         <div>
                             {{-- Use {!! !!} for Any Content Containing HTML --}}
                             {{-- {!! $post->body !!} --}}
-                            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+                            <p class="mt-10 line-clamp-3 text-sm leading-6 text-gray-600">
                                 {{ $post->body }}
                             </p>
                         </div>

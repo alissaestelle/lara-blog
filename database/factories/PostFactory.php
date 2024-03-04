@@ -20,8 +20,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'userID' => User::factory(),
-            'tagID' => Tag::factory(),
+            'userID' => fake()->randomElement(User::all()),
+            'tagID' => fake()->randomElement(Tag::all()),
             'title' => fake()->sentence(),
             'url' => fake()->unique()->slug(),
             'published' =>fake()->date(),

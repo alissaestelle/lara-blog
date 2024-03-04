@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,7 @@ Route::get('/', function () {
     });
 
     return view('app', [
-        'posts' => Post::with('tag')->get(),
+        'posts' => Post::latest('published')->with('author', 'tag')->get(),
     ]);
 });
 
@@ -44,6 +45,12 @@ Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $p
 Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)->find()
     return view('app', [
         'posts' => $tag->posts,
+    ]);
+});
+
+Route::get('/author/{author}', function (User $author) { // Post::where('url', $post)->find()
+    return view('app', [
+        'posts' => $author->posts,
     ]);
 });
 
