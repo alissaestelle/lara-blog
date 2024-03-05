@@ -57,6 +57,10 @@ Route::get('/author/{author:url}', function (User $author) { // Post::where('url
     ]);
 });
 
+Route::get('/test', function (User $author) { // Post::where('url', $author)->find()
+    return view('test');
+});
+
 /*
 
 Old Get Req:

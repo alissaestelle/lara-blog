@@ -26,6 +26,8 @@ class UserFactory extends Factory
         $name = fake()->name();
         $url = strtr($name, [
             'Dr. ' => '',
+            'Miss ' => '',
+            'Mister ' => '',
             'Mr. ' => '',
             'Mrs. ' => '',
             'Ms. ' => '',
