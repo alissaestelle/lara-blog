@@ -29,7 +29,7 @@
                             <div class="self-start">
                                 <span class="mr-1 text-sm">
                                     By
-                                    <a href="/author/{{ $post->author->id }}">{{ $post->author->name }}</a>
+                                    <a href="/author/{{ $post->author->url }}">{{ $post->author->name }}</a>
                                     in
                                 </span>
 

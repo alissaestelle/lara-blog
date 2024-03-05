@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -27,12 +28,14 @@ Route::get('/', function () {
 
 Route::get('/', function () {
 
-    \Illuminate\Support\Facades\DB::listen(function ($q) {
-        logger($q->sql);
-    });
+    // \Illuminate\Support\Facades\DB::listen(function ($q) {
+    //     logger($q->sql);
+    // });
 
     return view('app', [
-        'posts' => Post::latest('published')->with('author', 'tag')->get(),
+        'posts' => Post::latest('published')->get(),
+        'images' => (new Image)->render()
+        // 'posts' => Post::latest('published')->with('author', 'tag')->get(),
     ]);
 });
 

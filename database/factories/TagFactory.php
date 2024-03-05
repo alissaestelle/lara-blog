@@ -16,9 +16,12 @@ class TagFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->unique()->word();
+
         return [
-            'name' => ucfirst(fake()->unique()->word()),
-            'url' => fake()->unique()->slug()
+            'name' => ucfirst($name),
+            'url' => $name
+            // 'url' => fake()->unique()->slug()
         ];
     }
 }

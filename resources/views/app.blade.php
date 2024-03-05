@@ -6,8 +6,12 @@
         <div
             class="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-x-10 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @foreach ($posts as $post)
-                {{-- @dd($loop) --}}
                 <article class="flex max-w-80 flex-col items-start">
+                    <img
+                        src="../images/posts/{{ $images[$loop->index] }}"
+                        class="h-52 w-72 object-cover"
+                        alt="" />
+
                     <div class="flex items-center gap-x-4 text-xs">
                         <time
                             datetime="{{ $post->published }}"
@@ -28,12 +32,11 @@
                             </a>
                         </h3>
                         <div class="mt-2 text-sm">
-
                             {{-- @dd($post->author->name) --}}
-                            By 
-                                <a href="/author/{{ $post->author->url }}">
-                                    {{ $post->author->name }}
-                                </a>
+                            By
+                            <a href="/author/{{ $post->author->url }}">
+                                {{ $post->author->name }}
+                            </a>
                         </div>
 
                         <p

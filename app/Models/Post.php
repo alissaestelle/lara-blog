@@ -12,6 +12,9 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    // Joins Author/Tag Tables to Post Obj
+    protected $with = ['author', 'tag'];
+
     /*
 
     protected $fillable = [
