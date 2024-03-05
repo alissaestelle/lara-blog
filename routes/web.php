@@ -48,7 +48,7 @@ Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)-
     ]);
 });
 
-Route::get('/author/{author}', function (User $author) { // Post::where('url', $post)->find()
+Route::get('/author/{author:url}', function (User $author) { // Post::where('url', $author)->find()
     return view('app', [
         'posts' => $author->posts,
     ]);

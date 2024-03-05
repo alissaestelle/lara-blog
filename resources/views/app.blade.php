@@ -22,14 +22,16 @@
                     </div>
                     <div class="group relative">
                         <h3
-                            class="mt-2 text-lg font-medium leading-6 text-gray-900 group-hover:text-gray-600">
+                            class="{{ $loop->first ? 'text-fuchsia-800' : 'text-gray-900' }} mt-2 text-lg font-medium leading-6 group-hover:text-gray-600">
                             <a href="/posts/{{ $post->url }}">
                                 {{ $post->title }}
                             </a>
                         </h3>
                         <div class="mt-2 text-sm">
+
+                            {{-- @dd($post->author->name) --}}
                             By 
-                                <a href="/author/{{ $post->author->id }}">
+                                <a href="/author/{{ $post->author->url }}">
                                     {{ $post->author->name }}
                                 </a>
                         </div>
