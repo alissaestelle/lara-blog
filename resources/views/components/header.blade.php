@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-y-2 mx-auto text-center min-[500px]:px-5 min-[500px]:py-6 sm:text-left lg:mx-0">
+<div class="mx-auto flex flex-col gap-y-2 text-center min-[500px]:px-5 min-[500px]:py-6 sm:text-left lg:mx-0">
     <div>
         <a href="/">
             <h2
@@ -12,12 +12,12 @@
         </p>
     </div>
 
-    <div class="flex justify-center flex-wrap gap-y-4 sm:justify-start sm:flex-nowrap gap-x-4 mt-8 text-sm font-medium">
+    <div class="mt-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium sm:flex-nowrap sm:justify-start">
         <div
-            class="min-w-28 relative flex flex-1 sm:flex-none lg:inline-flex items-center bg-gray-100 rounded-xl"
+            class="min-w-28 relative flex flex-1 items-center bg-gray-100 rounded-xl sm:flex-none lg:inline-flex"
         >
             <select
-                class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9"
+                class="py-2 pl-3 pr-9 flex-1 appearance-none bg-transparent"
             >
                 <option value="category" disabled selected>Category</option>
                 <option value="">Option</option>
@@ -48,10 +48,10 @@
 
         <!-- Other Filters -->
         <div
-            class="min-w-28 relative flex flex-1 sm:flex-none lg:inline-flex items-center bg-gray-100 rounded-xl"
+            class="min-w-28 relative flex flex-1 items-center bg-gray-100 rounded-xl sm:flex-none lg:inline-flex"
         >
             <select
-                class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9"
+                class="py-2 pl-3 pr-9 flex-1 appearance-none bg-transparent"
             >
                 <option value="category" disabled selected>Filters</option>
                 <option value="">Option</option>
@@ -82,7 +82,7 @@
 
         <!-- Search -->
         <div
-            class="relative flex flex-1 sm:flex-none lg:inline-flex items-center rounded-xl border"
+            class="relative flex flex-1 items-center border rounded-xl sm:flex-none lg:inline-flex"
         >
             <form method="GET" action="#">
                 <input
