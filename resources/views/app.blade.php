@@ -6,13 +6,14 @@
         <x-slot:header>
             <x-header></x-header>
         </x-slot>
-        <div class="mx-auto mt-5">
+        <div class="mx-auto">
             <x-slot:featured>
                 <x-featured></x-featured>
             </x-slot>
 
+            <div class="pt-12 border-t border-gray-200 min-[600px]:px-5">
             <div
-                class="pt-10 flex flex-col gap-y-8 border-t border-gray-200 min-[500px]:grid min-[500px]:grid-cols-2 min-[500px]:gap-x-10 min-[500px]:gap-y-16 min-[500px]:px-5 min-[500px]:py-6 min-[500px]:pt-8 sm:pt-16 sm:mt-8 lg:mx-0 lg:grid-cols-3">
+                class="flex flex-col gap-y-8 min-[500px]:grid min-[500px]:grid-cols-3 min-[500px]:gap-x-8 min-[500px]:gap-y-16 min-[600px]:gap-x-10">
                 @foreach ($posts as $post)
                     <article class="flex flex-col items-start w-full max-w-80 mx-auto">
                         <img
@@ -56,5 +57,6 @@
                 @endforeach
             </div>
         </div>
+    </div>
     </x-slot>
 </x-layout>
