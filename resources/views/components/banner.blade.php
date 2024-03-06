@@ -11,13 +11,12 @@
             <span class="italic">exploring a garden of forking paths</span>
         </p>
     </div>
-    <div class="relative flex items-center gap-x-4">
-        {{--
-            <img
+    {{-- <div class="relative flex items-center gap-x-4">
+        <img
             src="../images/aew.png"
             alt="Alissa Wiley"
-            class="h-20 w-20 rounded-full bg-gray-50" />
-        --}}
+            class="h-20 w-20 rounded-full bg-gray-50"
+        />
         <div class="text-sm leading-6">
             <p class="font-semibold text-gray-900">
                 <a href="#">
@@ -26,5 +25,5 @@
                 </a>
             </p>
         </div>
-    </div>
+    </div> --}}
 </div>

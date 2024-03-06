@@ -12,10 +12,11 @@
                             <img
                                 src="../images/moon-castle.png"
                                 alt="Featured"
-                                class="h-52 w-72 object-cover object-center rounded-xl" />
+                                class="h-52 w-72 object-cover object-center
+                                 rounded-xl" />
                         </div>
 
-                        <div class="flex-1 flex flex-col justify-between">
+                        <div class="flex-1 flex flex-col">
                             <header class="mt-8 md:mt-0">
                                 <div class="space-x-2">
                                     <a
@@ -34,9 +35,8 @@
                                 </div>
 
                                 <div class="mt-4">
-                                    <h1 class="text-lg">
-                                        This is a big title and it will look great on two or even
-                                        three lines. Wooohoo!
+                                    <h1 class="text-lg font-medium">
+                                        Featured Post
                                     </h1>
 
                                     <span class="mt-2 block text-gray-400 text-xs">
@@ -60,22 +60,22 @@
                                 </p>
                             </div>
 
-                            <footer class="flex justify-between items-center mt-8">
-                                <div class="flex items-center text-sm">
-                                    <img src="./images/lary-avatar.svg" alt="Lary avatar" />
-                                    <div class="ml-3">
-                                        <h5 class="font-bold">Lary Laracore</h5>
-                                        <h6>Mascot at Laracasts</h6>
+                            <footer class="mt-6">
+                                <div class="flex items-end gap-x-3 text-sm">
+                                    <img src="../images/aew.png" class="h-12 w-12" alt="AE" />
+                                    <div >
+                                        <h5 class="font-bold">AE</h5>
+                                        <h6>Text Here</h6>
                                     </div>
                                 </div>
 
-                                <div class="hidden lg:block">
+                                {{-- <div class="hidden lg:block">
                                     <a
                                         href="#"
                                         class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
                                         Read More
                                     </a>
-                                </div>
+                                </div> --}}
                             </footer>
                         </div>
                     </div>
