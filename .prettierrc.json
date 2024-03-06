@@ -10,7 +10,7 @@
             "options": {
                 "parser": "blade",
                 "bracketSameLine": true,
-                "printWidth": 100,
+                "printWidth": 120,
                 "singleAttributePerLine": false,
                 "singleQuote": true,
                 "trailingComma": "none"

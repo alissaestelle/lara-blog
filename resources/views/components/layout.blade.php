@@ -9,11 +9,12 @@
         <title>Lara-Blog</title>
     </head>
 
-    <body>
+    <body class="mx-auto max-w-7xl px-6 lg:px-8 lg:max-w-5xl">
+        {{ $nav }}
         <div class="bg-white py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8 lg:max-w-5xl">
+            <div>
                 {{-- {{ $slot }} --}}
-                {{ $banner }}
+                {{ $header }}
                 {{ $main }}
             </div>
         </div>
