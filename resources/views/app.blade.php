@@ -7,15 +7,15 @@
             <x-header></x-header>
         </x-slot>
         <div class="mx-auto mt-10">
-            <div>
+            <div class="pb-10">
                 <article
                     class="transition-colors duration-300 bg-gray-100 border border-black border-opacity-0 border-opacity-5 rounded-xl">
-                    <div class="py-6 px-5 flex md:gap-x-6 lg:gap-x-8">
-                        <div class="flex-1 self-center md:flex-none">
+                    <div class="py-5 px-4 sm:py-6 sm:px-5 flex flex-col md:flex-row md:gap-x-6 lg:gap-x-8">
+                        <div class="flex-1 md:self-center md:flex-none">
                             <img
                                 src="../images/moon-castle.png"
                                 alt="Featured"
-                                class="h-52 w-72 object-cover object-center rounded-xl" />
+                                class="h-52 w-full object-bottom md:w-72 object-cover md:object-center rounded-xl" />
                         </div>
 
                         <div class="flex-1 flex flex-col">
@@ -60,24 +60,21 @@
                                 </p>
                             </div>
 
-                            <footer class="mt-6">
-                                <div class="flex items-end gap-x-3 text-sm">
+                            <footer class="mt-6 min-[500px]:flex min-[500px]:justify-between">
+                                <div class="hidden min-[500px]:block min-[500px]:flex min-[500px]:items-end min-[500px]:gap-x-2 min-[500px]:text-sm">
                                     <img src="../images/aew.png" class="h-12 w-12" alt="AE" />
                                     <div>
                                         <h5 class="font-bold">AE</h5>
                                         <h6>Text Here</h6>
                                     </div>
                                 </div>
-
-                                {{--
-                                    <div class="hidden lg:block">
+                                <div class="text-center min-[500px]:text-right min-[500px]:self-center">
                                     <a
-                                    href="#"
-                                    class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
-                                    Read More
+                                        href="#"
+                                        class="transition-colors duration-300 text-sm font-medium bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8">
+                                        Read More
                                     </a>
-                                    </div>
-                                --}}
+                                </div>
                             </footer>
                         </div>
                     </div>
@@ -85,12 +82,12 @@
             </div>
 
             <div
-                class="py-6 px-5 grid grid-cols-2 gap-x-10 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                class="flex flex-col gap-y-8 pt-10 border-t border-gray-200 min-[500px]:grid min-[500px]:grid-cols-2 min-[500px]:gap-x-10 min-[500px]:gap-y-16 min-[500px]:px-5 min-[500px]:py-6 min-[500px]:pt-8 sm:pt-16 sm:mt-8 lg:mx-0 lg:grid-cols-3">
                 @foreach ($posts as $post)
-                    <article class="flex max-w-80 flex-col items-start">
+                    <article class="flex w-full max-w-80 flex-col items-start mx-auto">
                         <img
                             src="../images/posts/{{ $images[$loop->index] }}"
-                            class="h-52 self-stretch object-cover rounded-xl"
+                            class="h-32 md:h-52 self-stretch object-cover object-bottom md:object-center rounded-xl"
                             alt="" />
 
                         <div class="mt-2 flex items-center gap-x-4 text-xs">

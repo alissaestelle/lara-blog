@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-y-2 mx-auto lg:mx-0">
+<div class="flex flex-col gap-y-2 mx-auto text-center sm:text-left lg:mx-0">
     <div>
         <a href="/">
             <h2
@@ -12,9 +12,9 @@
         </p>
     </div>
 
-    <div class="flex gap-x-4 mt-8 text-sm font-medium">
+    <div class="flex justify-center flex-wrap gap-y-4 sm:justify-start sm:flex-nowrap gap-x-4 mt-8 text-sm font-medium">
         <div
-            class="min-w-28 relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
+            class="min-w-28 relative flex flex-1 sm:flex-none lg:inline-flex items-center bg-gray-100 rounded-xl"
         >
             <select
                 class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9"
@@ -48,7 +48,7 @@
 
         <!-- Other Filters -->
         <div
-            class="min-w-28 relative flex lg:inline-flex items-center bg-gray-100 rounded-xl"
+            class="min-w-28 relative flex flex-1 sm:flex-none lg:inline-flex items-center bg-gray-100 rounded-xl"
         >
             <select
                 class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9"
@@ -82,7 +82,7 @@
 
         <!-- Search -->
         <div
-            class="relative flex lg:inline-flex items-center rounded-xl border"
+            class="relative flex flex-1 sm:flex-none lg:inline-flex items-center rounded-xl border"
         >
             <form method="GET" action="#">
                 <input
