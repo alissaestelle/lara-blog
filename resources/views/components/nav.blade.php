@@ -1,5 +1,5 @@
 <nav
-    class="pt-6 flex flex-col gap-y-2 min-[500px]:flex-row min-[500px]:justify-between min-[500px]:gap-y-0 items-center"
+    class="pt-6 flex flex-col gap-y-2 min-[500px]:flex-row min-[500px]:justify-between min-[500px]:gap-y-0 items-center min-[500px]:px-5 min-[500px]:py-6"
 >
     <div class="flex-grow">
         <a href="/">

@@ -7,7 +7,7 @@
             <x-header></x-header>
         </x-slot>
         <div class="mx-auto mt-10">
-            <div class="pb-10">
+            <div class="pb-10 min-[500px]:px-5 min-[500px]:py-6">
                 <article
                     class="transition-colors duration-300 bg-gray-100 border border-black border-opacity-0 border-opacity-5 rounded-xl">
                     <div class="py-5 px-4 sm:py-6 sm:px-5 flex flex-col md:flex-row md:gap-x-6 lg:gap-x-8">

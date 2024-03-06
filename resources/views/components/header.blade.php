@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-y-2 mx-auto text-center sm:text-left lg:mx-0">
+<div class="flex flex-col gap-y-2 mx-auto text-center min-[500px]:px-5 min-[500px]:py-6 sm:text-left lg:mx-0">
     <div>
         <a href="/">
             <h2
