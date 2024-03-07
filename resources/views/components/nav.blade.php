@@ -3,7 +3,7 @@
         <a href="/">
             <img src="../images/howls.png"
                  alt="Add Logo"
-                 class="w-16 h-16" />
+                 class="w-12 h-12" />
         </a>
         <a href="/"
            class="self-center text-xs font-bold uppercase">Resources</a>
