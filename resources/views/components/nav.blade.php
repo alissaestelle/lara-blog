@@ -1,5 +1,5 @@
 <nav
-    class="pt-6 flex flex-col items-center gap-y-2 min-[500px]:px-5 min-[500px]:py-6 min-[500px]:flex-row min-[500px]:justify-between min-[500px]:gap-y-0"
+    class="pt-6 flex flex-col items-center gap-y-2 xs:px-5 xs:py-6 xs:flex-row xs:justify-between xs:gap-y-0"
 >
     <div class="flex-grow">
         <a href="/">
@@ -9,7 +9,7 @@
     </div>
 
     <div
-        class="flex flex-col items-center gap-y-2 min-[500px]:flex-row min-[500px]:gap-x-4 min-[500px]:gap-y-0"
+        class="flex flex-col items-center gap-y-2 xs:flex-row xs:gap-x-4 xs:gap-y-0"
     >
         <a href="/" class="text-xs font-bold uppercase">Home Page</a>
         <a

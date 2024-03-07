@@ -9,7 +9,7 @@
         <title>Lara-Blog</title>
     </head>
 
-    <body class="px-6 mx-auto max-w-7xl lg:px-8 lg:max-w-5xl">
+    <body class="px-6 mx-auto max-w-5xl lg:px-8">
         {{ $nav }}
         <div class="py-24 bg-white">
             <div>
