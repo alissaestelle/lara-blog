@@ -17,11 +17,12 @@
     <div class="py-20 bg-white">
         <div>
             {{-- {{ $slot }} --}}
-            {{ $header }}
-            {{ $featured }}
+            {{-- {{ $header }} --}}
+            {{-- {{ $featured }} --}}
             {{ $main }}
         </div>
     </div>
+    {{ $footer }}
 </body>
 
 </html>
