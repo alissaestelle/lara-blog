@@ -22,7 +22,7 @@ class PostFactory extends Factory
         return [
             'userID' => fake()->randomElement(User::all()),
             'tagID' => fake()->randomElement(Tag::all()),
-            'title' => fake()->word(3),
+            'title' => ucfirst(fake()->word()),
             'url' => fake()->unique()->slug(),
             'published' =>fake()->date(),
             'excerpt' => fake()->sentence(),

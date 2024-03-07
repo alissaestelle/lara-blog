@@ -13,12 +13,12 @@
 
             <div class="pt-12 border-t border-gray-200 min-[600px]:px-5">
             <div
-                class="flex flex-col gap-y-8 min-[500px]:grid min-[500px]:grid-cols-3 min-[500px]:gap-x-8 min-[500px]:gap-y-16 min-[600px]:gap-x-10">
+                class="flex flex-col gap-y-8 min-[500px]:grid min-[500px]:grid-cols-3 min-[500px]:gap-x-8 min-[500px]:gap-y-16 lg:gap-x-10">
                 @foreach ($posts as $post)
                     <article class="flex flex-col items-start w-full max-w-80 mx-auto">
                         <img
                             src="../images/posts/{{ $images[$loop->index] }}"
-                            class="h-32 self-stretch object-cover object-bottom rounded-xl md:h-52 md:object-center"
+                            class="h-32 self-stretch object-cover object-bottom rounded-xl md:h-48 md:object-center"
                             alt="" />
 
                         <div class="mt-2 flex items-center gap-x-4 text-xs">
