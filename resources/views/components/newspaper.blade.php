@@ -10,10 +10,10 @@
         <div class="flex-1 flex flex-col">
             <header class="md:mt-0">
                 <div class="space-x-2">
-                    <a href="#"
+                    <a href="/tag/{{ $post->tag->url }}"
                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
                        style="font-size: 10px">
-                        Techniques
+                        {{ $post->tag->name }}
                     </a>
 
                     <a href="#"
@@ -25,13 +25,13 @@
 
                 <div class="mt-4">
                     <h1 class="text-lg font-medium lg:text-xl">
-                        Featured Post
+                        {{ $post->title }}
                     </h1>
 
                     <span class="block mt-2 text-gray-400 text-xs">
                         Published
-                        <time>
-                            {{ date('M jS, Y', strtotime(now())) }}
+                        <time datetime="{{ $post->published }}">
+                            {{ date('F jS, Y', strtotime($post->published)) }}
                         </time>
                     </span>
                 </div>
@@ -39,27 +39,17 @@
 
             <div class="mt-2 text-sm line-clamp-3">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
-                </p>
-
-                <p class="mt-4">
-                    Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur.
+                    {{ $post->excerpt }}
                 </p>
             </div>
             <footer class="hidden min-[600px]:mt-6 min-[600px]:flex min-[600px]:justify-between">
                 <div class="flex items-center gap-x-4 text-sm">
-                    <img src="../images/aew.png"
-                         class="h-12 w-12"
-                         alt="AE" />
-                    <div>
-                        <h5 class="font-bold">AE</h5>
-                        <h6>Text Here</h6>
-                    </div>
+                    <a href="/author/{{ $post->author->url }}">
+                        <img src="../images/aew.png"
+                             class="h-12 w-12"
+                             alt="AE" />
+                    </a>
+                    <h5 class="font-bold">{{ $post->author->name }}</h5>
                 </div>
                 <div class="self-center">
                     <a href="#"
