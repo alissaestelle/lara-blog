@@ -3,14 +3,16 @@
         class="bg-gray-100 border border-black border-opacity-5 rounded-xl"
     >
         <div
-            class="px-5 py-6 flex flex-col gap-y-6 sm:px-5 sm:py-6 min-[500px]:flex-row min-[500px]:flex-wrap min-[500px]:gap-x-6 min-[500px]:gap-y-4 lg:gap-x-8"
+            class="px-5 py-6 flex flex-col gap-y-6 xs:flex-row xs:flex-wrap sm:px-5 sm:py-6"
         >
             <div class="flex-1">
-                <img
+                <div class="xs:pr-7 xs:pr-8">
+                    <img
                     src="../images/moon-castle.png"
-                    alt="Featured"
+                    alt="Moon Castle"
                     class="h-40 w-full object-cover object-bottom rounded-xl sm:h-60 md:object-center"
                 />
+                </div>
             </div>
 
             <div class="flex-1 flex flex-col">
@@ -79,7 +81,7 @@
                         </div>
                     </div>
                     <div
-                        class="text-center min-[500px]:text-right min-[500px]:self-center"
+                        class="text-center xs:text-right xs:self-center"
                     >
                         <a
                             href="#"
@@ -92,10 +94,10 @@
             </div>
             <div class="basis-full min-[600px]:hidden">
                 <footer
-                class="min-[500px]:flex min-[500px]:justify-between"
+                class="xs:flex xs:justify-between"
             >
                 <div
-                    class="hidden min-[500px]:block min-[500px]:flex min-[500px]:items-center min-[500px]:gap-x-4 min-[500px]:text-sm"
+                    class="hidden xs:block xs:flex xs:items-center xs:gap-x-4 xs:text-sm"
                 >
                     <img
                         src="../images/aew.png"
@@ -108,7 +110,7 @@
                     </div>
                 </div>
                 <div
-                    class="text-center min-[500px]:text-right min-[500px]:self-center"
+                    class="text-center xs:text-right xs:self-center"
                 >
                     <a
                         href="#"
@@ -123,19 +125,19 @@
     </article>
 
     <div
-        class="pt-8 flex flex-col gap-y-8 min-[500px]:grid min-[500px]:grid-cols-2 min-[500px]:gap-x-6 min-[500px]:gap-y-16 lg:gap-x-8"
+        class="pt-8 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8"
     >
         <article
             class="bg-[#D8BFD8]/25 transition-colors duration-300 border border-fuchsia-800/20 rounded-xl hover:bg-[#D8BFD8]/50"
         >
             <div
-                class="px-5 py-6 flex flex-col gap-y-4 min-[500px]:px-4 min-[500px]:py-5 min-[600px]:gap-y-8 md:px-5 md:py-6"
+                class="px-5 py-6 flex flex-col gap-y-4 xs:px-4 xs:py-5 min-[600px]:gap-y-8 md:px-5 md:py-6"
             >
                 <div class="flex-1 md:self-stretch">
                     <img
                         src="../images/rainbow.png"
-                        alt="Featured"
-                        class="h-40 w-full object-cover object-bottom rounded-xl min-[500px]:h-32 md:h-48 lg:h-52"
+                        alt="Rainbow"
+                        class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 lg:h-52"
                     />
                 </div>
 
@@ -223,8 +225,8 @@
                 <div class="flex-1 md:self-stretch">
                     <img
                         src="../images/blossoms.png"
-                        alt="Featured"
-                        class="h-40 w-full object-cover object-bottom rounded-xl min-[500px]:h-32 md:h-48 lg:h-52"
+                        alt="Cherry Blossoms"
+                        class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 lg:h-52"
                     />
                 </div>
 
