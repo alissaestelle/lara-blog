@@ -14,7 +14,7 @@
 
 <body class="px-6 mx-auto max-w-5xl lg:px-8">
     {{ $nav }}
-    <div class="py-24 bg-white">
+    <div class="py-20 bg-white">
         <div>
             {{-- {{ $slot }} --}}
             {{ $header }}
