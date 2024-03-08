@@ -61,6 +61,10 @@ Route::get('/test', function (User $author) { // Post::where('url', $author)->fi
     return view('test');
 });
 
+Route::get('/details', function (User $author) { // Post::where('url', $author)->find()
+    return view('details-test');
+});
+
 /*
 
 Old Get Req:

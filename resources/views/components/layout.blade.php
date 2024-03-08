@@ -12,15 +12,13 @@
     <title>Lara-Blog</title>
 </head>
 
-<body class="px-6 mx-auto max-w-5xl lg:px-8">
+<body class="px-6 mx-auto max-w-5xl h-screen lg:px-8">
     {{ $nav }}
-    <div class="py-20 bg-white">
-        <div>
-            {{-- {{ $slot }} --}}
-            {{-- {{ $header }} --}}
-            {{-- {{ $featured }} --}}
-            {{ $main }}
-        </div>
+    <div class="bg-white">
+        {{-- {{ $slot }} --}}
+        {{-- {{ $header }} --}}
+        {{-- {{ $featured }} --}}
+        {{ $main }}
     </div>
     {{ $footer }}
 </body>

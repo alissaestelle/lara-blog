@@ -1,8 +1,8 @@
-<footer class="my-6 py-8 xs:px-10 xs:py-16 bg-gray-100 border border-black border-opacity-5 rounded-xl text-center">
+<footer class="mt-6 py-8 xs:px-10 xs:py-16 bg-gray-100 border border-black border-opacity-5 rounded-xl text-center">
     <img src="../images/howls.png"
          alt="Calcifer"
          class="mx-auto -mb-2 w-20 xs:w-28" />
-    <h5 class="text-xl text-3xl">let’s stay in touch</h5>
+    <h5 class="text-xl sm:text-3xl">let’s stay in touch</h5>
 
     <div class="mt-8">
         <div class="mx-auto w-[80%] xs:w-[60%] relative inline-block rounded-full sm:bg-white lg:bg-gray-200 ">

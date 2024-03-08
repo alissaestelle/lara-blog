@@ -19,7 +19,7 @@
             class="{{ $loop->first ? 'text-fuchsia-800' : 'text-gray-900' }} mt-2 text-lg font-medium leading-6 group-hover:text-gray-600">
             --}}
             <h3 class="mt-2 text-gray-900 text-lg font-medium leading-6 group-hover:text-gray-600">
-                <a href="#">
+                <a href="/posts/{{ $post->url }}">
                     {{ $post->title }}
                 </a>
             </h3>
