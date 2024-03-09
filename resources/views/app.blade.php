@@ -17,7 +17,8 @@
                     @endif
 
                     {{-- NEWSPAPER SECTION --}}
-                    <div class="pt-8 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8">
+                    <div
+                         class="pt-8 mb-12 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8">
                         @if ($posts->count() >= 2)
                         <x-newspaper :post="$posts[1]">
                         </x-newspaper>
@@ -33,7 +34,7 @@
 
             {{-- ALL POSTS SECTION --}}
 
-            <div class="pt-12 border-t border-gray-200 min-[600px]:px-5">
+            <div class="py-12 border-t border-gray-200">
                 <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
                     @foreach ($posts->skip(3) as $post)
                     <x-post :post="$post"></x-post>

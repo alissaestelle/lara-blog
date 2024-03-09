@@ -1,13 +1,12 @@
 @props(['post'])
 
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
-    <div
-         class="px-5 py-6 flex flex-col gap-y-6 xs:flex-row xs:flex-wrap xs:gap-y-4 sm:px-5 sm:py-6 min-[600px]:gap-y-6">
-        <div class="flex-1">
-            <div class="xs:pr-7 xs:pr-8">
+    <div class="px-5 py-6 flex flex-col gap-y-4 sm:flex-row sm:flex-wrap sm:px-5 sm:py-6">
+        <div class="flex-1 sm:self-center">
+            <div class="sm:pr-8">
                 <img src="../images/moon-castle.png"
                      alt="Moon Castle"
-                     class="h-40 w-full object-cover object-bottom rounded-xl sm:h-60 md:object-center" />
+                     class="h-40 w-full object-cover object-bottom rounded-xl sm:h-52" />
             </div>
         </div>
 
@@ -57,7 +56,7 @@
                 </p>
             </div>
 
-            <footer class="hidden min-[600px]:mt-6 min-[600px]:flex min-[600px]:justify-between">
+            <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
                 <div class="flex items-center gap-x-4 text-sm">
                     <a href="/author/{{ $post->author->url }}">
                         <img src="../images/aew.png"
@@ -69,7 +68,7 @@
                         <h6>Text Here</h6>
                     </div>
                 </div>
-                <div class="text-center xs:text-right xs:self-center">
+                <div class="self-center">
                     <a href="#"
                        class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
                         Read More
@@ -77,9 +76,10 @@
                 </div>
             </footer>
         </div>
-        <div class="basis-full min-[600px]:hidden">
-            <footer class="flex justify-between">
-                <div class="flex items-center gap-x-4 text-sm">
+        <div class="sm:hidden">
+            <footer class="mt-4 xs:grid xs:grid-cols-2">
+
+                <div class="mb-8 flex gap-x-3 items-center xs:mb-0">
                     <a href="/author/{{ $post->author->url }}">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
@@ -90,12 +90,17 @@
                         <h6>Text Here</h6>
                     </div>
                 </div>
-                <div class="text-center xs:text-right xs:self-center">
+
+                <div
+                     class="py-2 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 xxs:mx-auto xxs:w-[65%] xs:mr-0 xs:self-center">
                     <a href="#"
-                       class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
+                       class="font-medium xs:text-base">
                         Read More
                     </a>
                 </div>
+
+
+
             </footer>
         </div>
     </div>

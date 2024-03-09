@@ -20,7 +20,7 @@
                 </div>
 
                 <button type="submit"
-                        class="mt-3 px-6 py-2 transition-colors duration-300 bg-blue-500 rounded-full text-xs font-semibold text-white uppercase sm:mt-0 lg:ml-3 hover:bg-blue-600">
+                        class="mt-3 px-6 py-3 transition-colors duration-300 bg-blue-500 rounded-full text-xs font-semibold text-white uppercase sm:mt-0 lg:ml-3 hover:bg-blue-600">
                     Subscribe
                 </button>
             </form>
