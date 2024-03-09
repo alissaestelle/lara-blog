@@ -12,15 +12,18 @@
     <title>Lara-Blog</title>
 </head>
 
-<body class="px-6 mx-auto max-w-5xl h-screen lg:px-8">
-    {{ $nav }}
-    <div class="bg-white">
-        {{-- {{ $slot }} --}}
-        {{-- {{ $header }} --}}
-        {{-- {{ $featured }} --}}
-        {{ $main }}
-    </div>
-    {{ $footer }}
+<body class="h-screen bg-white">
+    <main class="h-full px-6 mx-auto max-w-5xl lg:px-8">
+        {{ $nav }}
+        <div class="h-10 md:h-0"></div>
+        <div class="h-auto grid grid-rows-1">
+            {{-- {{ $slot }} --}}
+            {{-- {{ $header }} --}}
+            {{-- {{ $featured }} --}}
+            {{ $main }}
+        </div>
+        {{ $footer }}
+    </main>
 </body>
 
 </html>
