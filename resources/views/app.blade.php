@@ -4,14 +4,14 @@
         </x-slot>
         <x-slot:main>
             {{-- SITE BANNER --}}
-            <div class="h-20"></div>
+            <div class="min-[300]:h-20"></div>
             <x-header></x-header>
 
             @if ($posts->count())
             <div class="mx-auto">
-                
+
                 {{-- FEATURED POSTS SECTION --}}
-                <div class="mb-12 min-[600px]:px-5 md:mt-8 lg:mt-4">
+                <div class="min-[600px]:px-5">
                     @if ($posts->count() >= 1)
                     <x-featured :post="$posts[0]"></x-featured>
                     @endif

@@ -5,10 +5,10 @@
         <x-slot:main>
             <div class="mx-auto h-full border-t border-gray-200 sm:mx-5">
                 <article
-                         class="my-7 w-full flex flex-col min-[600px]:grid min-[600px]:grid-cols-6 min-[600px]:gap-x-20 sm:my-14">
+                         class="my-7 w-full flex flex-col min-[600px]:grid min-[600px]:grid-cols-6 min-[600px]:gap-x-12">
                     <div class="w-full flex items-center justify-between gap-x-4 min-[600px]:hidden">
-                        <a href="#"
-                           class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500 min-[600px]:text-lg">
+                        <a href="/"
+                           class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
                             <svg width="20"
                                  height="30"
                                  viewBox="7 0 20 20">
@@ -25,16 +25,28 @@
                             </svg>
                             Back to Posts
                         </a>
-                        <span
-                              class="px-3 py-1.5 relative z-10 rounded-full bg-gray-50 text-xs font-medium border text-gray-600 hover:bg-gray-100 min-[600px]:text-sm">
-                            <a href="/tag/{{ $post->tag->url }}">
-                                {{ $post->tag->name }}
-                            </a>
-                        </span>
+                        <div class="flex flex-col gap-y-1 min-[300px]:flex-row min-[300px]:gap-x-2">
+                            <span
+                                  class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300 text-center">
+                                <a href="/tag/{{ $post->tag->url }}">
+                                    {{ $post->tag->name }}
+                                </a>
+                            </span>
+                            <span
+                                  class="px-4 py-1 border border-red-300 rounded-full text-xs font-medium text-red-300 text-center">
+                                <a href="/tag/{{ $post->tag->url }}">
+                                    Updates
+                                </a>
+                            </span>
+                        </div>
                     </div>
 
                     <div class="min-[600px]:col-start-1 min-[600px]:col-span-2 min-[600px]:self-center">
-                        <div class="mt-14 flex flex-col gap-y-1 items-end text-xs">
+                        <img src="../images/rainbow.png"
+                             alt="Rainbow"
+                             class="mt-7 h-40 w-full object-cover object-bottom rounded-xl">
+                        <div class="mt-3 flex flex-col gap-y-1 items-end text-xs">
+
                             <time datetime="{{ $post->published }}"
                                   class="text-gray-500">
                                 {{ date('F jS, Y', strtotime($post->published)) }}
@@ -51,8 +63,8 @@
                     <div class="group relative min-[600px]:col-start-3 min-[600px]:col-span-4">
                         <div
                              class="hidden min-[600px]:w-full min-[600px]:flex min-[600px]:items-center min-[600px]:justify-between">
-                            <a href="#"
-                               class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
+                            <a href="/"
+                               class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
                                 <svg width="20"
                                      height="30"
                                      viewBox="7 0 20 20">
@@ -69,16 +81,24 @@
                                 </svg>
                                 Back to Posts
                             </a>
-                            <span
-                                  class="px-3 py-1.5 relative z-10 rounded-full bg-gray-50 text-sm font-medium border text-gray-600 hover:bg-gray-100">
-                                <a href="/tag/{{ $post->tag->url }}">
-                                    {{ $post->tag->name }}
-                                </a>
-                            </span>
+                            <div class="flex gap-x-2">
+                                <span
+                                      class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300">
+                                    <a href="/tag/{{ $post->tag->url }}">
+                                        {{ $post->tag->name }}
+                                    </a>
+                                </span>
+                                <span
+                                      class="px-4 py-1 border border-red-300 rounded-full text-xs font-medium text-red-300">
+                                    <a href="/tag/{{ $post->tag->url }}">
+                                        Updates
+                                    </a>
+                                </span>
+                            </div>
                         </div>
 
                         <h3
-                            class="mt-14 text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600 min-[300px]:mt-7 min-[600px]:mt-14">
+                            class="mt-14 text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600 min-[300px]:mt-7 min-[600px]:mt-14 md:text-2xl">
                             {!! $post->title !!}
                         </h3>
 
