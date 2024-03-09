@@ -6,8 +6,6 @@
             <div class="mx-auto h-full border-t border-gray-200 sm:mx-5">
                 <article
                          class="my-7 w-full flex flex-col min-[600px]:grid min-[600px]:grid-cols-6 min-[600px]:gap-x-20 sm:my-14">
-
-
                     <div class="w-full flex items-center justify-between gap-x-4 min-[600px]:hidden">
                         <a href="#"
                            class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500 min-[600px]:text-lg">
@@ -35,14 +33,13 @@
                         </span>
                     </div>
 
-
                     <div class="min-[600px]:col-start-1 min-[600px]:col-span-2 min-[600px]:self-center">
                         <div class="mt-14 flex flex-col gap-y-1 items-end text-xs">
                             <time datetime="{{ $post->published }}"
                                   class="text-gray-500">
                                 {{ date('F jS, Y', strtotime($post->published)) }}
                             </time>
-                            <span class="text-xs">
+                            <span class="text-xs sm:text-sm">
                                 By
                                 <a href="/author/{{ $post->author->url }}">
                                     {{ $post->author->name }}
