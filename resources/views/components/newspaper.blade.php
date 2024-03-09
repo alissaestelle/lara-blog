@@ -42,6 +42,7 @@
                     {{ $post->excerpt }}
                 </p>
             </div>
+
             <footer class="hidden min-[600px]:mt-6 min-[600px]:flex min-[600px]:justify-between">
                 <div class="flex items-center gap-x-4 text-sm">
                     <a href="/author/{{ $post->author->url }}">
@@ -51,7 +52,7 @@
                     </a>
                     <h5 class="font-bold">{{ $post->author->name }}</h5>
                 </div>
-                <div class="self-center">
+                <div class="hidden md:block md:self-center">
                     <a href="#"
                        class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
                         Read More

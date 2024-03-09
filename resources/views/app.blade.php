@@ -9,9 +9,9 @@
 
             @if ($posts->count())
             <div class="mx-auto">
+                
                 {{-- FEATURED POSTS SECTION --}}
-
-                <div class="mb-12 min-[600px]:px-5 min-[600px]:mt-12 lg:mt-4">
+                <div class="mb-12 min-[600px]:px-5 md:mt-8 lg:mt-4">
                     @if ($posts->count() >= 1)
                     <x-featured :post="$posts[0]"></x-featured>
                     @endif
