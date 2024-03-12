@@ -56,31 +56,30 @@
                 </p>
             </div>
 
-            <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
-                <div class="flex items-center gap-x-4 text-sm">
+            <footer class="hidden sm:mt-6 sm:w-full sm:flex sm:justify-between">
+                <div class="flex items-center gap-x-4 text-sm" class="shrink-0 block">
                     <a href="/author/{{ $post->author->url }}">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
                     </a>
-                    <div>
+                    <div class="flex-1">
                         <h5 class="font-bold">{{ $post->author->name }}</h5>
                         <h6>Text Here</h6>
                     </div>
                 </div>
                 <div class="self-center">
                     <a href="#"
-                       class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
+                       class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
                         Read More
                     </a>
                 </div>
             </footer>
         </div>
         <div class="sm:hidden">
-            <footer class="mt-4 xs:grid xs:grid-cols-2">
-
-                <div class="mb-8 flex gap-x-3 items-center xs:mb-0">
-                    <a href="/author/{{ $post->author->url }}">
+            <footer class="mt-4 xs:grid xs:grid-cols-3">
+                <div class="mb-8 col-span-2 flex gap-x-3 items-center xs:mb-0">
+                    <a href="/author/{{ $post->author->url }}" class="shrink-0">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
@@ -92,15 +91,12 @@
                 </div>
 
                 <div
-                     class="py-2 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 xxs:mx-auto xxs:w-[65%] xs:mr-0 xs:self-center">
+                     class="py-2 col-start-3 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 xxs:mx-auto xxs:w-[65%] xs:mr-0 xs:self-center xs:w-full">
                     <a href="#"
                        class="font-medium xs:text-base">
                         Read More
                     </a>
                 </div>
-
-
-
             </footer>
         </div>
     </div>
