@@ -34,7 +34,8 @@ Route::get('/', function () {
 
     return view('app', [
         'posts' => Post::latest('published')->get(),
-        'images' => (new Image)->render()
+        'images' => (new Image)->render(),
+        'tags' => Tag::all()
         // 'posts' => Post::latest('published')->with('author', 'tag')->get(),
     ]);
 });
@@ -48,12 +49,14 @@ Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $p
 Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)->find()
     return view('app', [
         'posts' => $tag->posts,
+        'tags' => Tag::all()
     ]);
 });
 
 Route::get('/author/{author:url}', function (User $author) { // Post::where('url', $author)->find()
     return view('app', [
         'posts' => $author->posts,
+        'tags' => Tag::all()
     ]);
 });
 

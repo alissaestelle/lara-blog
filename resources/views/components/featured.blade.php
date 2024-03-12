@@ -27,9 +27,11 @@
                 </div>
 
                 <div class="mt-4">
-                    <h1 class="text-lg font-medium lg:text-2xl">
-                        {{ $post->title }}
-                    </h1>
+                    <a href="/posts/{{ $post->url }}">
+                        <h1 class="text-lg font-medium lg:text-2xl">
+                            {{ $post->title }}
+                        </h1>
+                    </a>
 
                     <span class="block mt-2 text-gray-400 text-xs">
                         Published
@@ -57,7 +59,8 @@
             </div>
 
             <footer class="hidden sm:mt-6 sm:w-full sm:flex sm:justify-between">
-                <div class="flex items-center gap-x-4 text-sm" class="shrink-0 block">
+                <div class="flex items-center gap-x-4 text-sm"
+                     class="shrink-0 block">
                     <a href="/author/{{ $post->author->url }}">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
@@ -69,7 +72,7 @@
                     </div>
                 </div>
                 <div class="self-center">
-                    <a href="#"
+                    <a href="/posts/{{ $post->url }}"
                        class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
                         Read More
                     </a>
@@ -79,7 +82,8 @@
         <div class="sm:hidden">
             <footer class="mt-4 xs:grid xs:grid-cols-3">
                 <div class="mb-8 col-span-2 flex gap-x-3 items-center xs:mb-0">
-                    <a href="/author/{{ $post->author->url }}" class="shrink-0">
+                    <a href="/author/{{ $post->author->url }}"
+                       class="shrink-0">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
@@ -92,7 +96,7 @@
 
                 <div
                      class="py-2 col-start-3 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 xxs:mx-auto xxs:w-[65%] xs:mr-0 xs:self-center xs:w-full">
-                    <a href="#"
+                    <a href="/posts/{{ $post->url }}"
                        class="font-medium xs:text-base">
                         Read More
                     </a>

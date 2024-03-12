@@ -1,4 +1,4 @@
-@props(['post'])
+{{-- @props(['post']) --}}
 
 <article class="flex flex-col items-start w-full max-w-80 mx-auto">
     <img src="../images/rainbow.png"

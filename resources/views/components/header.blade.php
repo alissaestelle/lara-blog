@@ -1,3 +1,5 @@
+{{-- @props(['tags']) --}}
+
 <div class="mx-auto w-full flex flex-col gap-y-2 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
     <div>
         <a href="/">
@@ -17,8 +19,9 @@
                 <option value="category"
                         disabled
                         selected>Category</option>
-                <option value="">Option</option>
-                <option value="">Option</option>
+                @foreach ($tags as $tag)
+                <option value="{{ $tag->url}}">{{ $tag->name }}</option>
+                @endforeach
             </select>
 
             <svg class="transform -rotate-90 absolute pointer-events-none"
