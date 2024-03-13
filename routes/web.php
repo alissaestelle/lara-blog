@@ -47,21 +47,27 @@ Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $p
 });
 
 Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)->find()
-    return view('app', [
+    return view('posts', [
         'posts' => $tag->posts,
+        'tag' => $tag,
         'tags' => Tag::all()
     ]);
 });
 
 Route::get('/author/{author:url}', function (User $author) { // Post::where('url', $author)->find()
-    return view('app', [
+    return view('posts', [
         'posts' => $author->posts,
         'tags' => Tag::all()
     ]);
 });
 
 Route::get('/test', function (User $author) { // Post::where('url', $author)->find()
-    return view('test');
+    // return view('test');
+    return view('posts', [
+        'posts' => Post::latest('published')->get(),
+        'images' => (new Image)->render(),
+        'tags' => Tag::all()
+    ]);
 });
 
 Route::get('/details', function (User $author) { // Post::where('url', $author)->find()
