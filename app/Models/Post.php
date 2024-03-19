@@ -16,7 +16,6 @@ class Post extends Model
     protected $with = ['author', 'tag'];
 
     /*
-
     protected $fillable = [
         'title',
         'url',
@@ -24,7 +23,6 @@ class Post extends Model
         'excerpt',
         'body',
     ]
-
     */
 
     function author()
@@ -38,15 +36,15 @@ class Post extends Model
     }
 
     /*
-
     This method specifies the attribute that should be used to find a Post instance.
     A URL param isn't needed for this method as long as the object attribute matches the one configuration in the method below.
+    */
 
+    /*
     function getRouteKeyName()
     {
         return 'url';
     }
-
     */
 
 }

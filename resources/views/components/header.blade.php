@@ -1,6 +1,6 @@
 {{-- @props(['tags']) --}}
 
-<div class="mx-auto w-full flex flex-col gap-y-2 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
+<div class="mx-auto w-full flex flex-col gap-y-4 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
     <div>
         <a href="/">
             <h2 class="mt-3 text-3xl font-bold tracking-tight leading-6 text-gray-900 hover:text-gray-600 sm:text-4xl">
@@ -14,7 +14,7 @@
 
     {{-- ALPINE DEMO --}}
 
-    <div class="text-left relative xs:w-[138px] sm:w-28"
+    <div class="text-left relative xs:w-[138px] sm:w-min-28"
          x-data="{ show: false }">
         <div class="bg-gray-100 rounded-xl">
             <button @click="show = !show"
@@ -38,16 +38,11 @@
                 </svg>
             </button>
         </div>
-        {{--
-        <button @click="show = !show"
-                class="py-2 pl-3 pr-9 text-sm text-sm font-medium">Tags</button>
-        --}}
-
         <div class="mt-1 py-2 bg-gray-100 absolute z-50 w-full rounded-xl border text-sm"
              x-show="show">
              @foreach ($tags as $t)
             <a href="/tag/{{ $t->url }}"
-               class="{{ isset($tag) && $tag->is($t) ? 'bg-[#D8BFD8]' : 'bg-gray-100' }}
+               class="{{ isset($tag) && $tag->is($t) ? 'bg-[#D8BFD8] text-white' : 'bg-gray-100' }}
                px-3 block hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
                 {{ $t->name }}
             </a>
