@@ -12,14 +12,9 @@
 
     {{-- EVENT --}}
 
-    <div class="mt-1 py-2 bg-gray-100 absolute z-50 w-full rounded-xl border text-sm"
-         x-show="show">
+    <div x-show="show"
+         class="mt-1 py-2 bg-gray-100 absolute z-50 w-full rounded-xl border text-sm"
+         style="display: none">
         {{ $slot }}
-        {{-- @foreach ($tags as $t)
-        <a href="/tag/{{ $t->url }}"
-           class="{{ isset($tag) && $tag->is($t) ? 'bg-[#D8BFD8] text-white' : 'bg-gray-100' }} px-3 block hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-            {{ $t->name }}
-        </a>
-        @endforeach --}}
     </div>
 </div>

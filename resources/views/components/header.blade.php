@@ -39,11 +39,17 @@
                         </svg>
                     </button>
                     </x-slot>
+                    <x-anchor href="/">
+                        All Tags
+                    </x-anchor>
                     @foreach ($tags as $t)
-                    <a href="/tag/{{ $t->url }}"
+                    {{-- <a href="/tag/{{ $t->url }}"
                        class="{{ isset($tag) && $tag->is($t) ? 'bg-[#D8BFD8] text-white' : 'bg-gray-100' }} px-3 block hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
                         {{ $t->name }}
-                    </a>
+                    </a> --}}
+                    <x-anchor href="/tag/{{ $t->url }}">
+                        {{ $t->name }}
+                    </x-anchor>
                     @endforeach
             </x-dropdown>
             <div class="min-w-28 relative flex flex-1 items-center bg-gray-100 rounded-xl sm:flex-none lg:inline-flex">
