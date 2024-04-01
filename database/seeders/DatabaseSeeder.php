@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(5)->create();
-        Tag::factory(5)->create();
+        Tag::factory(10)->create();
         Post::factory(10)->create();
 
         /*
@@ -45,7 +45,6 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
-
         /*
         $consciousness = Tag::create([
             'name' => 'Consciousness',
@@ -62,7 +61,6 @@ class DatabaseSeeder extends Seeder
             'url' => 'dream-symbols',
         ]);
         */
-
 
         /*
         Post::create([

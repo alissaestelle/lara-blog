@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 /*
 
 Route::get('/', function () {
@@ -27,50 +26,54 @@ Route::get('/', function () {
 */
 
 Route::get('/', function () {
-
     // \Illuminate\Support\Facades\DB::listen(function ($q) {
     //     logger($q->sql);
     // });
 
     return view('app', [
         'posts' => Post::latest('published')->get(),
-        'images' => (new Image)->render(),
-        'tags' => Tag::all()
+        'images' => (new Image())->render(),
+        'tags' => Tag::all(),
         // 'posts' => Post::latest('published')->with('author', 'tag')->get(),
     ]);
 });
 
-Route::get('/posts/{post:url}', function (Post $post) { // Post::where('url', $post)->find()
+Route::get('/posts/{post:url}', function (Post $post) {
+    // Post::where('url', $post)->find()
     return view('post', [
         'post' => $post,
     ]);
 });
 
-Route::get('/tag/{tag:url}', function (Tag $tag) { // Post::where('url', $post)->find()
+Route::get('/tag/{tag:url}', function (Tag $tag) {
+    // Post::where('url', $post)->find()
     return view('posts', [
         'posts' => $tag->posts,
         'tag' => $tag,
-        'tags' => Tag::all()
+        'tags' => Tag::all(),
     ]);
 });
 
-Route::get('/author/{author:url}', function (User $author) { // Post::where('url', $author)->find()
+Route::get('/author/{author:url}', function (User $author) {
+    // Post::where('url', $author)->find()
     return view('posts', [
         'posts' => $author->posts,
-        'tags' => Tag::all()
+        'tags' => Tag::all(),
     ]);
 });
 
-Route::get('/test', function (User $author) { // Post::where('url', $author)->find()
+Route::get('/test', function (User $author) {
+    // Post::where('url', $author)->find()
     // return view('test');
     return view('posts', [
         'posts' => Post::latest('published')->get(),
-        'images' => (new Image)->render(),
-        'tags' => Tag::all()
+        'images' => (new Image())->render(),
+        'tags' => Tag::all(),
     ]);
 });
 
-Route::get('/details', function (User $author) { // Post::where('url', $author)->find()
+Route::get('/details', function (User $author) {
+    // Post::where('url', $author)->find()
     return view('details-test');
 });
 

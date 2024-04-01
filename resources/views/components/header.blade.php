@@ -21,33 +21,17 @@
                 <x-slot:trigger>
                     <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm text-sm font-medium">
                         {{ $tag->name ?? 'Tags' }}
-                        <svg class="transform -rotate-90 absolute pointer-events-auto"
-                             style="right: 12px"
-                             width="22"
-                             height="22"
-                             viewBox="0 0 22 22">
-                            <g fill="none"
-                               fill-rule="evenodd">
-                                <path stroke="#000"
-                                      stroke-opacity=".012"
-                                      stroke-width=".5"
-                                      d="M21 1v20.16H.84V1z"></path>
-                                <path fill="#222"
-                                      d="M13.854 7.224l-3.847 3.856 3.847 3.856-1.184 1.184-5.04-5.04 5.04-5.04z">
-                                </path>
-                            </g>
-                        </svg>
+                        <x-svg name='↓'>
+                            {{ $slot }}
+                        </x-svg>
                     </button>
                     </x-slot>
                     <x-anchor href="/">
-                        All Tags
+                        All
                     </x-anchor>
                     @foreach ($tags as $t)
-                    {{-- <a href="/tag/{{ $t->url }}"
-                       class="{{ isset($tag) && $tag->is($t) ? 'bg-[#D8BFD8] text-white' : 'bg-gray-100' }} px-3 block hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                        {{ $t->name }}
-                    </a> --}}
-                    <x-anchor href="/tag/{{ $t->url }}">
+                    <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
+                              href="/tag/{{ $t->url }}">
                         {{ $t->name }}
                     </x-anchor>
                     @endforeach

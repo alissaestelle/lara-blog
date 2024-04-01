@@ -102,20 +102,11 @@
                             {!! $post->title !!}
                         </h3>
 
-
                         {{-- Use {!! !!} for Any Content Containing HTML --}}
                         {{-- {!! $post->body !!} --}}
-                        <p class="mt-7 line-clamp-3 text-sm leading-6 text-gray-600">
+                        <p class="mt-7 whitespace-pre-wrap text-sm leading-6 text-gray-600">
                             {{ $post->body }}
                         </p>
-
-
-                        {{-- <div class="mt-6">
-                            <a href="/"
-                               class="relative z-10 rounded-full bg-fuchsia-900 px-5 py-1 font-medium text-white hover:border hover:bg-gray-50 hover:text-fuchsia-900">
-                                Back
-                            </a>
-                        </div> --}}
                     </div>
                 </article>
             </div>

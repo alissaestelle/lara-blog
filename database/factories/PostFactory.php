@@ -17,7 +17,7 @@ class PostFactory extends Factory
     Define the model's default state.
     @return array<string, mixed>
     */
-    
+
     public function definition(): array
     {
         return [
@@ -25,9 +25,9 @@ class PostFactory extends Factory
             'tagID' => fake()->randomElement(Tag::all()),
             'title' => ucfirst(fake()->word()),
             'url' => fake()->unique()->slug(),
-            'published' =>fake()->date(),
+            'published' => fake()->date(),
             'excerpt' => fake()->sentence(),
-            'body' => fake()->paragraph()
+            'body' => fake()->paragraphs(3, true),
         ];
     }
 }
