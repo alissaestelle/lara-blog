@@ -1,6 +1,7 @@
 <nav
      class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:justify-between sm:px-5 sm:py-6 sm:flex-nowrap sm:gap-y-0">
 
+   {{-- Left Nav for Mobile --}}
    <a href="/"
       class="w-full sm:hidden">
       <img src="../images/howls.png"
@@ -14,6 +15,7 @@
    <a href="/"
       class="text-xs font-bold uppercase sm:hidden">About</a>
 
+   {{-- Right Nav for Mobile --}}
    <a href="/"
       class="text-xs font-bold uppercase sm:hidden">Account</a>
    <div class="mt-1 w-full text-center sm:hidden">
@@ -23,7 +25,7 @@
       </a>
    </div>
 
-
+   {{-- Left Nav for Desktop --}}
    <div class="hidden sm:flex sm:items-center">
       <a href="/"
          class="w-auto shrink-0">
@@ -39,6 +41,7 @@
          class="pl-4 text-xs font-bold uppercase">About</a>
    </div>
 
+   {{-- Right Nav for Desktop --}}
    <div class="hidden sm:flex sm:items-center sm:gap-x-4">
       <a href="/"
          class="text-xs font-bold uppercase">Account</a>

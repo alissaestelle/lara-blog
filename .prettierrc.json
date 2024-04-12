@@ -17,7 +17,8 @@
         {
             "files": ["*.php"],
             "options": {
-                "singleQuote": true
+                "singleQuote": true,
+                "printWidth": 100
             }
         }
     ],
