@@ -1,5 +1,3 @@
-{{-- @props(['post']) --}}
-
 <article class="flex flex-col items-start w-full max-w-80 mx-auto">
     <img src="../images/rainbow.png"
          class="h-32 self-stretch object-cover object-center xs:object-bottom rounded-xl md:h-48 md:object-center"
