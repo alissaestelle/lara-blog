@@ -26,15 +26,17 @@
                         </x-svg>
                     </button>
                     </x-slot>
-                    <x-anchor href="/">
-                        All
-                    </x-anchor>
-                    @foreach ($tags as $t)
-                    <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                              href="/tag/{{ $t->url }}">
-                        {{ $t->name }}
-                    </x-anchor>
-                    @endforeach
+                    <x-slot:event>
+                        <x-anchor href="/">
+                            All
+                        </x-anchor>
+                        @foreach ($tags as $t)
+                        <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
+                                  href="/tag/{{ $t->url }}">
+                            {{ $t->name }}
+                        </x-anchor>
+                        @endforeach
+                        </x-slot>
             </x-dropdown>
             <div class="min-w-28 relative flex flex-1 items-center bg-gray-100 rounded-xl sm:flex-none lg:inline-flex">
                 <select class="py-2 pl-3 pr-9 flex-1 appearance-none bg-transparent">
