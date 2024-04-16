@@ -1,5 +1,3 @@
-@props(['post'])
-
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
     <div class="px-5 py-6 flex flex-col gap-y-4 sm:flex-row sm:flex-wrap sm:px-5 sm:py-6">
         <div class="flex-1 sm:self-center">

@@ -29,6 +29,7 @@
                         All
                     </x-anchor>
                     @foreach ($tags as $t)
+                    {{-- URL ID === Current Loop ID ? Highlight Selection --}}
                     <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
                               href="/tag/{{ $t->url }}">
                         {{ $t->name }}
@@ -93,9 +94,9 @@
         <!-- Search -->
         <div class="relative flex flex-1 items-center border rounded-xl sm:flex-none lg:inline-flex">
             <form method="GET"
-                  action="#">
+                  action="/search">
                 <input type="text"
-                       name="search"
+                       name="keyword"
                        placeholder="Search"
                        class="px-3 py-2 text-gray-400 rounded-xl placeholder-gray-500" />
             </form>

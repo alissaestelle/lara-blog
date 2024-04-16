@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
@@ -19,25 +20,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 */
 
-Route::get('/', function () {
-    // \Illuminate\Support\Facades\DB::listen(function ($q) {
-    //     logger($q->sql);
-    // });
-
-    return view('app', [
-        'posts' => Post::latest('published')->get(),
-        'images' => (new Image())->render(),
-        'tags' => Tag::all(),
-        // 'posts' => Post::latest('published')->with('author', 'tag')->get(),
-    ]);
+/*
+\Illuminate\Support\Facades\DB::listen(function ($q) {
+    logger($q->sql);
 });
+*/
+
+Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/search', [PostController::class, 'search']);
 
 Route::get('/posts/{post:url}', function (Post $post) {
     // Post::where('url', $post)->find()
