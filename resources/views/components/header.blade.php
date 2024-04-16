@@ -29,9 +29,11 @@
                         All
                     </x-anchor>
                     @foreach ($tags as $t)
-                    {{-- URL ID === Current Loop ID ? Highlight Selection --}}
+                    {{-- Highlight Selection If URL ID === Current ID --}}
+                    {{ $tag }}
+                    {{ $t }}
                     <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                              href="/tag/{{ $t->url }}">
+                              href="/search?tag={{ $t->url }}">
                         {{ $t->name }}
                     </x-anchor>
                     @endforeach

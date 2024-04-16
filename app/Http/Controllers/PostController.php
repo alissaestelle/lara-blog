@@ -12,26 +12,50 @@ class PostController extends Controller
 {
     function index()
     {
+        dd(request('tag'));
+
         return view('app', [
-            'posts' => Post::latest('published')->get(),
-            // 'posts' => Post::latest('published')->with('author', 'tag')->get(),
+            'posts' => Post::latest()->get(),
             'images' => (new Image())->render(),
+            // 'tag' => $thisTag,
             'tags' => Tag::all(),
+        ]);
+    }
+
+    function postDetails(Post $post)
+    {
+        // Post::where('url', $post)->find()
+
+        return view('post', [
+            'post' => $post,
         ]);
     }
 
     function search(Request $req)
     {
-        extract($req->all());
-        $posts = Post::latest();
+        $filters = $req->all();
+        extract($filters);
 
-        if ($keyword) {
-            $posts->where('body', 'LIKE', "%{$keyword}%");
-        }
+        $posts = Post::latest()->filter($filters)->get();
+        // $tag = Tag::where('url', $tag)->first();
+        $thisTag = Tag::where('url', $tag);
+        // dd($test);
 
         return view('posts', [
-            'posts' => $posts->get(),
+            'posts' => $posts,
+            // ↳ filter() is an alias for scopeFilter() located in the Post model.
+            'tag' => $thisTag,
             'tags' => Tag::all(),
         ]);
     }
 }
+
+/*
+Alternate Query Syntax
+
+if ($keyword) {
+    $posts
+        ->where(['title', 'LIKE', "%{$keyword}%"])
+        ->where(['body', 'LIKE', "%{$keyword}%"]);
+}
+*/

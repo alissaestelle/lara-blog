@@ -14,7 +14,7 @@
                 </div>
             </div>
             @else
-            <p class="pt-12 text-xl text-center">
+            <p class="p-12 text-xl text-center">
                 No Posts Found 🥲
             </p>
             @endif

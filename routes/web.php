@@ -20,35 +20,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-/*
 \Illuminate\Support\Facades\DB::listen(function ($q) {
     logger($q->sql);
 });
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
+
 Route::get('/search', [PostController::class, 'search']);
+Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 
-Route::get('/posts/{post:url}', function (Post $post) {
-    // Post::where('url', $post)->find()
-    return view('post', [
-        'post' => $post,
-    ]);
-});
-
+/*
 Route::get('/tag/{tag:url}', function (Tag $tag) {
-    // Tag::where('url', $tag)->find()
     return view('posts', [
         'posts' => $tag->posts,
         'tag' => $tag,
         'tags' => Tag::all(),
     ]);
 });
+*/
 
 Route::get('/author/{author:url}', function (User $author) {
     return view('posts', [
