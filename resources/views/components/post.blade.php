@@ -1,13 +1,16 @@
 <article class="flex flex-col items-start w-full max-w-80 mx-auto">
-    <img src="../images/rainbow.png"
-         class="h-32 self-stretch object-cover object-center xs:object-bottom rounded-xl md:h-48 md:object-center"
-         alt="" />
+    <a href="/posts/{{ $post->url }}"
+       class="self-stretch w-full">
+        <img src="../images/rainbow.png"
+             class="h-32 w-full object-cover object-center xs:object-bottom rounded-xl md:h-48 md:object-center"
+             alt="{{ $post->title }}" />
+    </a>
 
     <div class="mt-2 w-full flex items-center justify-between gap-x-4 text-xs">
         <time datetime="{{ $post->published }}">
             {{ date('F jS, Y', strtotime($post->published)) }}
         </time>
-        <a href="/tag/{{ $post->tag->url }}"
+        <a href="/search?tag={{ $post->tag->url }}"
            class="px-3 py-1.5 relative z-10 rounded-full bg-gray-50 text-gray-600 font-medium hover:bg-gray-100">
             {{ $post->tag->name }}
         </a>

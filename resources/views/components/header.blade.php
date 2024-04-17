@@ -1,10 +1,5 @@
 @php
-$referrer = parse_url(url()->previous());
-extract($referrer);
-
-// dd(parse_url(url()->previous()));
-// dd($query);
-print_r(request()->all());
+$tagQuery = request('tag') ?? false;
 @endphp
 
 <div class="mx-auto w-full flex flex-col gap-y-4 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
@@ -104,9 +99,11 @@ print_r(request()->all());
         <div class="relative flex flex-1 items-center border rounded-xl sm:flex-none lg:inline-flex">
             <form method="GET"
                   action="/search">
+                @if ($tagQuery)
                 <input type="hidden"
                        name="tag"
-                       value="">
+                       value="{{ $tagQuery }}">
+                @endif
                 <input type="text"
                        name="keyword"
                        placeholder="Search"

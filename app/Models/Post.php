@@ -41,22 +41,17 @@ class Post extends Model
 
     function scopeFilter(Builder $query, $filters)
     {
-        $key = array_keys($filters);
+        $tag = NULL;
+        $keyword = NULL;
+
         extract($filters);
 
-        // dd($filters);
+        if ($keyword) {
+            $query->where('title', 'LIKE', "%{$keyword}%")->orWhere('body', 'LIKE', "%{$keyword}%");
+        }
 
-        switch ($key[0]) {
-            case 'keyword':
-                $query
-                    ->where('title', 'LIKE', "%{$keyword}%")
-                    ->orWhere('body', 'LIKE', "%{$keyword}%");
-                break;
-            case 'tag':
-                $query->whereHas('tag', fn($q) => $q->where('url', $tag));
-                break;
-            default:
-                break;
+        if ($tag) {
+            $query->whereHas('tag', fn ($q) => $q->where('url', $tag));
         }
     }
 
