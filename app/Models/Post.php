@@ -44,6 +44,8 @@ class Post extends Model
         $key = array_keys($filters);
         extract($filters);
 
+        // dd($filters);
+
         switch ($key[0]) {
             case 'keyword':
                 $query

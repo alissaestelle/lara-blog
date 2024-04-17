@@ -12,12 +12,12 @@ class PostController extends Controller
 {
     function index()
     {
-        dd(request('tag'));
+        $tag = request('tag');
 
         return view('app', [
             'posts' => Post::latest()->get(),
             'images' => (new Image())->render(),
-            // 'tag' => $thisTag,
+            'tag' => Tag::where('url', $tag)->first(),
             'tags' => Tag::all(),
         ]);
     }
@@ -34,17 +34,12 @@ class PostController extends Controller
     function search(Request $req)
     {
         $filters = $req->all();
-        extract($filters);
-
-        $posts = Post::latest()->filter($filters)->get();
-        // $tag = Tag::where('url', $tag)->first();
-        $thisTag = Tag::where('url', $tag);
-        // dd($test);
+        $tag = request('tag');
 
         return view('posts', [
-            'posts' => $posts,
+            'posts' => Post::latest()->filter($filters)->get(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
-            'tag' => $thisTag,
+            'tag' => Tag::where('url', $tag)->first(),
             'tags' => Tag::all(),
         ]);
     }

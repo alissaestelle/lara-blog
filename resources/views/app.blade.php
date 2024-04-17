@@ -5,7 +5,8 @@
         <x-slot:main>
             {{-- Header --}}
             <div class="min-[300]:h-20"></div>
-            <x-header :$tags />
+            <x-header :$tag
+                      :$tags />
 
             @if ($posts->count())
             <div class="mx-auto">

@@ -1,3 +1,12 @@
+@php
+$referrer = parse_url(url()->previous());
+extract($referrer);
+
+// dd(parse_url(url()->previous()));
+// dd($query);
+print_r(request()->all());
+@endphp
+
 <div class="mx-auto w-full flex flex-col gap-y-4 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
     <div>
         <a href="/">
@@ -30,8 +39,6 @@
                     </x-anchor>
                     @foreach ($tags as $t)
                     {{-- Highlight Selection If URL ID === Current ID --}}
-                    {{ $tag }}
-                    {{ $t }}
                     <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
                               href="/search?tag={{ $t->url }}">
                         {{ $t->name }}
@@ -97,6 +104,9 @@
         <div class="relative flex flex-1 items-center border rounded-xl sm:flex-none lg:inline-flex">
             <form method="GET"
                   action="/search">
+                <input type="hidden"
+                       name="tag"
+                       value="">
                 <input type="text"
                        name="keyword"
                        placeholder="Search"

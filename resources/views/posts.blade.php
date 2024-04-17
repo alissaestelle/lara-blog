@@ -4,7 +4,8 @@
         </x-slot>
         <x-slot:main>
             <div class="min-[300]:h-20"></div>
-            <x-header :$tags />
+            <x-header :$tag
+                      :$tags />
             @if ($posts->count())
             <div class="mx-auto py-12 w-full border-t border-gray-200 sm:px-5">
                 <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
