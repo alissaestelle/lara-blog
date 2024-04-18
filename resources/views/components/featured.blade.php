@@ -11,7 +11,7 @@
         <div class="flex-1 flex flex-col">
             <header class="md:mt-0">
                 <div class="space-x-2">
-                    <a href="/tag/{{ $post->tag->url }}"
+                    <a href="/search?tag={{ $post->tag->url }}"
                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
                        style="font-size: 10px">
                         {{ $post->tag->name }}

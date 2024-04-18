@@ -28,13 +28,13 @@
                         <div class="flex flex-col gap-y-1 min-[300px]:flex-row min-[300px]:gap-x-2">
                             <span
                                   class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300 text-center">
-                                <a href="/tag/{{ $post->tag->url }}">
+                                <a href="/search?tag={{ $post->tag->url }}">
                                     {{ $post->tag->name }}
                                 </a>
                             </span>
                             <span
                                   class="px-4 py-1 border border-red-300 rounded-full text-xs font-medium text-red-300 text-center">
-                                <a href="/tag/{{ $post->tag->url }}">
+                                <a href="/search?tag={{ $post->tag->url }}">
                                     Updates
                                 </a>
                             </span>
@@ -84,13 +84,13 @@
                             <div class="flex gap-x-2">
                                 <span
                                       class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300">
-                                    <a href="/tag/{{ $post->tag->url }}">
+                                    <a href="/search?tag={{ $post->tag->url }}">
                                         {{ $post->tag->name }}
                                     </a>
                                 </span>
                                 <span
                                       class="px-4 py-1 border border-red-300 rounded-full text-xs font-medium text-red-300">
-                                    <a href="/tag/{{ $post->tag->url }}">
+                                    <a href="/search?tag={{ $post->tag->url }}">
                                         Updates
                                     </a>
                                 </span>

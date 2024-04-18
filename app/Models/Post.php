@@ -41,8 +41,8 @@ class Post extends Model
 
     function scopeFilter(Builder $query, $filters)
     {
-        $tag = NULL;
-        $keyword = NULL;
+        $tag = null;
+        $keyword = null;
 
         extract($filters);
 
@@ -51,7 +51,7 @@ class Post extends Model
         }
 
         if ($tag) {
-            $query->whereHas('tag', fn ($q) => $q->where('url', $tag));
+            $query->whereHas('tag', fn($q) => $q->where('url', $tag));
         }
     }
 

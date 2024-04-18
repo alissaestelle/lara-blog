@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
@@ -19,27 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-\Illuminate\Support\Facades\DB::listen(function ($q) {
-    logger($q->sql);
-});
-*/
-
+// General
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
 
+// Searches
 Route::get('/search', [PostController::class, 'search']);
 Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
-
-/*
-Route::get('/tag/{tag:url}', function (Tag $tag) {
-    return view('posts', [
-        'posts' => $tag->posts,
-        'tag' => $tag,
-        'tags' => Tag::all(),
-    ]);
-});
-*/
 
 Route::get('/author/{author:url}', function (User $author) {
     return view('posts', [
