@@ -35,7 +35,8 @@
             <div class="py-12 border-t border-gray-200">
                 <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
                     @foreach ($posts->skip(3) as $post)
-                    <x-post :$post />
+                    <x-post :$post
+                            :$images />
                     @endforeach
                 </div>
             </div>

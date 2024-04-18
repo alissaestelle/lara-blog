@@ -41,8 +41,8 @@ class Post extends Model
 
     function scopeFilter(Builder $query, $filters)
     {
-        $tag = null;
-        $keyword = null;
+        $tag = NULL;
+        $keyword = NULL;
 
         extract($filters);
 

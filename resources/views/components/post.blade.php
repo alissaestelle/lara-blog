@@ -1,7 +1,7 @@
 <article class="flex flex-col items-start w-full max-w-80 mx-auto">
     <a href="/posts/{{ $post->url }}"
        class="self-stretch w-full">
-        <img src="../images/rainbow.png"
+        <img src="../images/posts/{{ $image }}"
              class="h-32 w-full object-cover object-center xs:object-bottom rounded-xl md:h-48 md:object-center"
              alt="{{ $post->title }}" />
     </a>
