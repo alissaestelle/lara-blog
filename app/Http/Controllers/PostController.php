@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
 use App\Models\Post;
 use App\Models\Tag;
 
@@ -16,7 +15,6 @@ class PostController extends Controller
 
         return view('app', [
             'posts' => Post::latest()->get(),
-            'images' => (new Image())->render(),
             'tag' => Tag::where('url', $tag)->first(),
             'tags' => Tag::all(),
         ]);

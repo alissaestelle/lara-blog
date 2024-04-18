@@ -9,9 +9,11 @@ export default {
     ],
     theme: {
         screens: {
-            xxs: "360px",
+            "3xs": "300",
+            "2xs": "360px",
             xs: "500px",
-            sm: "640px",
+            sm: "600px",
+            base: "640px",
             md: "768px",
             lg: "1024px",
             xl: "1280px",

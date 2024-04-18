@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Image;
 use App\Models\Tag;
 use App\Models\User;
 
@@ -20,10 +21,13 @@ class PostFactory extends Factory
 
     public function definition(): array
     {
+        $images = (new Image())->render();
+
         return [
             'userID' => fake()->randomElement(User::all()),
             'tagID' => fake()->randomElement(Tag::all()),
             'title' => ucfirst(fake()->word()),
+            'image' => fake()->randomElement($images),
             'url' => fake()->unique()->slug(),
             'published' => fake()->date(),
             'excerpt' => fake()->sentence(),

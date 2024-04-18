@@ -1,10 +1,12 @@
 <article
          class="bg-[#D8BFD8]/25 transition-colors duration-300 border border-fuchsia-800/20 rounded-xl hover:bg-[#D8BFD8]/50">
-    <div class="px-5 py-6 flex flex-col gap-y-4 xs:px-4 xs:py-5 min-[600px]:gap-y-8 md:px-5 md:py-6">
+    <div class="px-5 py-6 flex flex-col gap-y-4 xs:px-4 xs:py-5 sm:gap-y-8 md:px-5 md:py-6">
         <div class="flex-1 md:self-stretch">
-            <img src="../images/rainbow.png"
-                 alt="Rainbow"
-                 class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 lg:h-52" />
+            <a href="/posts/{{ $post->url }}">
+                <img src="../images/posts/{{ $post->image }}"
+                     alt="{{ $post->title }}"
+                     class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 lg:h-52" />
+            </a>
         </div>
 
         <div class="flex-1 flex flex-col">
@@ -24,9 +26,11 @@
                 </div>
 
                 <div class="mt-4">
-                    <h1 class="text-lg font-medium lg:text-xl">
-                        {{ $post->title }}
-                    </h1>
+                    <a href="/posts/{{ $post->url }}">
+                        <h1 class="text-lg font-medium lg:text-xl">
+                            {{ $post->title }}
+                        </h1>
+                    </a>
 
                     <span class="block mt-2 text-gray-400 text-xs">
                         Published
@@ -38,12 +42,14 @@
             </header>
 
             <div class="mt-2 text-sm line-clamp-3">
-                <p>
-                    {{ $post->excerpt }}
-                </p>
+                <a href="/posts/{{ $post->url }}">
+                    <p>
+                        {{ $post->excerpt }}
+                    </p>
+                </a>
             </div>
 
-            <footer class="hidden min-[600px]:mt-6 min-[600px]:flex min-[600px]:justify-between">
+            <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
                 <div class="flex items-center gap-x-4 text-sm">
                     <a href="/author/{{ $post->author->url }}">
                         <img src="../images/aew.png"
@@ -65,7 +71,7 @@
 
 {{-- <article
          class="bg-[#D8BFD8]/25 transition-colors duration-300 border border-fuchsia-800/20 rounded-xl hover:bg-[#D8BFD8]/50">
-    <div class="px-4 py-5 flex flex-col gap-y-4 min-[600px]:gap-y-8 min-[600px]:px-5 min-[600px]:py-6">
+    <div class="px-4 py-5 flex flex-col gap-y-4 sm:gap-y-8 sm:px-5 sm:py-6">
         <div class="flex-1 md:self-stretch">
             <img src="../images/blossoms.png"
                  alt="Cherry Blossoms"
@@ -117,7 +123,7 @@
                 </p>
             </div>
 
-            <footer class="hidden min-[600px]:mt-6 min-[600px]:flex min-[600px]:justify-between">
+            <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
                 <div class="flex items-center gap-x-4 text-sm">
                     <img src="../images/aew.png"
                          class="h-12 w-12"

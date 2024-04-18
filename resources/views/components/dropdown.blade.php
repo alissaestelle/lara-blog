@@ -1,4 +1,4 @@
-<div class="flex-2 w-full text-left relative xs:flex-1 sm:max-w-fit"
+<div class="flex-2 w-full text-left relative xs:flex-1 base:max-w-fit"
      x-data="{ show: false }">
 
     {{-- TRIGGER --}}

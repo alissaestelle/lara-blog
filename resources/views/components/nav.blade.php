@@ -1,24 +1,24 @@
 <nav
-     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:justify-between sm:px-5 sm:py-6 sm:flex-nowrap sm:gap-y-0">
+     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between base:px-5 base:py-6 base:flex-nowrap base:gap-y-0">
 
    {{-- Left Nav for Mobile --}}
    <a href="/"
-      class="w-full sm:hidden">
+      class="w-full base:hidden">
       <img src="../images/howls.png"
-           alt="Add Logo"
+           alt="Calcifer"
            class="mx-auto w-12 h-12" />
    </a>
    <a href="/"
-      class="text-xs font-bold uppercase sm:hidden">Resources</a>
+      class="text-xs font-bold uppercase base:hidden">Resources</a>
    <a href="/"
-      class="text-xs font-bold uppercase sm:hidden">Archive</a>
+      class="text-xs font-bold uppercase base:hidden">Archive</a>
    <a href="/"
-      class="text-xs font-bold uppercase sm:hidden">About</a>
+      class="text-xs font-bold uppercase base:hidden">About</a>
 
    {{-- Right Nav for Mobile --}}
    <a href="/"
-      class="text-xs font-bold uppercase sm:hidden">Account</a>
-   <div class="mt-1 w-full text-center sm:hidden">
+      class="text-xs font-bold uppercase base:hidden">Account</a>
+   <div class="mt-1 w-full text-center base:hidden">
       <a href="#"
          class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full">
          Subscribe for Updates
@@ -26,12 +26,12 @@
    </div>
 
    {{-- Left Nav for Desktop --}}
-   <div class="hidden sm:flex sm:items-center">
+   <div class="hidden base:flex base:items-center">
       <a href="/"
          class="w-auto shrink-0">
          <img src="../images/howls.png"
-              alt="Add Logo"
-              class="mx-auto w-12 h-12 sm:mx-0" />
+              alt="Calcifer"
+              class="mx-auto w-12 h-12 base:mx-0" />
       </a>
       <a href="/"
          class="pl-1 text-xs font-bold uppercase">Resources</a>
@@ -42,11 +42,11 @@
    </div>
 
    {{-- Right Nav for Desktop --}}
-   <div class="hidden sm:flex sm:items-center sm:gap-x-4">
+   <div class="hidden base:flex base:items-center base:gap-x-4">
       <a href="/"
          class="text-xs font-bold uppercase">Account</a>
       <a href="#"
-         class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full sm:flex-grow sm:w-auto">
+         class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full base:flex-grow base:w-auto">
          Subscribe for Updates
       </a>
    </div>

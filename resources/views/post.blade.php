@@ -1,12 +1,16 @@
+@php
+$fileName = explode('.', $post->image);
+$altText = ucfirst($fileName[0]);
+@endphp
+
 <x-layout>
     <x-slot:nav>
         <x-nav></x-nav>
         </x-slot>
         <x-slot:main>
-            <div class="mx-auto h-full border-t border-gray-200 sm:mx-5">
-                <article
-                         class="my-7 w-full flex flex-col min-[600px]:grid min-[600px]:grid-cols-6 min-[600px]:gap-x-12">
-                    <div class="w-full flex items-center justify-between gap-x-4 min-[600px]:hidden">
+            <div class="mx-auto h-full border-t border-gray-200 base:mx-5">
+                <article class="my-7 w-full flex flex-col sm:grid sm:grid-cols-6 sm:grid-rows-3 sm:gap-x-12">
+                    <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                         <a href="/"
                            class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
                             <svg width="20"
@@ -41,17 +45,17 @@
                         </div>
                     </div>
 
-                    <div class="min-[600px]:col-start-1 min-[600px]:col-span-2 min-[600px]:self-center">
-                        <img src="../images/rainbow.png"
-                             alt="Rainbow"
-                             class="mt-7 h-40 w-full object-cover object-bottom rounded-xl">
+                    <div class="sm:col-start-1 sm:col-span-2 sm:self-center">
+                        <img src="/images/posts/{{ $post->image }}"
+                             alt="{{ $post->title }}"
+                             class="mt-7 h-40 w-full object-cover object-center rounded-xl">
                         <div class="mt-3 flex flex-col gap-y-1 items-end text-xs">
 
                             <time datetime="{{ $post->published }}"
                                   class="text-gray-500">
                                 {{ date('F jS, Y', strtotime($post->published)) }}
                             </time>
-                            <span class="text-xs sm:text-sm">
+                            <span class="text-xs base:text-sm">
                                 By
                                 <a href="/author/{{ $post->author->url }}">
                                     {{ $post->author->name }}
@@ -60,9 +64,8 @@
                         </div>
                     </div>
 
-                    <div class="group relative min-[600px]:col-start-3 min-[600px]:col-span-4">
-                        <div
-                             class="hidden min-[600px]:w-full min-[600px]:flex min-[600px]:items-center min-[600px]:justify-between">
+                    <div class="group relative sm:col-start-3 sm:col-span-4">
+                        <div class="hidden sm:w-full sm:flex sm:items-center sm:justify-between">
                             <a href="/"
                                class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
                                 <svg width="20"
@@ -98,8 +101,8 @@
                         </div>
 
                         <h3
-                            class="mt-14 text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600 min-[300px]:mt-7 min-[600px]:mt-14 md:text-2xl">
-                            {!! $post->title !!}
+                            class="mt-14 text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600 min-[300px]:mt-7 sm:mt-14 md:text-2xl">
+                            {{ $post->title }}
                         </h3>
 
                         {{-- Use {!! !!} for Any Content Containing HTML --}}

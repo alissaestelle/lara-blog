@@ -2,10 +2,11 @@
 $tagQuery = request('tag') ?? false;
 @endphp
 
-<div class="mx-auto w-full flex flex-col gap-y-4 text-center sm:px-5 sm:py-6 sm:text-left lg:mx-0">
+<div class="mx-auto w-full flex flex-col gap-y-4 text-center base:px-5 base:py-6 base:text-left lg:mx-0">
     <div>
         <a href="/">
-            <h2 class="mt-3 text-3xl font-bold tracking-tight leading-6 text-gray-900 hover:text-gray-600 sm:text-4xl">
+            <h2
+                class="mt-3 text-3xl font-bold tracking-tight leading-6 text-gray-900 hover:text-gray-600 base:text-4xl">
                 Untitled #777
             </h2>
         </a>
@@ -15,7 +16,7 @@ $tagQuery = request('tag') ?? false;
     </div>
 
     <div
-         class="my-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium sm:mb-2 sm:flex-nowrap sm:justify-start">
+         class="my-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium base:mb-2 base:flex-nowrap base:justify-start">
 
         {{-- ALPINE DEMO --}}
         {{-- See Dropdown Component --}}
@@ -43,7 +44,7 @@ $tagQuery = request('tag') ?? false;
         </x-dropdown>
 
         {{-- Search --}}
-        <div class="relative flex flex-1 items-center border rounded-xl sm:flex-none lg:inline-flex">
+        <div class="relative flex flex-1 items-center border rounded-xl base:flex-none lg:inline-flex">
             <form method="GET"
                   action="/search">
                 @if ($tagQuery)
