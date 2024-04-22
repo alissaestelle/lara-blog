@@ -46,18 +46,16 @@
             </header>
 
             <div class="mt-2 text-sm line-clamp-3">
-                <a href="/posts/{{ $post->url }}">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat.
-                    </p>
-                    <p>
-                        {{ $post->excerpt }}
-                    </p>
-                </a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.
+                </p>
+                <p>
+                    {{ $post->excerpt }}
+                </p>
             </div>
 
             {{-- Featured Footer for Mobile --}}

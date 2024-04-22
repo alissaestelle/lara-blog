@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="h-screen bg-white">
+<body class="bg-white">
     <main class="h-full px-6 mx-auto max-w-5xl lg:px-8">
         {{ $nav }}
         <div class="h-10 base:h-0"></div>
