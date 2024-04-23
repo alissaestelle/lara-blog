@@ -15,8 +15,11 @@ class Tags extends Component
     Create a new component instance.
     */
 
-    public function __construct(public Collection $tags)
+    public function __construct(public Tag $tag, public Collection $tags)
     {
+        $t = request('tag');
+        if ($t) $this->tag = Tag::where('url', $t)->first();
+
         $this->tags = Tag::all();
     }
 
