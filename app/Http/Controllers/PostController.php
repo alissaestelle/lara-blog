@@ -15,8 +15,7 @@ class PostController extends Controller
 
         return view('app', [
             'posts' => Post::latest()->get(),
-            'tag' => Tag::where('url', $tag)->first(),
-            'tags' => Tag::all(),
+            'tag' => Tag::where('url', $tag)->first()
         ]);
     }
 
@@ -37,8 +36,7 @@ class PostController extends Controller
         return view('posts', [
             'posts' => Post::latest()->filter($filters)->get(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
-            'tag' => Tag::where('url', $tag)->first(),
-            'tags' => Tag::all(),
+            'tag' => Tag::where('url', $tag)->first()
         ]);
     }
 }

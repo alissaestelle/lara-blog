@@ -30,8 +30,7 @@ Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 
 Route::get('/author/{author:url}', function (User $author) {
     return view('posts', [
-        'posts' => $author->posts,
-        'tags' => Tag::all(),
+        'posts' => $author->posts
     ]);
 });
 

@@ -18,30 +18,7 @@ $tagQuery = request('tag') ?? false;
     <div
          class="my-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium base:mb-2 base:flex-nowrap base:justify-start">
 
-        {{-- ALPINE DEMO --}}
-        {{-- See Dropdown Component --}}
-        <x-dropdown>
-            <x-slot:trigger>
-                <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm text-sm font-medium">
-                    {{ $tag->name ?? 'Tags' }}
-                    <x-svg name='↓'>
-                        {{ $slot }}
-                    </x-svg>
-                </button>
-                </x-slot>
-                <x-slot:event>
-                    <x-anchor href="/">
-                        All
-                    </x-anchor>
-                    @foreach ($tags as $t)
-                    {{-- Highlight Selection If URL ID === Current ID --}}
-                    <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                              href="/search?tag={{ $t->url }}">
-                        {{ $t->name }}
-                    </x-anchor>
-                    @endforeach
-                    </x-slot>
-        </x-dropdown>
+        <x-tags />
 
         {{-- Search --}}
         <div class="relative flex flex-1 items-center border rounded-xl base:flex-none lg:inline-flex">
