@@ -1,6 +1,6 @@
 @php
-$authorParam = request('author') ?? false;
-$tagParam = request('tag') ?? false;
+$authorSearch = request('author') ?? false;
+$tagSearch = request('tag') ?? false;
 @endphp
 
 <div class="mx-auto w-full flex flex-col gap-y-4 text-center base:px-5 base:py-6 base:text-left lg:mx-0">
@@ -25,15 +25,15 @@ $tagParam = request('tag') ?? false;
         <div class="relative flex flex-1 items-center border rounded-xl base:flex-none lg:inline-flex">
             <form method="GET"
                   action="/search">
-                @if ($authorParam)
+                @if ($authorSearch)
                 <input type="hidden"
                        name="author"
-                       value="{{ $authorParam }}">
+                       value="{{ $authorSearch }}">
                 @endif
-                @if ($tagParam)
+                @if ($tagSearch)
                 <input type="hidden"
                        name="tag"
-                       value="{{ $tagParam }}">
+                       value="{{ $tagSearch }}">
                 @endif
                 <input type="text"
                        name="keyword"
