@@ -26,7 +26,7 @@
             </h3>
             <div class="mt-2 text-sm xs:hidden sm:block sm:mt-3 sm:text-sm">
                 By
-                <a href="/author/{{ $post->author->url }}">
+                <a href="/search?author={{ $post->author->url }}">
                     {{ $post->author->name }}
                 </a>
             </div>

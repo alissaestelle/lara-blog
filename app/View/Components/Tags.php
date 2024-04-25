@@ -17,8 +17,8 @@ class Tags extends Component
 
     public function __construct(public Tag $tag, public Collection $tags)
     {
-        $t = request('tag');
-        if ($t) $this->tag = Tag::where('url', $t)->first();
+        $req = request('tag');
+        if ($req) $this->tag = Tag::where('url', $req)->first();
 
         $this->tags = Tag::all();
     }

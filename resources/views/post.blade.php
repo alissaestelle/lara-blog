@@ -93,7 +93,7 @@ $altText = ucfirst($fileName[0]);
                                 </time>
                                 <span class="text-xs base:text-sm">
                                     By
-                                    <a href="/author/{{ $post->author->url }}">
+                                    <a href="/search?author={{ $post->author->url }}">
                                         {{ $post->author->name }}
                                     </a>
                                 </span>

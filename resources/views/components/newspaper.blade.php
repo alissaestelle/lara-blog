@@ -50,14 +50,14 @@
             </div>
 
             <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
-                <div class="flex items-center gap-x-4 text-sm">
-                    <a href="/author/{{ $post->author->url }}">
+                <a href="/search?author={{ $post->author->url }}">
+                    <div class="flex items-center gap-x-4 text-sm">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
-                    </a>
-                    <h5 class="font-bold">{{ $post->author->name }}</h5>
-                </div>
+                        <h5 class="font-bold">{{ $post->author->name }}</h5>
+                    </div>
+                </a>
                 <div class="hidden md:block md:self-center">
                     <a href="#"
                        class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">

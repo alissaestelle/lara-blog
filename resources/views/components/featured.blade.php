@@ -59,45 +59,42 @@
             </div>
 
             {{-- Featured Footer for Mobile --}}
-            <div class="base:hidden">
-                <footer class="mt-4 xs:grid xs:grid-cols-3">
+            <footer class="mt-4 xs:grid xs:grid-cols-3 base:hidden">
+                <a href="/search?author={{ $post->author->url }}"
+                   class="shrink-0">
                     <div class="mb-8 col-span-2 flex gap-x-3 items-center xs:mb-0">
-                        <a href="/author/{{ $post->author->url }}"
-                           class="shrink-0">
-                            <img src="../images/aew.png"
-                                 class="h-12 w-12"
-                                 alt="AE" />
-                        </a>
+                        <img src="../images/aew.png"
+                             class="h-12 w-12"
+                             alt="AE" />
                         <div>
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
                             <h6>Text Here</h6>
                         </div>
                     </div>
-
-                    <div
-                         class="py-2 col-start-3 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 2xs:mx-auto 2xs:w-[65%] xs:mr-0 xs:self-center xs:w-full">
-                        <a href="/posts/{{ $post->url }}"
-                           class="font-medium xs:text-base">
-                            Read More
-                        </a>
-                    </div>
-                </footer>
-            </div>
+                </a>
+                <div
+                     class="py-2 col-start-3 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 2xs:mx-auto 2xs:w-[65%] xs:mr-0 xs:self-center xs:w-full">
+                    <a href="/posts/{{ $post->url }}"
+                       class="font-medium xs:text-base">
+                        Read More
+                    </a>
+                </div>
+            </footer>
 
             {{-- Featured Footer for Desktop --}}
             <footer class="hidden base:mt-6 base:w-full base:flex base:justify-between">
-                <div class="flex items-center gap-x-4 text-sm"
-                     class="shrink-0 block">
-                    <a href="/author/{{ $post->author->url }}">
+                <a href="/search?author={{ $post->author->url }}">
+                    <div class="flex items-center gap-x-4 text-sm"
+                         class="shrink-0 block">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
-                    </a>
-                    <div class="flex-1">
-                        <h5 class="font-bold">{{ $post->author->name }}</h5>
-                        <h6>Text Here</h6>
+                        <div class="flex-1">
+                            <h5 class="font-bold">{{ $post->author->name }}</h5>
+                            <h6>Text Here</h6>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="self-center">
                     <a href="/posts/{{ $post->url }}"
                        class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
