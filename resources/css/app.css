@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.element {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#key,
+#value {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+}
+
+#key {
+    animation: fadeOne 10s infinite ease-in-out;
+}
+
+#value {
+    animation: fadeTwo 10s infinite ease-in-out;
+}
+
+@keyframes fadeOne {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes fadeTwo {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-200px)
+    }
+    50% {
+        transform: translateY(-400px)
+    }
+    75% {
+        transform: translateY(-600px)
+    }
+    100% {
+        transform: translateY(-800px)
+    }
+}
