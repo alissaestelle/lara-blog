@@ -9,20 +9,26 @@
     margin-bottom: 1rem;
 }
 
-#key,
-#value {
-    display: flex;
-    align-items: center;
+.key,
+.value {
     position: absolute;
     opacity: 0;
 }
 
-#key {
+#k-0 {
     animation: fadeOne 10s infinite ease-in-out;
 }
 
-#value {
+#v-0 {
     animation: fadeTwo 10s infinite ease-in-out;
+}
+
+#k-i {
+    animation: fadeThree 10s infinite ease-in-out;
+}
+
+#v-i {
+    animation: fadeFour 10s infinite ease-in-out;
 }
 
 @keyframes fadeOne {
@@ -54,6 +60,50 @@
     }
 
     25% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeThree {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeFour {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
         opacity: 0;
     }
 

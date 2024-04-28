@@ -8,38 +8,40 @@
         @if ($posts->count())
             <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
                 <div class="pt-12 text-lg base:text-2xl">
-                    <div class="element flex w-fit">
-                        <p class="grow-0">Posts by</p>
-                        @if ($results->count() >= 1)
-                            <div class="grow relative">
-                                @foreach ($results as $k => $v)
-                                    @if ($loop->first)
-                                        <p id="key" class="left-[10px] base:left-[20px]">
-                                            {{ ucwords($k) }}
-                                        </p>
-                                        <p id="value" class="left-[10px] base:left-[20px]">
-                                            {{ ucwords($v) }}
-                                        </p>
-                                    @endif
+                    <div class="element flex">
+                        <p class="flex-0">Posts by</p>
+                        <div class="pl-6 relative flex-auto flex">
+                            @if ($results->count() >= 1)
+                                {{-- @foreach ($results as $k => $v) --}}
+                                <p id="k-0" class="key">
+                                    {{ ucwords($results->keys()->first()) }}
+                                    {{-- {!! array_key_first($results) !!} --}}
+                                </p>
+                                @php
+                                    $v = Str::replace('-', ' ', $results->values()->first())
+                                @endphp
+
+                                <p id="v-0" class="value">
+                                    {{-- {!! ucwords(str_replace('-', ' ', $v)) !!} --}}
+                                    {{ ucwords($v) }}
+                                </p>
+                                {{-- @endforeach --}}
+                            @endif
+                        </div>
+                        @if ($results->count() > 1)
+                            <p>&</p>
+                            <div class="pl-6 relative flex-auto flex">
+                                @foreach ($results->skip(1) as $k => $v)
+                                    <p id="k-i" class="key">
+                                        {{ ucfirst($k) }}
+                                    </p>
+                                    <p id="v-i" class="value">
+                                        {{ ucfirst($v) }}
+                                    </p>
                                 @endforeach
                             </div>
                         @endif
                     </div>
-                    @if ($results->count() > 1)
-                    <div class="grow-0">
-                        <div class="element relative flex text-lg base:text-2xl">
-                            <p>&</p>
-                            @foreach ($results->skip(1) as $k => $v)
-                                <p id="key" class="left-[150px] base:left-[185px]">
-                                    {{ ucfirst($k) }}
-                                </p>
-                                <p id="value" class="left-[150px] base:left-[185px]">
-                                    {{ ucfirst($v) }}
-                                </p>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
                 </div>
                 {{--
                     <h2
