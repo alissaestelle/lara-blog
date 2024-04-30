@@ -9,38 +9,24 @@
             <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
                 <div class="pt-12 text-lg base:text-2xl">
                     <div class="element flex">
-                        <p class="flex-0">Posts by</p>
-                        <div class="pl-6 relative flex-auto flex">
-                            @if ($results->count() >= 1)
-                                {{-- @foreach ($results as $k => $v) --}}
-                                <p id="k-0" class="key">
-                                    {{ ucwords($results->keys()->first()) }}
-                                    {{-- {!! array_key_first($results) !!} --}}
-                                </p>
+                            @if ($results->count() > 1)
+                            <p>Posts by</p>
+                            @foreach ($results as $tag)
                                 @php
-                                    $v = Str::replace('-', ' ', $results->values()->first())
+                                    $tag = Str::replace('-', ' ', $tag)
                                 @endphp
-
-                                <p id="v-0" class="value">
-                                    {{-- {!! ucwords(str_replace('-', ' ', $v)) !!} --}}
-                                    {{ ucwords($v) }}
+                                @if ($loop->even)
+                                <p id="even" class="value text-amber-600 left-[175px]">
+                                    {{ ucwords($tag) }}
                                 </p>
-                                {{-- @endforeach --}}
+                                @else
+                                <p id="odd" class="value text-violet-300 left-[175px]">
+                                    {{ ucwords($tag) }}
+                                </p>
+                                @endif
+                            @endforeach
                             @endif
                         </div>
-                        @if ($results->count() > 1)
-                            <p>&</p>
-                            <div class="pl-6 relative flex-auto flex">
-                                @foreach ($results->skip(1) as $k => $v)
-                                    <p id="k-i" class="key">
-                                        {{ ucfirst($k) }}
-                                    </p>
-                                    <p id="v-i" class="value">
-                                        {{ ucfirst($v) }}
-                                    </p>
-                                @endforeach
-                            </div>
-                        @endif
                     </div>
                 </div>
                 {{--

@@ -11,24 +11,17 @@
 
 .key,
 .value {
+    display: flex;
     position: absolute;
     opacity: 0;
 }
 
-#k-0 {
+#even {
     animation: fadeOne 10s infinite ease-in-out;
 }
 
-#v-0 {
+#odd {
     animation: fadeTwo 10s infinite ease-in-out;
-}
-
-#k-i {
-    animation: fadeThree 10s infinite ease-in-out;
-}
-
-#v-i {
-    animation: fadeFour 10s infinite ease-in-out;
 }
 
 @keyframes fadeOne {
@@ -53,57 +46,12 @@
     }
 }
 
-
 @keyframes fadeTwo {
     0% {
         opacity: 0;
     }
 
     25% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    75% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeThree {
-    0% {
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    75% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeFour {
-    0% {
-        opacity: 0;
-    }
-
-    20% {
         opacity: 0;
     }
 
