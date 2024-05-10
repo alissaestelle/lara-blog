@@ -18,10 +18,7 @@ class PostController extends Controller
     function search(Request $req)
     {
         $filters = $req->all();
-
         // dd($req->all());
-
-
 
         return view('posts.index', [
             'posts' => Post::latest()->filter($filters)->get(),
