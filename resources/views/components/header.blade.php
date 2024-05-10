@@ -17,14 +17,15 @@ $tagSearch = request('tag') ?? false;
     </div>
 
     <div
-         class="my-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium base:mb-2 base:flex-nowrap base:justify-start">
+         class="mx-5 my-8 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium base:mb-2 base:flex-nowrap base:justify-start">
 
         <x-tags />
 
         {{-- Search --}}
         <div class="relative flex flex-1 items-center border rounded-xl base:flex-none lg:inline-flex">
             <form method="GET"
-                  action="/search">
+                  action="/search"
+                  class="mb-0">
                 @if ($authorSearch)
                 <input type="hidden"
                        name="author"

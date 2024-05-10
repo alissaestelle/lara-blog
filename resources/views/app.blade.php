@@ -11,7 +11,7 @@
             <div class="mx-auto">
 
                 {{-- Featured Post --}}
-                <div class="sm:px-5">
+                <div class="mx-5 sm:px-5">
                     @if ($posts->count() >= 1)
                     <x-featured :post="$posts[0]" />
                     @endif

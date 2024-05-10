@@ -66,16 +66,16 @@
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
-                        <div>
+                        <div class="text-sm 2xl:text-base">
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
                             <h6>Text Here</h6>
                         </div>
                     </div>
                 </a>
                 <div
-                     class="py-2 col-start-3 text-center transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 2xs:mx-auto 2xs:w-[65%] xs:mr-0 xs:self-center xs:w-full">
+                     class="py-1 text-center 2xs:w-[55%] transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 2xs:mx-auto xs:mr-0 xs:self-center xs:w-full">
                     <a href="/posts/{{ $post->url }}"
-                       class="font-medium xs:text-base">
+                       class="font-medium text-sm xs:text-base">
                         Read More
                     </a>
                 </div>
