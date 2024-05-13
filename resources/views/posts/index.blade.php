@@ -7,9 +7,9 @@
             <x-header />
             @if ($posts->count())
             <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
-                <div class="mx-5 flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
-                    <div class="pt-12">
-                        <div class="element flex text-xl">
+                <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
+                    <div class="pt-12 col-span-3">
+                        <div class="element flex text-2xl">
                             @if ($results->count())
                             <p>Posts by</p>
                             @foreach ($results as $tag)
@@ -17,14 +17,19 @@
                             $tag = Str::replace('-', ' ', $tag)
                             @endphp
 
-                            @if ($loop->even)
+                            @if ($loop->count === 1)
+                            <p id="single"
+                               class="value text-amber-600 left-[230px]">
+                                {{ ucwords($tag) }}
+                            </p>
+                            @elseif ($loop->even)
                             <p id="even"
-                               class="value text-amber-600 left-[155px]">
+                               class="value text-amber-600 left-[230px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @else
                             <p id="odd"
-                               class="value text-violet-300 left-[155px]">
+                               class="value text-violet-300 left-[230px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @endif

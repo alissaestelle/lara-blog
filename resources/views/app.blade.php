@@ -8,10 +8,10 @@
             <x-header />
 
             @if ($posts->count())
-            <div class="mx-auto">
+            <div class="mx-auto xs:mx-2.5 md:mx-5">
 
                 {{-- Featured Post --}}
-                <div class="mx-5 sm:px-5">
+                <div class="w-full max-w-80 mx-auto xs:max-w-none">
                     @if ($posts->count() >= 1)
                     <x-featured :post="$posts[0]" />
                     @endif
@@ -32,7 +32,7 @@
 
             {{-- Posts Index --}}
             <div class="py-12 border-t border-gray-200">
-                <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 sm:px-5 lg:gap-x-10">
+                <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-6 xs:gap-y-16 sm:px-5 xs:gap-x-8 lg:gap-x-10">
                     @foreach ($posts->skip(3) as $post)
                     <x-post :$post />
                     @endforeach

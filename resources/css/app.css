@@ -16,12 +16,38 @@
     opacity: 0;
 }
 
+#single {
+    animation: fadeSingle 10s infinite ease-in-out;
+}
+
 #even {
     animation: fadeOne 10s infinite ease-in-out;
 }
 
 #odd {
     animation: fadeTwo 10s infinite ease-in-out;
+}
+
+@keyframes fadeSingle {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes fadeOne {

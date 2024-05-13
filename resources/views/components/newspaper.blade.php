@@ -1,7 +1,7 @@
 <article
          class="bg-[#D8BFD8]/25 transition-colors duration-300 border border-fuchsia-800/20 rounded-xl hover:bg-[#D8BFD8]/50">
-    <div class="px-5 py-6 flex flex-col gap-y-4 xs:px-4 xs:py-5 sm:gap-y-8 md:px-5 md:py-6">
-        <div class="flex-1 md:self-stretch">
+    <div class="px-5 py-6 flex flex-col h-full gap-y-4 xs:px-4 xs:py-5 md:px-5 md:py-6">
+        <div class="md:self-stretch">
             <a href="/posts/{{ $post->url }}">
                 <img src="../images/posts/{{ $post->image }}"
                      alt="{{ $post->title }}"
@@ -9,8 +9,8 @@
             </a>
         </div>
 
-        <div class="flex-1 flex flex-col">
-            <header class="md:mt-0">
+        <div class="flex flex-col h-full gap-y-4 lg:gap-y-2">
+            <header>
                 <div class="space-x-2">
                     <a href="/search?tag={{ $post->tag->url }}"
                        class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
@@ -32,7 +32,7 @@
                         </h1>
                     </a>
 
-                    <span class="block mt-2 text-gray-400 text-xs">
+                    <span class="block text-gray-400 text-xs">
                         Published
                         <time datetime="{{ $post->published }}">
                             {{ date('F jS, Y', strtotime($post->published)) }}
@@ -41,26 +41,26 @@
                 </div>
             </header>
 
-            <div class="mt-2 text-sm line-clamp-3">
+            <div class="min-h-10 text-sm">
                 <a href="/posts/{{ $post->url }}">
-                    <p>
+                    <p class="line-clamp-3">
                         {{ $post->excerpt }}
                     </p>
                 </a>
             </div>
 
-            <footer class="hidden sm:mt-6 sm:flex sm:justify-between">
+            <footer class="hidden sm:h-full sm:flex sm:items-center sm:justify-between">
                 <a href="/search?author={{ $post->author->url }}">
                     <div class="flex items-center gap-x-4 text-sm">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
                              alt="AE" />
-                        <h5 class="font-bold">{{ $post->author->name }}</h5>
+                        <h5 class="font-medium">{{ $post->author->name }}</h5>
                     </div>
                 </a>
-                <div class="hidden md:block md:self-center">
+                <div class="hidden md:block md:self-center md:shrink-0">
                     <a href="#"
-                       class="px-8 py-2 transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
+                       class="px-8 py-2 transition-colors duration-300 bg-white border border-fuchsia-800/20 text-sm font-medium rounded-full hover:bg-[#D8BFD8]/25 hover:border-none">
                         Read More
                     </a>
                 </div>

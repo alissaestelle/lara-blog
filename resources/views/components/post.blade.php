@@ -2,7 +2,7 @@
     <a href="/posts/{{ $post->url }}"
        class="self-stretch w-full">
         <img src="/images/posts/{{ $post->image }}"
-             class="h-32 w-full object-cover object-center xs:object-bottom rounded-xl md:h-48 md:object-center"
+             class="h-32 w-full object-cover object-center rounded-xl xs:h-28 xs:object-bottom sm:h-32 md:h-40 md:object-center"
              alt="{{ $post->title }}" />
     </a>
 
