@@ -38,6 +38,9 @@
                     @endforeach
                 </div>
             </div>
+            <div class="mb-5">
+                {{ $posts->links() }} 
+            </div>
             @else
             <p class="p-12 text-xl text-center">
                 No Posts Found 🥲

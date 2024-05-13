@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(5)->create();
         Tag::factory(10)->create();
-        Post::factory(10)->create();
+        Post::factory(50)->create();
 
         /*
         User::truncate();

@@ -16,7 +16,7 @@
             @foreach ($tags as $t)
             {{-- Highlight Selection If URL ID === Current ID --}}
             <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                      href="/search?tag={{ $t->url }}">
+                      href="/search?tag={{ $t->url }}&{{ http_build_query(request()->except('tag')) }}">
                 {{ $t->name }}
             </x-anchor>
             @endforeach

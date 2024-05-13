@@ -29,7 +29,7 @@
                             </p>
                             @else
                             <p id="odd"
-                               class="value text-violet-300 left-[230px]">
+                               class="value text-emerald-600 left-[230px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @endif
@@ -40,6 +40,9 @@
                     @foreach ($posts as $post)
                     <x-post :$post />
                     @endforeach
+                    <div class="mb-5">
+                        {{ $posts->links() }}
+                    </div>
                 </div>
             </div>
             @else

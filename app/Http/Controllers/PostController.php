@@ -11,7 +11,7 @@ class PostController extends Controller
     function index()
     {
         return view('app', [
-            'posts' => Post::latest()->get(),
+            'posts' => Post::latest()->paginate(),
         ]);
     }
 
@@ -21,7 +21,7 @@ class PostController extends Controller
         // dd($req->all());
 
         return view('posts.index', [
-            'posts' => Post::latest()->filter($filters)->get(),
+            'posts' => Post::latest()->filter($filters)->paginate(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
             'results' => collect($req->all())
         ]);

@@ -50,7 +50,11 @@ class Post extends Model
         }
 
         if ($keyword) {
-            $query->where('title', 'LIKE', "%{$keyword}%")->orWhere('body', 'LIKE', "%{$keyword}%");
+            $query->where(
+                fn($q) => $q
+                    ->where('title', 'LIKE', "%{$keyword}%")
+                    ->orWhere('body', 'LIKE', "%{$keyword}%")
+            );
         }
 
         if ($tag) {
