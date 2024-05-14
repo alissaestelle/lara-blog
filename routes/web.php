@@ -1,11 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
-
-use App\Models\Image;
-use App\Models\Post;
-use App\Models\Tag;
-use App\Models\User;
+use App\Http\Controllers\RegisterController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -29,18 +25,8 @@ Route::get('/search', [PostController::class, 'search']);
 Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
-Route::get('/test', function (User $author) {
-    return view('posts', [
-        'posts' => Post::latest('published')->get(),
-        'images' => (new Image())->render(),
-        'tags' => Tag::all(),
-    ]);
-});
-
-Route::get('/details', function (User $author) {
-    // Post::where('url', $author)->find()
-    return view('details-test');
-});
+// Users x Accts
+Route::get('/register', [RegisterController::class, 'create']);
 
 /*
 

@@ -27,7 +27,7 @@
 
                 <div class="mt-4">
                     <a href="/posts/{{ $post->url }}">
-                        <h1 class="text-lg font-medium lg:text-xl">
+                        <h1 class="text-base font-medium sm:text-lg lg:text-xl">
                             {{ $post->title }}
                         </h1>
                     </a>
@@ -41,7 +41,7 @@
                 </div>
             </header>
 
-            <div class="min-h-10 text-sm">
+            <div class="min-h-10 text-xs sm:text-sm">
                 <a href="/posts/{{ $post->url }}">
                     <p class="line-clamp-3">
                         {{ $post->excerpt }}

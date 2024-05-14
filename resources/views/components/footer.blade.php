@@ -1,4 +1,4 @@
-<footer class="py-8 bg-gray-100 border border-black border-opacity-5 rounded-xl text-center xs:px-10 xs:py-16">
+<footer class="mt-4 py-8 bg-gray-100 border border-black border-opacity-5 text-center xs:mx-6 xs:mb-6 xs:px-10 xs:py-16 xs:rounded-xl">
     <img src="../images/howls.png"
          alt="Calcifer"
          class="mx-auto -mb-2 w-20 xs:w-24 md:w-28" />

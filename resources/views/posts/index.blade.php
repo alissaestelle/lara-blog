@@ -8,7 +8,7 @@
             @if ($posts->count())
             <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
                 <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
-                    <div class="pt-12 col-span-3">
+                    <div class="pt-12 xs:col-span-3">
                         <div class="element flex text-2xl">
                             @if ($results->count())
                             <p>Posts by</p>
@@ -19,17 +19,17 @@
 
                             @if ($loop->count === 1)
                             <p id="single"
-                               class="value text-amber-600 left-[230px]">
+                               class="value text-amber-600 left-[135px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @elseif ($loop->even)
                             <p id="even"
-                               class="value text-amber-600 left-[230px]">
+                               class="value text-amber-600 left-[135px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @else
                             <p id="odd"
-                               class="value text-emerald-600 left-[230px]">
+                               class="value text-emerald-600 left-[135px]">
                                 {{ ucwords($tag) }}
                             </p>
                             @endif

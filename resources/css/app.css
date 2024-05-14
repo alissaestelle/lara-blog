@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .element {
+    position: relative;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 500;
     line-height: 1.5rem;
