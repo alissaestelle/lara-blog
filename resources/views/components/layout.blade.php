@@ -13,17 +13,15 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="mx-auto flex flex-col h-full justify-between bg-white max-w-5xl">
+<body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
     <header>
         {{ $nav }}
     </header>
     <main class="px-6 mx-auto max-w-5xl lg:px-8">
         <div class="h-10 base:h-0"></div>
-        <div>
-            {{ $main }}
-        </div>
+        {{ $main }}
     </main>
-        {{ $footer }}
+    {{ $footer }}
 </body>
 
 </html>
