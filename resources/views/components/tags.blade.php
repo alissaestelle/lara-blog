@@ -1,3 +1,7 @@
+@php
+$queryStr = http_build_query(request()->except('tag'));
+@endphp
+
 {{-- ALPINE DEMO --}}
 {{-- See Dropdown Component --}}
 <x-dropdown>
@@ -13,10 +17,13 @@
             <x-anchor href="/">
                 All
             </x-anchor>
-            @foreach ($tags as $t)
             {{-- Highlight Selection If URL ID === Current ID --}}
+            @foreach ($tags as $t)
+            @php
+                $params = $queryStr ? "tag={$t->url}&{$queryStr}" : "tag={$t->url}"
+            @endphp
             <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                      href="/search?tag={{ $t->url }}&{{ http_build_query(request()->except('tag')) }}">
+                      href="/search?{{ $params }}">
                 {{ $t->name }}
             </x-anchor>
             @endforeach
