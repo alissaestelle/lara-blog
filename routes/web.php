@@ -27,6 +27,7 @@ Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
 // Users x Accts
 Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 /*
 

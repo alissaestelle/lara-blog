@@ -9,7 +9,8 @@
                 <div
                      class="px-8 py-6 w-full text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl sm:px-20 sm:py-10">
                     <form method="POST"
-                          action="">
+                          action="/register">
+                          @csrf
                         <div class="my-0">
                             <label for="name"
                                    class="pl-1 block text-xs uppercase tracking-wide">Name</label>

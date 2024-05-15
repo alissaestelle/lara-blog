@@ -26,7 +26,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $name = fake()->name();
-        $url = strtr($name, [
+        
+        $string = strtr($name, [
             'Dr. ' => '',
             'Miss ' => '',
             'Mister ' => '',
@@ -34,12 +35,15 @@ class UserFactory extends Factory
             'Mrs. ' => '',
             'Ms. ' => '',
             'Prof. ' => '',
-            '.' => '',
-            ' ' => '-',
+            '.' => ''
         ]);
+
+        $url = str_replace(' ', '-', $string);
+        $username = str_replace(' ', '.', $string);
 
         return [
             'name' => $name,
+            'username' => strtolower($username),
             'url' => strtolower($url),
             'email' => fake()->unique()->safeEmail(),
             'verified' => now(),
