@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -13,23 +14,15 @@ class RegisterController extends Controller
         return view('registration.create');
     }
 
-    function store()
+    function store(RegisterRequest $request): RedirectResponse
     {
-        extract(request()->all());
-        $url = str_replace(' ', '-', $name);
 
-        $attributes = request()->validate([
-            'name' => 'required|max:125',
-            'username' => 'required|min:7|max:125',
-            'email' => 'required|email|max:125',
-            'password' => 'required|min:7|max:20'
-        ]);
+        $attributes = $request->input();
+        // var_dump($request->validated());
 
-        $attributes['url'] = strtolower($url);
-        
         User::create($attributes);
 
-        return view('registration.create');
+        return redirect('/');
 
         // Examine Request
         // ↳ return(request()->all());
