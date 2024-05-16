@@ -20,6 +20,8 @@ class RegisterController extends Controller
         $attributes = $request->input();
 
         User::create($attributes);
+        session()->flash('success', 'Your account has been successfully created.');
+        
         return redirect('/');
 
         // Examine Request

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -39,8 +40,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Note: 
-    // ↳ Accessor/mutator method names must match their corresponding column name in the database, except written in camel case instead of snake case.
+    // ACCESSOR x MUTATORS START
+
+    /*
+    Note: 
+    ↳ Accessor/mutator method names must match their corresponding column name in the database, except written in camel case instead of snake case.
+    */
 
     protected function url(): Attribute
     {
@@ -49,8 +54,31 @@ class User extends Authenticatable
         );
     }
 
+    protected function username(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($username) => strtolower($username),
+            set: fn ($username) => strtolower($username)
+        );
+    }
+
+    protected function email(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($email) => strtolower($email),
+            set: fn ($email) => strtolower($email)
+        );
+    }
+
+    // ACCESSOR x MUTATORS END
+
+
+    // RELATIONSHIPS START
+
     function posts()
     {
         return $this->HasMany(Post::class, 'userID');
     }
+
+    // RELATIONSHIPS END
 }
