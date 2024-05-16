@@ -14,21 +14,28 @@
 </head>
 
 @php
-$message = session()->has('success') ? session()->get('success') : false  
+$message = session()->has('success') ? session()->get('success') : false
 @endphp
 
 <body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
     <header>
         {{ $nav }}
     </header>
-    <main class="px-6 mx-auto max-w-5xl lg:px-8">
+    <main class="px-6 mx-auto lg:px-8">
         <div class="h-10 base:h-0"></div>
         {{ $main }}
     </main>
     {{ $footer }}
 
     @if ($message)
-    <p>{{ $message }}</p>
+    <div x-data="{ show: true }"
+         x-init="setTimeout(() => show = false, 5000)">
+        <p x-show="show"
+           {{-- x-transition:enter.delay.500ms.duration.1000ms --}}
+           x-transition:leave.duration.1000ms
+           class="mr-2 px-4 py-2 fixed top-24 right-24 text-sm text-green-600 font-medium rounded-xl bg-green-100/25 border border-green-600">
+            {{ $message }}</p>
+    </div>
     @endif
 </body>
 
