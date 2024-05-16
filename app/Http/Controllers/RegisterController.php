@@ -18,7 +18,7 @@ class RegisterController extends Controller
     {
 
         $attributes = $request->input();
-        // var_dump($request->validated());
+        var_dump($request->validated());
 
         User::create($attributes);
 

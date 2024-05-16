@@ -42,7 +42,7 @@ class User extends Authenticatable
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn () => strtolower(str_replace(' ', '-', $this->name)),
+            // get: fn () => strtolower(str_replace(' ', '-', $this->name)),
             set: fn () => strtolower(str_replace(' ', '-', $this->name))
         );
     }
