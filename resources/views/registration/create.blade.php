@@ -11,62 +11,64 @@
                     <form method="POST"
                           action="/register">
                         @csrf
-                            <div class="mb-5">
-                                <label for="name"
-                                       class="pl-1 block text-xs uppercase tracking-wide">Name</label>
-                                <input required
-                                       type="text"
-                                       name="name"
-                                       value="{{ old('name')}}"
-                                       class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
+                        <div class="mb-5">
+                            <label for="name"
+                                   class="pl-1 block text-xs uppercase tracking-wide">Name</label>
+                            <input required
+                                   type="text"
+                                   name="name"
+                                   value="{{ old('name')}}"
+                                   class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
 
-                                @error('name')
-                                <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            @error('name')
+                            <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
-                            <input type="hidden" name="url" value="{{ old('name')}}">
+                        <input type="hidden"
+                               name="url"
+                               value="{{ old('name')}}">
 
-                            <div class="mb-5">
-                                <label for="username"
-                                       class="pl-1 block text-xs uppercase tracking-wide">Username</label>
-                                <input required
-                                       type="text"
-                                       name="username"
-                                       value="{{ old('username')}}"
-                                       class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
+                        <div class="mb-5">
+                            <label for="username"
+                                   class="pl-1 block text-xs uppercase tracking-wide">Username</label>
+                            <input required
+                                   type="text"
+                                   name="username"
+                                   value="{{ old('username')}}"
+                                   class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
 
-                                @error('username')
-                                <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            @error('username')
+                            <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
-                            <div class="mb-5">
-                                <label for="email"
-                                       class="pl-1 block text-xs uppercase tracking-wide">Email</label>
-                                <input required
-                                       type="text"
-                                       name="email"
-                                       value="{{ old('email')}}"
-                                       class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
+                        <div class="mb-5">
+                            <label for="email"
+                                   class="pl-1 block text-xs uppercase tracking-wide">Email</label>
+                            <input required
+                                   type="text"
+                                   name="email"
+                                   value="{{ old('email')}}"
+                                   class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
 
-                                @error('email')
-                                <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            @error('email')
+                            <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
-                            <div class="mb-5">
-                                <label for="password"
-                                       class="pl-1 block text-xs uppercase tracking-wide">Password</label>
-                                <input required
-                                       type="password"
-                                       name="password"
-                                       class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
+                        <div class="mb-5">
+                            <label for="password"
+                                   class="pl-1 block text-xs uppercase tracking-wide">Password</label>
+                            <input required
+                                   type="password"
+                                   name="password"
+                                   class="mt-2 p-2 w-full border border-gray-200 rounded-xl">
 
-                                @error('password')
-                                <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
-                                @enderror
-                            </div>
+                            @error('password')
+                            <p class="text-red-500 text-xs mt-1 pl-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
                         <div class="text-center">
                             <button type="submit"

@@ -18,10 +18,8 @@ class RegisterController extends Controller
     {
 
         $attributes = $request->input();
-        var_dump($request->validated());
 
         User::create($attributes);
-
         return redirect('/');
 
         // Examine Request

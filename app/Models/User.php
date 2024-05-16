@@ -39,10 +39,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    // Note: 
+    // ↳ Accessor/mutator method names must match their corresponding column name in the database, except written in camel case instead of snake case.
+
     protected function url(): Attribute
     {
         return Attribute::make(
-            // get: fn () => strtolower(str_replace(' ', '-', $this->name)),
             set: fn () => strtolower(str_replace(' ', '-', $this->name))
         );
     }
