@@ -19,7 +19,7 @@ $tagSearch = request('tag') ?? false;
     <div
          class="mx-auto my-8 w-full max-w-80 flex justify-center flex-wrap gap-x-4 gap-y-4 text-sm font-medium xs:mx-2.5 xs:max-w-none xs:w-auto sm:mx-0 base:mb-2 base:flex-nowrap base:justify-start">
 
-        <x-tags />
+        <x-ui.tags />
 
         {{-- Search --}}
         <div class="relative flex flex-1 items-center border rounded-xl base:flex-none lg:inline-flex">

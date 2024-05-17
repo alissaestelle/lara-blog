@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\UI;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -22,6 +22,6 @@ class Alert extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.alert');
+        return view('components.ui.alert');
     }
 }

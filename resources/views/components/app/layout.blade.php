@@ -29,8 +29,8 @@ $message = session()->has('success') ? session()->get('success') : false
     {{ $footer }}
 
     @if ($message)
-    <x-alert :$type
-             :$message />
+    <x-ui.alert :$type
+                :$message />
     @endif
 </body>
 

@@ -1,10 +1,10 @@
-<x-layout>
+<x-app.layout>
     <x-slot:nav>
-        <x-nav />
+        <x-app.nav />
         </x-slot>
         <x-slot:main>
             <div class="3xs:h-20"></div>
-            <x-header />
+            <x-app.header />
             @if ($posts->count())
             <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
                 <div class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
@@ -50,6 +50,6 @@
             @endif
             </x-slot>
             <x-slot:footer>
-                <x-footer />
+                <x-app.footer />
                 </x-slot>
-</x-layout>
+</x-app.layout>

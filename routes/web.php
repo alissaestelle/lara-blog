@@ -26,11 +26,12 @@ Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
 // Users x Accts
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+
 
 /*
-
 Old Get Req:
 
 Route::get('/posts/{p}', function ($id) {
@@ -38,5 +39,4 @@ Route::get('/posts/{p}', function ($id) {
         'post' => Post::find($id),
     ]);
 });
-
 */

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\UI;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -22,6 +22,6 @@ class SVG extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.svg');
+        return view('components.ui.svg');
     }
 }

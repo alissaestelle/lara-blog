@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\UI;
 
 use App\Models\Tag;
 
@@ -29,6 +29,6 @@ class Tags extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.tags');
+        return view('components.ui.tags');
     }
 }

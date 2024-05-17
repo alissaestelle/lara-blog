@@ -1,6 +1,6 @@
-<x-auth>
+<x-app.auth>
     <x-slot:nav>
-        <x-nav />
+        <x-app.nav />
         </x-slot>
         <x-slot:main>
             <div class="relative w-full min-w-[300px] xs:min-w-[400px] sm:xs:min-w-[500px] lg:mb-32">
@@ -78,4 +78,4 @@
                 </div>
             </div>
             </x-slot>
-</x-auth>
+</x-app.auth>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\UI;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -25,6 +25,6 @@ class Anchor extends Component
 
     function render(): View|Closure|string
     {
-        return view('components.anchor');
+        return view('components.ui.anchor');
     }
 }

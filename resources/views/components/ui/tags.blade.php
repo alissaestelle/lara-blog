@@ -4,28 +4,28 @@ $queryStr = http_build_query(request()->except('tag'));
 
 {{-- ALPINE DEMO --}}
 {{-- See Dropdown Component --}}
-<x-dropdown>
+<x-ui.dropdown>
     <x-slot:trigger>
         <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm text-sm font-medium">
             {{ $tag->name ?? 'Tags' }}
-            <x-svg name='↓'>
+            <x-ui.svg name='↓'>
                 {{ $slot }}
-            </x-svg>
+            </x-ui.svg>
         </button>
         </x-slot>
         <x-slot:event>
-            <x-anchor href="/">
+            <x-ui.anchor href="/">
                 All
-            </x-anchor>
+            </x-ui.anchor>
             {{-- Highlight Selection If URL ID === Current ID --}}
             @foreach ($tags as $t)
             @php
-                $params = $queryStr ? "tag={$t->url}&{$queryStr}" : "tag={$t->url}"
+            $params = $queryStr ? "tag={$t->url}&{$queryStr}" : "tag={$t->url}"
             @endphp
-            <x-anchor active="{{ isset($tag) && $tag->is($t) }}"
-                      href="/search?{{ $params }}">
+            <x-ui.anchor active="{{ isset($tag) && $tag->is($t) }}"
+                         href="/search?{{ $params }}">
                 {{ $t->name }}
-            </x-anchor>
+            </x-ui.anchor>
             @endforeach
             </x-slot>
-</x-dropdown>
+</x-ui.dropdown>

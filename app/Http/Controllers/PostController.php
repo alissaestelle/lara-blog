@@ -20,7 +20,7 @@ class PostController extends Controller
         $filters = $req->all();
         // dd($req->all());
 
-        return view('posts.index', [
+        return view('posts', [
             'posts' => Post::latest()->filter($filters)->paginate()->withQueryString(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
             'results' => collect($req->all())

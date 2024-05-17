@@ -3,9 +3,9 @@ $fileName = explode('.', $post->image);
 $altText = ucfirst($fileName[0]);
 @endphp
 
-<x-layout>
+<x-app.layout>
     <x-slot:nav>
-        <x-nav></x-nav>
+        <x-app.nav />
         </x-slot>
         <x-slot:main>
             <div class="mx-auto h-full border-t border-gray-200 base:mx-5">
@@ -120,6 +120,6 @@ $altText = ucfirst($fileName[0]);
             </div>
             </x-slot>
             <x-slot:footer>
-                <x-footer></x-footer>
+                <x-app.footer />
                 </x-slot>
-</x-layout>
+</x-app.layout>
