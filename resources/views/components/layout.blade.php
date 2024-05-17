@@ -14,6 +14,7 @@
 </head>
 
 @php
+$type = 'success';
 $message = session()->has('success') ? session()->get('success') : false
 @endphp
 
@@ -28,14 +29,8 @@ $message = session()->has('success') ? session()->get('success') : false
     {{ $footer }}
 
     @if ($message)
-    <div x-data="{ show: true }"
-         x-init="setTimeout(() => show = false, 5000)">
-        <p x-show="show"
-           {{-- x-transition:enter.delay.500ms.duration.1000ms --}}
-           x-transition:leave.duration.1000ms
-           class="mr-2 px-4 py-2 fixed top-24 right-24 text-sm text-green-600 font-medium rounded-xl bg-green-100/25 border border-green-600">
-            {{ $message }}</p>
-    </div>
+    <x-alert :$type
+             :$message />
     @endif
 </body>
 

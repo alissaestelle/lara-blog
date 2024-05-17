@@ -16,8 +16,8 @@
       class="text-xs font-bold uppercase base:hidden">About</a>
 
    {{-- Right Nav for Mobile --}}
-   <a href="/"
-      class="text-xs font-bold uppercase base:hidden">Account</a>
+   <a href="/register"
+      class="text-xs font-bold uppercase base:hidden">Register</a>
    <div class="mt-1 w-full text-center base:hidden">
       <a href="#"
          class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full">
@@ -43,8 +43,8 @@
 
    {{-- Right Nav for Desktop --}}
    <div class="hidden base:flex base:items-center base:gap-x-4">
-      <a href="/"
-         class="text-xs font-bold uppercase">Account</a>
+      <a href="/register"
+         class="text-xs font-bold uppercase">Register</a>
       <a href="#"
          class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full base:flex-grow base:w-auto">
          Subscribe for Updates

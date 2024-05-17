@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -18,11 +18,11 @@ class RegisterController extends Controller
     {
 
         $attributes = $request->input();
+        $user = User::create($attributes);
 
-        User::create($attributes);
-        session()->flash('success', 'Your account has been successfully created.');
-        
-        return redirect('/');
+        auth()->login($user);
+
+        return redirect('/')->with('success', 'Your account has been successfully created.');
 
         // Examine Request
         // ↳ return(request()->all());
