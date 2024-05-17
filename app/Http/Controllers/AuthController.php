@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 // use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class AuthController extends Controller
 {
     function create()
     {
@@ -16,13 +16,14 @@ class RegisterController extends Controller
 
     function store(RegisterRequest $request): RedirectResponse
     {
-
         $attributes = $request->input();
         $user = User::create($attributes);
 
         auth()->login($user);
 
-        return redirect('/')->with('success', 'Your account has been successfully created.');
+        return redirect('/')
+            ->with('success', 'Your account has been successfully created.')
+            ->with('theme', 'text-green-600 bg-green-100/25 border border-green-600');
 
         // Examine Request
         // ↳ return(request()->all());

@@ -12,7 +12,11 @@ class Alert extends Component
     Create a new component instance.
     */
 
-    public function __construct(public string $type, public string $message)
+    function __construct(
+        public bool $active = false,
+        public string $default = 'mr-2 px-4 py-2 fixed top-20 right-24 text-sm font-medium rounded-xl',
+        public string $theme = ''
+        )
     {
     }
 
@@ -20,7 +24,7 @@ class Alert extends Component
     Get the view / contents that represent the component.
     */
 
-    public function render(): View|Closure|string
+    function render(): View|Closure|string
     {
         return view('components.ui.alert');
     }

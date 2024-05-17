@@ -14,11 +14,13 @@
 </head>
 
 @php
-$type = 'success';
-$message = session()->has('success') ? session()->get('success') : false
+$message = session()->has('success') ? session()->get('success') : '';
+$theme = session()->has('theme') ? session()->get('theme') : '';
 @endphp
 
 <body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
+    <x-ui.alert active="{{ isset($message) }}"
+                :$theme>{{ $message }}</x-ui.alert>
     <header>
         {{ $nav }}
     </header>
@@ -27,11 +29,6 @@ $message = session()->has('success') ? session()->get('success') : false
         {{ $main }}
     </main>
     {{ $footer }}
-
-    @if ($message)
-    <x-ui.alert :$type
-                :$message />
-    @endif
 </body>
 
 </html>

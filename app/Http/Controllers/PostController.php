@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     function index()
     {
-        return view('app', [
+        return view('index', [
             'posts' => Post::latest()->paginate()->withQueryString(),
         ]);
     }

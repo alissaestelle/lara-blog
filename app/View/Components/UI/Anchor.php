@@ -13,9 +13,9 @@ class Anchor extends Component
     */
 
     function __construct(
+        public bool $active = false,
         public string $default = 'px-3 block hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white',
-        public string $thisClass = 'bg-[#D8BFD8] text-white',
-        public bool $active = false
+        public string $thisClass = 'bg-[#D8BFD8] text-white'
     ) {
     }
 

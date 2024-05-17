@@ -1,5 +1,5 @@
 <nav
-     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:mx-6 base:px-5 base:py-6 base:flex-nowrap base:gap-y-0">
+     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-6 base:py-6 base:flex-nowrap base:gap-y-0 lg:w-[950px] lg:pl-0">
 
    {{-- Left Nav for Mobile --}}
    <a href="/"
@@ -21,10 +21,15 @@
    $name = auth()->user()->name;
    $user = explode(" ", $name)[0];
    @endphp
-   <div class="flex justify-center gap-x-2 w-full text-xs font-bold uppercase base:hidden">
-      <span class="text-[#D875C7]">Welcome, {{ $user }}</span>
-      <a href="/"
-         class="text-gray-400">Logout</a>
+   <div class="flex justify-center gap-x-2 w-full base:hidden">
+      <span class="text-xs font-bold uppercase text-[#D875C7]">Welcome, {{ $user }}</span>
+      <form method="POST"
+            action="/logout"
+            class="flex">
+         @csrf
+         <button type="submit"
+                 class="text-xs font-bold uppercase text-gray-400">Logout</button>
+      </form>
    </div>
    @else
    <a href="/register"
@@ -61,8 +66,13 @@
       $user = explode(" ", $name)[0];
       @endphp
       <span class="text-xs font-bold uppercase text-[#D875C7]">Welcome, {{ $user }}</span>
-      <a href="/"
-         class="text-xs font-bold uppercase text-gray-400">Logout</a>
+      <form method="POST"
+            action="/logout"
+            class="flex">
+         @csrf
+         <button type="submit"
+                 class="text-xs font-bold uppercase text-gray-400">Logout</button>
+      </form>
       @else
       <a href="/register"
          class="text-xs font-bold uppercase">Register</a>
