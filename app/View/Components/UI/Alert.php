@@ -14,8 +14,8 @@ class Alert extends Component
 
     function __construct(
         public bool $active = false,
-        public string $default = 'mr-2 px-4 py-2 fixed top-20 right-24 text-sm font-medium rounded-xl',
-        public string $theme = ''
+        public string $default = 'mx-auto mt-5 px-4 py-2 w-fit text-xs font-medium rounded-xl md:mr-2 md:fixed md:top-16 md:right-8 md:text-sm lg:top-20',
+        public string $theme = 'text-[#C59FC5] bg-transparent border border-[#C59FC5]/50'
         )
     {
     }

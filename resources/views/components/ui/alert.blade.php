@@ -7,7 +7,5 @@
           x-transition:leave.duration.1000ms
           --}}
           {{
-          $attributes->class([$default, $theme => $active]) }}>
-          {{ $slot }}
-     </div>
+          $attributes->class([$default, $theme => $active]) }}>{{ $slot }}</div>
 </div>
