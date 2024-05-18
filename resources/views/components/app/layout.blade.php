@@ -21,10 +21,10 @@ $theme = session()->has('theme') ? session()->get('theme') : '';
 <body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
     <x-ui.alert active="{{ isset($message) }}"
                 :$theme>{{ $message }}</x-ui.alert>
-    <header>
+    <header class="px-6 lg:px-8">
         {{ $nav }}
     </header>
-    <main class="px-6 mx-auto lg:px-8">
+    <main class="px-6 lg:px-8">
         <div class="h-10 base:h-0"></div>
         {{ $main }}
     </main>

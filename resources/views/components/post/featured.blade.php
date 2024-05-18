@@ -5,7 +5,7 @@
                 <div class="base:pr-6 lg:pr-8">
                     <img src="../images/moon-castle.png"
                          alt="Moon Castle"
-                         class="h-40 w-full object-cover object-bottom rounded-xl base:h-52" />
+                         class="h-40 w-full object-cover object-bottom rounded-xl xs:h-48 base:h-52" />
                 </div>
             </a>
         </div>
@@ -29,12 +29,12 @@
                 {{-- Title x Date --}}
                 <div class="mt-4">
                     <a href="/posts/{{ $post->url }}">
-                        <h1 class="text-lg font-medium lg:text-2xl">
+                        <h1 class="text-lg font-medium md:text-lg lg:text-2xl">
                             {{ $post->title }}
                         </h1>
                     </a>
 
-                    <span class="block mt-2 text-gray-400 text-xs">
+                    <span class="block mt-2 text-gray-400 text-xs md:mt-1">
                         Published
                         <time datetime="{{ $post->published }}">
                             {{ date('F jS, Y', strtotime($post->published)) }}
@@ -47,7 +47,7 @@
             </header>
 
             {{-- Excerpt --}}
-            <div class="mt-2 text-sm line-clamp-3">
+            <div class="mt-2 text-sm line-clamp-3 md:line-clamp-2">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing
                     elit, sed do eiusmod tempor incididunt ut labore et
@@ -86,7 +86,7 @@
             {{-- Footer for Desktop --}}
             <footer class="hidden base:mt-6 base:w-full base:flex base:justify-between">
                 <a href="/search?author={{ $post->author->url }}">
-                    <div class="flex items-center gap-x-4 text-sm"
+                    <div class="flex items-center gap-x-4 text-sm md:gap-x-3 lg:gap-x-4"
                          class="shrink-0 block">
                         <img src="../images/aew.png"
                              class="h-12 w-12"
@@ -99,7 +99,7 @@
                 </a>
                 <div class="self-center">
                     <a href="/posts/{{ $post->url }}"
-                       class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300">
+                       class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300 md:px-6 lg:px-8">
                         Read More
                     </a>
                 </div>

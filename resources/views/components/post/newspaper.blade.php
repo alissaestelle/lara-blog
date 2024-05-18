@@ -5,7 +5,7 @@
             <a href="/posts/{{ $post->url }}">
                 <img src="../images/posts/{{ $post->image }}"
                      alt="{{ $post->title }}"
-                     class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 lg:h-52" />
+                     class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 md:object-center lg:h-52" />
             </a>
         </div>
 
@@ -41,7 +41,7 @@
                 </div>
             </header>
 
-            <div class="min-h-10 text-xs sm:text-sm">
+            <div class="text-xs xs:min-h-10 sm:text-sm">
                 <a href="/posts/{{ $post->url }}">
                     <p class="line-clamp-3">
                         {{ $post->excerpt }}
@@ -60,7 +60,7 @@
                 </a>
                 <div class="hidden md:block md:self-center md:shrink-0">
                     <a href="#"
-                       class="px-8 py-2 transition-colors duration-300 bg-white border border-fuchsia-800/20 text-sm font-medium rounded-full hover:bg-[#D8BFD8]/25 hover:border-none">
+                       class="px-8 py-2 transition-colors duration-300 bg-white border border-fuchsia-800/20 text-sm font-medium rounded-full hover:bg-[#D8BFD8]/25 hover:border-none md:px-6 lg:px-8">
                         Read More
                     </a>
                 </div>

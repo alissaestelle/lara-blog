@@ -1,5 +1,5 @@
 <nav
-     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-6 base:py-6 base:flex-nowrap base:gap-y-0 lg:w-[950px] lg:pl-0">
+     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-6 base:py-6 base:flex-nowrap base:gap-y-0 md:pl-1 lg:w-[950px]">
 
    {{-- Left Nav for Mobile --}}
    <a href="/"
