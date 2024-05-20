@@ -11,15 +11,14 @@
     </head>
 
     @php
-        $message = session()->has('success') ? session()->get('success') : '';
-        $theme = session()->has('theme') ? session()->get('theme') : '';
+    $message = session()->has('success') ? session()->get('success') : false;
     @endphp
 
     <body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
         <header class="px-6 relative lg:px-8">
             {{ $nav }}
             @if ($message)
-                <x-ui.alert active="{{ isset($message) }}" :$theme>{{ $message }}</x-ui.alert>
+                <x-ui.alert active="{{ isset($message) }}">{{ $message }}</x-ui.alert>
             @endif
         </header>
         <main class="px-6 lg:px-8">
