@@ -27,7 +27,7 @@
     @else
         <div class="flex justify-center gap-x-2 w-full text-xs font-bold uppercase base:hidden">
             <a href="/register">Register</a>
-            <a href="/">Log In</a>
+            <a href="/login">Log In</a>
         </div>
         <div class="mt-1 w-full text-center base:hidden">
             <a
@@ -60,12 +60,12 @@
             <form method="POST" action="/logout" class="flex">
                 @csrf
                 <button type="submit" class="text-xs font-bold uppercase text-gray-400">
-                    Logout
+                    Log Out
                 </button>
             </form>
         @else
             <a href="/register" class="text-xs font-bold uppercase">Register</a>
-            <a href="/" class="text-xs font-bold uppercase">Log In</a>
+            <a href="/login" class="text-xs font-bold uppercase">Log In</a>
             <a
                 href="#"
                 class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full base:flex-grow base:w-auto">
