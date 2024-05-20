@@ -1,3 +1,5 @@
+{{-- @dd($alert) --}}
+
 <div x-data="{ show: true }"
      {{--
      x-init="setTimeout(() => (show = false), 2500)"

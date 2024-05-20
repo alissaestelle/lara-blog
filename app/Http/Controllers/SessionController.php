@@ -10,7 +10,8 @@ class SessionController extends Controller
     {
         auth()->logout();
 
-        return redirect('/register');
-        // ->with('success', "You have successfully logged out.");
+        return redirect('/')
+            ->with('success', 'You have successfully logged out.')
+            ->with('theme', 'text-[#C59FC5] bg-transparent border border-[#C59FC5])');
     }
 }
