@@ -11,7 +11,7 @@
             <div class="mx-auto xs:mx-2.5 md:mx-5">
 
                 {{-- Featured Post --}}
-                <div class="w-full max-w-80 mx-auto xs:max-w-none">
+                <div class="w-full max-w-80 xs:max-w-none">
                     @if ($posts->count() >= 1)
                     <x-post.featured :post="$posts[0]" />
                     @endif

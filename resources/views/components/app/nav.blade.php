@@ -1,12 +1,12 @@
 <nav
-     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-6 base:py-6 base:flex-nowrap base:gap-y-0 lg:w-[950px]">
+     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-5 base:py-6 base:flex-nowrap base:gap-y-0 lg:">
 
    {{-- Left Nav for Mobile --}}
    <a href="/"
       class="w-full base:hidden">
       <img src="../images/howls.png"
            alt="Calcifer"
-           class="mx-auto w-12 h-12" />
+           class="mx-auto w-fit h-12" />
    </a>
    <a href="/"
       class="text-xs font-bold uppercase base:hidden">Resources</a>
@@ -43,19 +43,19 @@
    @endauth
 
    {{-- Left Nav for Desktop --}}
-   <div class="hidden base:flex base:items-center">
+   <div class="hidden base:flex base:items-center base:gap-x-4">
       <a href="/"
-         class="w-auto shrink-0">
+         class="shrink-0">
          <img src="../images/howls.png"
               alt="Calcifer"
-              class="mx-auto w-12 h-12 base:mx-0" />
+              class="w-fit h-10 base:mx-0" />
       </a>
       <a href="/"
-         class="pl-1 text-xs font-bold uppercase">Resources</a>
+         class="text-xs font-bold uppercase">Resources</a>
       <a href="/"
-         class="pl-4 text-xs font-bold uppercase">Archive</a>
+         class="text-xs font-bold uppercase">Archive</a>
       <a href="/"
-         class="pl-4 text-xs font-bold uppercase">About</a>
+         class="text-xs font-bold uppercase">About</a>
    </div>
 
    {{-- Right Nav for Desktop --}}

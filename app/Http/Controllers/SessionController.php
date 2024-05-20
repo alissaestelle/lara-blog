@@ -12,6 +12,6 @@ class SessionController extends Controller
 
         return redirect('/')
             ->with('success', 'You have successfully logged out.')
-            ->with('theme', 'text-[#C59FC5] bg-transparent border border-[#C59FC5])');
+            ->with('theme', 'text-[#BC9BBC] bg-transparent border border-[#B497B4]');
     }
 }
