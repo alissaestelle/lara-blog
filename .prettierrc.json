@@ -6,9 +6,19 @@
     ],
     "overrides": [
         {
+            "files": ["*.blade.php"],
+            "options": {
+                "bracketSameLine": true,
+                "htmlWhitespaceSensitivity": "ignore",
+                "printWidth": 100,
+                "singleAttributePerLine": false
+            }
+        },
+        {
             "files": ["*.html"],
             "options": {
                 "bracketSameLine": true,
+                "htmlWhitespaceSensitivity": "ignore",
                 "printWidth": 100,
                 "singleAttributePerLine": false,
                 "singleQuote": true
