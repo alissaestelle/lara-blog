@@ -18,8 +18,8 @@
     <body class="mx-auto flex flex-col h-screen justify-between bg-white max-w-5xl">
         <header class="px-6 relative lg:px-8">
             {{ $nav }}
-            @if ($message)
-                <x-ui.alert active="{{ isset($message) }}" class="{{ $theme }}">
+            @if (isset($message))
+                <x-ui.alert class="{{ $theme }}">
                     {{ $message }}
                 </x-ui.alert>
             @endif
