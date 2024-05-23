@@ -25,10 +25,6 @@
                             @enderror
                         </div>
 
-                        <input type="hidden"
-                               name="url"
-                               value="{{ old('name')}}">
-
                         <div class="mb-5">
                             <label for="username"
                                    class="pl-1 block text-xs uppercase tracking-wide">Username</label>

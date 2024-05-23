@@ -14,10 +14,12 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    function store(RegisterRequest $request): RedirectResponse
+    function store(RegisterRequest $request)// : RedirectResponse
     {
-        $attributes = $request->input();
-        $user = User::create($attributes);
+        $attr = $request->input();
+        $attr['url'] = $attr['name'];
+
+        $user = User::create($attr);
 
         auth()->login($user);
 

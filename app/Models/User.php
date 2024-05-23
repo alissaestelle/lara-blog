@@ -36,7 +36,7 @@ class User extends Authenticatable
     */
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'verified' => 'datetime',
         'password' => 'hashed',
     ];
 
@@ -47,10 +47,18 @@ class User extends Authenticatable
     ↳ Accessor/mutator method names must match their corresponding column name in the database, except written in camel case instead of snake case.
     */
 
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($name) => ucwords($this->format($name))
+        );
+    }
+
     protected function url(): Attribute
     {
         return Attribute::make(
-            set: fn () => strtolower(str_replace(' ', '-', $this->name))
+            get: fn ($url) => strtolower(str_replace(' ', '-', $this->format($url))),
+            set: fn ($url) => strtolower(str_replace(' ', '-', $this->format($url)))
         );
     }
 
@@ -81,4 +89,22 @@ class User extends Authenticatable
     }
 
     // RELATIONSHIPS END
+
+
+    // ADDITIONAL
+
+    function format($url) {
+        $name = strtr($url, [
+            'Dr. ' => '',
+            'Miss ' => '',
+            'Mister ' => '',
+            'Mr. ' => '',
+            'Mrs. ' => '',
+            'Ms. ' => '',
+            'Prof. ' => '',
+            '.' => ''
+        ]);
+
+        return $name;
+    }
 }

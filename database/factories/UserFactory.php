@@ -27,7 +27,7 @@ class UserFactory extends Factory
     {
         $name = fake()->name();
         
-        $string = strtr($name, [
+        $strName = strtr($name, [
             'Dr. ' => '',
             'Miss ' => '',
             'Mister ' => '',
@@ -38,8 +38,8 @@ class UserFactory extends Factory
             '.' => ''
         ]);
 
-        $url = str_replace(' ', '-', $string);
-        $username = str_replace(' ', '.', $string);
+        $url = str_replace(' ', '-', $strName);
+        $username = str_replace(' ', '.', $strName);
 
         return [
             'name' => $name,
@@ -47,9 +47,9 @@ class UserFactory extends Factory
             'url' => strtolower($url),
             'email' => fake()->unique()->safeEmail(),
             'verified' => now(),
-            'password' => (static::$password ??= Hash::make('password')),
-            'remember_token' => Str::random(10),
-            // 'admin' => fake()->boolean()
+            'password' => 'password',
+            // 'password' => (static::$password ??= Hash::make('password')),
+            'remember_token' => Str::random(10)
         ];
     }
 
