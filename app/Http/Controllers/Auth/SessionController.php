@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class SessionController extends Controller
         return view('auth.login');
     }
 
-    function store(LoginRequest $request) //: RedirectResponse
+    function store(LoginRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
         auth()->attempt($attributes);

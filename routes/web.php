@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\SessionController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,11 +26,11 @@ Route::get('/search', [PostController::class, 'search']);
 Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
-// Guests
-Route::get('/register', [AuthController::class, 'create'])->middleware('guest');
-Route::post('/register', [AuthController::class, 'store'])->middleware('guest');
+// New Users
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
-// Users
+// Existing Users
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');

@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\RegisterRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
+
 use Illuminate\Http\RedirectResponse;
 // use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
     function create()
     {
         return view('auth.register');
     }
 
-    function store(RegisterRequest $request)// : RedirectResponse
+    function store(RegisterRequest $request): RedirectResponse
     {
         $attr = $request->input();
         $attr['url'] = $attr['name'];

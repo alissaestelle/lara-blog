@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /*
@@ -35,17 +34,20 @@ class UserFactory extends Factory
             'Mrs. ' => '',
             'Ms. ' => '',
             'Prof. ' => '',
+            "'" => '',
             '.' => ''
         ]);
 
-        $url = str_replace(' ', '-', $strName);
-        $username = str_replace(' ', '.', $strName);
+        $url = str_replace(["'", ' '], ['', '-'], $strName);
+        $username = str_replace(["'", ' '], ['', '.'], $strName);
+        $email = explode('.', $username);
 
         return [
             'name' => $name,
             'username' => strtolower($username),
             'url' => strtolower($url),
-            'email' => fake()->unique()->safeEmail(),
+            'email' => "{$email[0]}@{$email[1]}.com",
+            // 'email' => fake()->unique()->safeEmail(),
             'verified' => now(),
             'password' => 'password',
             // 'password' => (static::$password ??= Hash::make('password')),
@@ -57,6 +59,7 @@ class UserFactory extends Factory
     Indicate that the model's email address should be unverified.
     */
     
+    /*
     public function unverified(): static
     {
         return $this->state(
@@ -65,4 +68,5 @@ class UserFactory extends Factory
             ]
         );
     }
+    */
 }

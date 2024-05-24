@@ -50,15 +50,16 @@ class User extends Authenticatable
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn ($name) => ucwords($this->format($name))
+            get: fn ($name) => ucwords($this->format($name)),
+            set: fn ($name) => ucwords($name)
         );
     }
 
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn ($url) => strtolower(str_replace(' ', '-', $this->format($url))),
-            set: fn ($url) => strtolower(str_replace(' ', '-', $this->format($url)))
+            get: fn ($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url))),
+            set: fn ($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url)))
         );
     }
 
@@ -93,8 +94,8 @@ class User extends Authenticatable
 
     // ADDITIONAL
 
-    function format($url) {
-        $name = strtr($url, [
+    function format($data) {
+        $name = strtr($data, [
             'Dr. ' => '',
             'Miss ' => '',
             'Mister ' => '',
