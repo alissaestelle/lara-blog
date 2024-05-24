@@ -15,7 +15,7 @@ class SessionController extends Controller
         return view('auth.login');
     }
 
-    function store(LoginRequest $request): RedirectResponse
+    function store(LoginRequest $request)//: RedirectResponse
     {
         $attributes = $request->validated();
         auth()->attempt($attributes);

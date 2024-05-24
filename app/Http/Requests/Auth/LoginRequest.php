@@ -4,6 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class LoginRequest extends FormRequest
 {
@@ -25,7 +26,21 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', Rule::exists('users', 'email')],
-            'password' => ['required', 'confirmed']
+            'password' => ['required'],
+        ];
+    }
+
+    /*
+    Get the error messages for the defined validation rules.
+    @return array<string, string>
+    */
+
+    
+    public function messages(): array
+    {
+        return [
+            'email' => 'The provided email is invalid.',
+            'password' => 'The provided password is incorrect.',
         ];
     }
 }
