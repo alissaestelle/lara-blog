@@ -26,7 +26,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', Rule::exists('users', 'email')],
-            'password' => ['required'],
+            'password' => ['required']
         ];
     }
 
@@ -39,8 +39,8 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email' => 'The provided email is invalid.',
-            'password' => 'The provided password is incorrect.',
+            'email' => 'The email provided could not be verified.',
+            'password' => 'The password provided could not be verified.',
         ];
     }
 }

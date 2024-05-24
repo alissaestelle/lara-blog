@@ -19,6 +19,7 @@ class SessionController extends Controller
     {
         $attributes = $request->validated();
         auth()->attempt($attributes);
+        session()->regenerate();
 
         return redirect('/')->with('success', 'You have successfully logged in.')->with('theme', 'text-[#B779AC] bg-[#F6EEF5]/25 border border-[#B779AC]');
     }
