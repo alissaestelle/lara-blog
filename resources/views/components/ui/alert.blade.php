@@ -1,8 +1,17 @@
-<div x-data="{ show: true }" x-init="setTimeout(() => (show = false), 2500)">
-    <div
-        x-show="show"
-        x-transition:leave.duration.1000ms
-        {{ $attributes->merge(['class' => $default]) }}>
+<div x-cloak
+     x-data="{ visible: false }"
+     x-init="$nextTick(() => (visible = true))">
+    <div x-show="visible"
+         x-init="$watch('visible', setTimeout(() => (visible = false), 3000))"
+         x-transition.duration.1000ms
+         {{
+         $attributes->merge(['class' => $default]) }}>
         {{ $slot }}
     </div>
 </div>
+
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
