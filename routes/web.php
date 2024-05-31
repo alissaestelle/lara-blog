@@ -29,23 +29,26 @@ Route::get('/search?author={author:url}', [PostController::class, 'search']);
 // New Users
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+// ↳ Guest middleware is assigned to anyone who is NOT logged in as a user.
 
 // Existing Users
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
-Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 
-Route::get(
-    '/alpine',
-    fn() => include '/Users/alissa/Desktop/KML/lara_sandbox/lara-blog/resources/views/alpine.blade.php'
-);
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+// ↳ Auth middleware is assigned to anyone who IS logged in as a user.
 
 /*
 Old Get Req:
 
-Route::get('/posts/{p}', function ($id) {
-    return view('post', [
-        'post' => Post::find($id),
-    ]);
-});
+Route::get('/posts/{p}', fn ($id) => view('post', ['post' => Post::find($id)]));
+*/
+
+/*
+Alpine Req:
+
+Route::get(
+    '/alpine',
+    fn () => include '/Users/alissa/Desktop/KML/lara_sandbox/lara-blog/resources/views/alpine.blade.php'
+);
 */

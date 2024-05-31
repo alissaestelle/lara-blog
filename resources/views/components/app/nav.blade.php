@@ -1,5 +1,6 @@
 <nav
     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-5 base:py-6 base:flex-nowrap base:gap-y-0 lg:">
+    
     {{-- Left Nav for Mobile --}}
     <a href="/" class="w-full base:hidden">
         <img src="../images/howls.png" alt="Calcifer" class="mx-auto w-fit h-12" />
