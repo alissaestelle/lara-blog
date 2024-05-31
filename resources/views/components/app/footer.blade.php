@@ -1,7 +1,7 @@
-<footer class="mt-4 py-8 bg-gray-100 border border-black border-opacity-5 text-center xs:mx-6 xs:mb-6 xs:px-10 xs:py-16 xs:rounded-xl">
+<footer class="mt-4 py-8 flex-none bg-gray-100 border border-black border-opacity-5 text-center md:px-10 md:py-16 lg:mx-8 lg:rounded-xl">
     <img src="../images/howls.png"
          alt="Calcifer"
-         class="mx-auto -mb-2 w-20 xs:w-24 md:w-28" />
+         class="mx-auto -mb-1 w-10" />
     <h5 class="text-xl base:text-2xl base:text-3xl">let’s stay in touch</h5>
 
     <div class="mt-8">

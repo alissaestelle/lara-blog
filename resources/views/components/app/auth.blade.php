@@ -11,10 +11,10 @@
     </head>
 
     <body class="mx-auto flex flex-col h-screen gap-y-12 bg-white max-w-5xl">
-        <header class="px-6 relative lg:px-8">
+        <header class="px-6 relative flex-none lg:px-8">
             {{ $nav }}
         </header>
-        <main class="mx-auto px-6 lg:px-8">
+        <main class="mx-auto px-6 flex-grow lg:px-8">
             <div class="h-10 base:h-0"></div>
             {{ $main }}
         </main>
