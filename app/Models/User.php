@@ -40,7 +40,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // ACCESSOR x MUTATORS START
+    /* ACCESSOR x MUTATORS START */
 
     /*
     Note: 
@@ -50,51 +50,51 @@ class User extends Authenticatable
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn ($name) => ucwords($this->format($name)),
-            set: fn ($name) => ucwords($name)
+            get: fn($name) => ucwords($this->format($name)),
+            set: fn($name) => ucwords($name)
         );
     }
 
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn ($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url))),
-            set: fn ($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url)))
+            get: fn($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url))),
+            set: fn($url) => strtolower(str_replace(["'", ' '], ['', '-'], $this->format($url)))
         );
     }
 
     protected function username(): Attribute
     {
         return Attribute::make(
-            get: fn ($username) => strtolower($username),
-            set: fn ($username) => strtolower($username)
+            get: fn($username) => strtolower($username),
+            set: fn($username) => strtolower($username)
         );
     }
 
     protected function email(): Attribute
     {
         return Attribute::make(
-            get: fn ($email) => strtolower($email),
-            set: fn ($email) => strtolower($email)
+            get: fn($email) => strtolower($email),
+            set: fn($email) => strtolower($email)
         );
     }
 
-    // ACCESSOR x MUTATORS END
+    /* ACCESSOR x MUTATORS END */
 
-
-    // RELATIONSHIPS START
+    /* RELATIONSHIPS START */
 
     function posts()
     {
         return $this->HasMany(Post::class, 'userID');
+        // ↳ A user/author has many posts.
     }
 
-    // RELATIONSHIPS END
+    /* RELATIONSHIPS END */
 
+    /* ADDITIONAL START */
 
-    // ADDITIONAL
-
-    function format($data) {
+    function format($data)
+    {
         $name = strtr($data, [
             'Dr. ' => '',
             'Miss ' => '',
@@ -103,9 +103,11 @@ class User extends Authenticatable
             'Mrs. ' => '',
             'Ms. ' => '',
             'Prof. ' => '',
-            '.' => ''
+            '.' => '',
         ]);
 
         return $name;
     }
+
+    /* ADDITIONAL END */
 }

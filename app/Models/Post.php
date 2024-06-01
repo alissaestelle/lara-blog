@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,7 +16,7 @@ class Post extends Model
     protected $guarded = ['id'];
 
     // Joins Author/Tag Tables to Post Obj
-    protected $with = ['author', 'tag'];
+    protected $with = ['author', 'comments', 'tag'];
 
     /*
     protected $fillable = [
@@ -30,11 +31,19 @@ class Post extends Model
     function author()
     {
         return $this->belongsTo(User::class, 'authorID');
+        // ↳ A post belongs to an author.
+    }
+
+    function comments()
+    {
+        return $this->hasMany(Comment::class, 'postID');
+        // ↳ A post has many comments.
     }
 
     function tag()
     {
         return $this->belongsTo(Tag::class, 'tagID');
+        // ↳ A post belongs to a tag.
     }
 
     function scopeFilter(Builder $query, $filters)
@@ -67,7 +76,7 @@ class Post extends Model
 
     getRouteKeyName() specifies the attribute that should be used to find a Post instance.
     A URL param isn't needed for this method as long as the object attribute matches the one configuration in the method below.
-   
+    
     function getRouteKeyName()
     {
         return 'url';

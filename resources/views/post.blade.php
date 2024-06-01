@@ -105,9 +105,9 @@
                         </div>
                     </div>
 
-                    <x-post.comment />
-                    <x-post.comment />
-                    <x-post.comment />
+                    @foreach ($comments as $comment)
+                    <x-post.comment :$comment />
+                    @endforeach
                 </article>
             </div>
         </div>

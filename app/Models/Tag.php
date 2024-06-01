@@ -12,5 +12,6 @@ class Tag extends Model
     function posts()
     {
         return $this->HasMany(Post::class, 'tagID');
+        // ↳ A tag has many posts.
     }
 }

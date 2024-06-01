@@ -9,15 +9,15 @@ class Comment extends Model
 {
     use HasFactory;
 
-    /*
     function user()
     {
         return $this->belongsTo(User::class, 'userID');
+        // ↳ A comment belongs to a user.
     }
 
     function post()
     {
         return $this->belongsTo(Post::class, 'postID');
+        // ↳ A comment belongs to a post.
     }
-    */
 }

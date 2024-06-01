@@ -23,7 +23,7 @@ class PostController extends Controller
         return view('posts', [
             'posts' => Post::latest()->filter($filters)->paginate()->withQueryString(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
-            'results' => collect($req->all())
+            'results' => collect($req->all()),
         ]);
     }
 
@@ -33,6 +33,7 @@ class PostController extends Controller
 
         return view('post', [
             'post' => $post,
+            'comments' => $post->comments,
         ]);
     }
 }
