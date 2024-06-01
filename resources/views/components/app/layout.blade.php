@@ -33,7 +33,3 @@
         {{ $footer }}
     </body>
 </html>
-
-<script>
-    console.log(window)
-</script>

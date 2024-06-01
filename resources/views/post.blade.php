@@ -106,6 +106,7 @@
                     </div>
 
                     @foreach ($comments as $comment)
+                    {{-- <Avatar class="w-32 h-32" {...config} /> --}}
                     <x-post.comment :$comment />
                     @endforeach
                 </article>
@@ -116,3 +117,7 @@
         <x-app.footer />
     </x-slot>
 </x-app.layout>
+
+<script type="module">
+    console.log(window.avatar)
+</script>
