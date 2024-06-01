@@ -5,7 +5,7 @@ export default {
         "./resources/**/*.html",
         "./resources/**/*.blade.php",
         "./resources/**/*.php",
-        "./resources/**/*.js",
+        "./resources/**/*.{js,jsx}",
     ],
     theme: {
         screens: {

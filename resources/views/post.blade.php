@@ -117,7 +117,3 @@
         <x-app.footer />
     </x-slot>
 </x-app.layout>
-
-<script type="module">
-    console.log(window.avatar)
-</script>

@@ -2,7 +2,7 @@
     <div
         class="my-4 p-4 flex flex-col bg-gray-100 border border-gray-200 rounded-xl md:px-6 md:flex-row md:gap-4">
         <div class="flex gap-3 items-center md:shrink-0 md:self-start">
-            <Avatar class="w-32 h-32" {...config} />
+            <div id="app"></div>
             {{-- <img src="../images/aew.png" class="h-12 w-12" alt="AE" /> --}}
             <header class="flex flex-col md:hidden">
                 <p class="text-sm font-medium">{{ $comment->user->username }}</p>

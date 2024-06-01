@@ -7,7 +7,8 @@
 
         <title>Lara-Blog</title>
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @viteReactRefresh
+        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     </head>
 
     @php
@@ -15,21 +16,22 @@
         $theme = session()->has('theme') ? session()->get('theme') : '';
     @endphp
 
-    <body class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
-        @vite(['resources/js/app.js'])
-        <header class="px-6 flex-none relative lg:px-8">
-            {{ $nav }}
-            @if (isset($message))
-                <x-ui.alert class="{{ $theme }}">
-                    {{ $message }}
-                </x-ui.alert>
-            @endif
-        </header>
-        {{-- <main class="px-6 flex-grow lg:px-8"> --}}
-        <main class="flex-grow">
-            <div class="h-10 base:h-0"></div>
-            {{ $main }}
-        </main>
-        {{ $footer }}
+    <body>
+        <div class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
+            <header class="px-6 flex-none relative lg:px-8">
+                {{ $nav }}
+                @if (isset($message))
+                    <x-ui.alert class="{{ $theme }}">
+                        {{ $message }}
+                    </x-ui.alert>
+                @endif
+            </header>
+            {{-- <main class="px-6 flex-grow lg:px-8"> --}}
+            <main class="flex-grow">
+                <div class="h-10 base:h-0"></div>
+                {{ $main }}
+            </main>
+            {{ $footer }}
+        </div>
     </body>
 </html>
