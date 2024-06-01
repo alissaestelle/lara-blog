@@ -1,8 +1,3 @@
-@php
-    $fileName = explode('.', $post->image);
-    $altText = ucfirst($fileName[0]);
-@endphp
-
 <x-app.layout>
     <x-slot:nav>
         <x-app.nav />
@@ -109,6 +104,10 @@
                             </p>
                         </div>
                     </div>
+
+                    <x-post.comment />
+                    <x-post.comment />
+                    <x-post.comment />
                 </article>
             </div>
         </div>
