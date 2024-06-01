@@ -29,7 +29,7 @@ class Post extends Model
 
     function author()
     {
-        return $this->belongsTo(User::class, 'userID');
+        return $this->belongsTo(User::class, 'authorID');
     }
 
     function tag()

@@ -9,6 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
+    /*
     function user()
     {
         return $this->belongsTo(User::class, 'userID');
@@ -18,4 +19,5 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class, 'postID');
     }
+    */
 }

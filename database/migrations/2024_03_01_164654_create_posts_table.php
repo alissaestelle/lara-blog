@@ -13,7 +13,7 @@ return new class extends Migration {
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('userID');
+            $table->foreignId('userID')->contrained('users', 'id')->cascadeOnDelete();
             $table->foreignId('tagID');
             $table->string('title');
             $table->string('url')->unique();
@@ -27,7 +27,7 @@ return new class extends Migration {
     /*
     Reverse the migrations.
     */
-    
+
     public function down(): void
     {
         Schema::dropIfExists('posts');

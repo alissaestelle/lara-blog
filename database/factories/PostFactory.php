@@ -24,7 +24,7 @@ class PostFactory extends Factory
         $images = (new Image())->render();
 
         return [
-            'userID' => fake()->randomElement(User::all()),
+            'authorID' => fake()->randomElement(User::all()),
             'tagID' => fake()->randomElement(Tag::all()),
             'title' => ucfirst(fake()->word()),
             'image' => fake()->randomElement($images),
