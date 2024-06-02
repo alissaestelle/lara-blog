@@ -7,7 +7,7 @@
 
         <title>Lara-Blog</title>
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     </head>
 
     <body class="mx-auto flex flex-col h-screen gap-y-12 bg-white max-w-5xl">

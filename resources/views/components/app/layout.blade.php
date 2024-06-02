@@ -26,7 +26,6 @@
                     </x-ui.alert>
                 @endif
             </header>
-            {{-- <main class="px-6 flex-grow lg:px-8"> --}}
             <main class="flex-grow">
                 <div class="h-10 base:h-0"></div>
                 {{ $main }}

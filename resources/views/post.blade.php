@@ -91,9 +91,10 @@
                     </div>
 
                     <div class="sm:col-start-3 sm:col-span-4">
-                        <div class="my-7 sm:my-14">
+                        <div class="my-7 sm:my-12">
                             <h3
-                                class="text-xl font-medium leading-6 text-gray-900 group-hover:text-gray-600 md:text-2xl">
+                                class="font-mono mt-3 text-3xl font-medium leading-6 text-gray-900 hover:text-gray-600"
+                                style="font-family: 'Courier New', Courier, monospace">
                                 {{ $post->title }}
                             </h3>
 
@@ -105,10 +106,10 @@
                         </div>
                     </div>
 
-                    @foreach ($comments as $comment)
-                    {{-- <Avatar class="w-32 h-32" {...config} /> --}}
-                    <x-post.comment :$comment />
-                    @endforeach
+                    <div
+                        id="react-comments"
+                        class="sm:col-span-4 sm:col-start-3"">
+                    </div>
                 </article>
             </div>
         </div>
@@ -117,3 +118,13 @@
         <x-app.footer />
     </x-slot>
 </x-app.layout>
+
+@php
+    $users = $comments->map(fn($comment) => ($comment->user->name));
+@endphp
+
+<script type="text/javascript">
+    window.post = @json($post);
+    window.users = @json($users);
+    window.postComments = @json($comments);
+</script>
