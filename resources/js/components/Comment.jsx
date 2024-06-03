@@ -13,7 +13,7 @@ const Comment = () => {
 
     const newAvatar = () => {
         let config = genConfig();
-        
+
         let gradient = gradients[Math.floor(Math.random() * gradients.length)];
         let colors = [config.bgColor, gradient];
         let thisColor = colors[Math.floor(Math.random() * colors.length)];
@@ -25,11 +25,6 @@ const Comment = () => {
 
     return (
         <div>
-            <p
-                className="mb-2 pl-0.5 font-mono text-xl font-medium leading-6 text-gray-900 hover:text-gray-600"
-                style={{ fontFamily: 'Courier New', Courier: 'monospace' }}>
-                Comments
-            </p>
             {comments.map((comment, key) => (
                 <div
                     key={comment.id}
