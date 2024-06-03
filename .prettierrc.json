@@ -25,6 +25,16 @@
             }
         },
         {
+            "files": ["*.{js,jsx}"],
+            "options": {
+                "bracketSameLine": true,
+                "htmlWhitespaceSensitivity": "ignore",
+                "printWidth": 100,
+                "singleAttributePerLine": false,
+                "singleQuote": true
+            }
+        },
+        {
             "files": ["*.php"],
             "options": {
                 "singleQuote": true,

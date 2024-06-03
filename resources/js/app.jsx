@@ -9,6 +9,10 @@ import Comment from "./components/Comment";
 window.Alpine = Alpine;
 Alpine.start();
 
-ReactDOM.createRoot(document.getElementById("react-comments")).render(
-    <Comment />,
-);
+let reactElem = document.getElementById("react-comments");
+
+if (reactElem) {
+    ReactDOM.createRoot(reactElem).render(
+        <Comment />,
+    );
+}
