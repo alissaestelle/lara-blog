@@ -4,6 +4,12 @@ import gradients from "../gradients.js";
 const Comment = () => {
     let users = window.users;
     let comments = window.postComments;
+    let handles = users.map((user) => {
+        user = user.split(".");
+        if (user.length > 2) user.pop();
+
+        return user.join(".");
+    });
 
     const newAvatar = () => {
         let config = genConfig();
@@ -33,7 +39,7 @@ const Comment = () => {
                     <div className="flex items-center gap-3 md:shrink-0 md:self-start">
                         {newAvatar()}
                         <header className="flex flex-col md:hidden">
-                            <p className="text-sm font-medium">{users[key]}</p>
+                            <p className="text-sm">{handles[key]}</p>
                             <span className="text-xs">
                                 <time>Posts 8 Months Ago</time>
                             </span>
@@ -41,7 +47,7 @@ const Comment = () => {
                     </div>
                     <div>
                         <header className="hidden md:mt-1.5 md:flex md:flex-col">
-                            <p className="text-sm font-medium">{users[key]}</p>
+                            <p className="text-sm">@{handles[key]}</p>
                             <span className="text-xs">
                                 <time>Posts 8 Months Ago</time>
                             </span>

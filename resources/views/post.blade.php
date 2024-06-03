@@ -6,7 +6,7 @@
         <div class="px-6 border-t border-gray-200 lg:mx-8">
             <div class="base:mx-5 md:mx-6">
                 <article
-                    class="my-7 w-full flex flex-col sm:grid sm:grid-cols-6 xs:px-6 sm:px-4 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-14">
+                    class="my-7 w-full flex flex-col sm:grid sm:grid-cols-6 xs:px-6 sm:px-4 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-12">
                     <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                         <a
                             href="/"
@@ -72,11 +72,11 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 md:mt-14 sm:col-span-2">
+                    <div class="mt-8 md:mt-12 sm:col-span-2">
                         <img
                             src="/images/posts/{{ $post->image }}"
                             alt="{{ $post->title }}"
-                            class="h-40 w-full object-cover object-center rounded-xl md:h-36 lg:h-40" />
+                            class="h-40 w-full object-cover object-center rounded-xl md:h-36 lg:h-48" />
                         <div class="mt-3 flex flex-col gap-y-1 items-end text-xs">
                             <time datetime="{{ $post->published }}" class="text-gray-500">
                                 {{ date('F jS, Y', strtotime($post->published)) }}
@@ -120,7 +120,7 @@
 </x-app.layout>
 
 @php
-    $users = $comments->map(fn($comment) => ($comment->user->name));
+    $users = $comments->map(fn($comment) => ($comment->user->username));
 @endphp
 
 <script type="text/javascript">

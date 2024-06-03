@@ -52,7 +52,7 @@
             </header>
 
             {{-- Excerpt --}}
-            <div class="mt-2 text-sm line-clamp-3 md:line-clamp-2">
+            <div class="mt-2 text-sm line-clamp-3">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
