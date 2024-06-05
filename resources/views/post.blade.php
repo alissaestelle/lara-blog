@@ -106,17 +106,17 @@
                         </div>
                     </div>
 
-                    <div class="sm:col-span-4 sm:col-start-3">
+                    <div class="sm:col-start-3 sm:col-span-4">
                         <p
                             class="mb-2 pl-0.5 font-mono text-xl font-medium leading-6 text-gray-900 hover:text-gray-600"
                             style="font-family: 'Courier New', Courier, monospace">
                             Comments
                         </p>
                         <div id="react-comments"></div>
-                        <form method="POST" action="/" class="relative">
+                        <form method="POST" action="/posts/{{ $post->url }}/comments" class="relative">
                             @csrf
                             <div
-                                class="mt-8 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-fuchsia-800/20 focus-within:ring-offset-2 focus-within:ring-2">
+                                class="mt-8 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-fuchsia-800/20">
                                 <label for="body" class="sr-only">Body</label>
                                 <textarea
                                     rows="3"
@@ -125,13 +125,13 @@
                                     class="px-3 py-2 block w-full resize-none border-0 text-gray-900 placeholder:text-xs placeholder:font-medium placeholder:uppercase placeholder:tracking-wide placeholder:text-gray-400 placeholder:pt-1 focus:outline-none sm:text-sm sm:leading-6"
                                     placeholder="Add a Comment"></textarea>
                                 <div
-                                    class="flex items-center justify-between space-x-3 border-t border-gray-200 px-2 py-2 sm:px-3">
+                                    class="p-2 flex items-center justify-between space-x-3 border-t border-gray-200 sm:px-3">
                                     <div class="flex">
                                         <button
                                             type="button"
-                                            class="group -my-2 -ml-2 inline-flex items-center rounded-full px-3 py-2 text-left text-gray-400">
+                                            class="group inline-flex gap-1 items-center rounded-full text-left text-gray-400">
                                             <svg
-                                                class="-ml-1 mr-2 h-5 w-5 group-hover:text-gray-500"
+                                                class="h-5 w-5 group-hover:text-gray-500"
                                                 viewBox="0 0 20 20"
                                                 fill="currentColor"
                                                 aria-hidden="true">
@@ -149,8 +149,8 @@
                                     <div class="flex-shrink-0">
                                         <button
                                             type="submit"
-                                            class="inline-flex items-center rounded-xl bg-[#D8BFD8] px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                            Create
+                                            class="px-4 py-1 inline-flex items-center rounded-2xl bg-transparent text-[#C99BC1] text-xs uppercase tracking-wide font-medium border border border-rounded-xl border-[#D8BFD8] hover:bg-[#F6EEF5]/50 hover:shadow-sm">
+                                            Post
                                         </button>
                                     </div>
                                 </div>

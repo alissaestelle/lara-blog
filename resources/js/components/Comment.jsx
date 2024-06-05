@@ -4,6 +4,7 @@ import gradients from '../gradients.js';
 const Comment = () => {
     let users = window.users;
     let comments = window.postComments;
+
     let handles = users.map((user) => {
         user = user.split('.');
         if (user.length > 2) user.pop();
@@ -28,14 +29,14 @@ const Comment = () => {
             {comments.map((comment, key) => (
                 <div
                     key={comment.id}
-                    className="mb-4 p-4 rounded-xl border border-gray-200 bg-gray-50">
+                    className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
                     <div className="flex flex-col xs:pl-2 md:flex-row md:gap-4 lg:px-2">
                         <div className="flex items-center gap-3 md:shrink-0 md:self-start">
                             {newAvatar()}
                             <header className="flex flex-col md:hidden">
                                 <p className="text-sm">@{handles[key]}</p>
                                 <span className="text-xs">
-                                    <time>Posts 8 Months Ago</time>
+                                    <time>{comment.created_at}</time>
                                 </span>
                             </header>
                         </div>
@@ -43,7 +44,7 @@ const Comment = () => {
                             <header className="hidden md:mt-1.5 md:flex md:flex-col">
                                 <p className="text-sm">@{handles[key]}</p>
                                 <span className="text-xs">
-                                    <time>Posts 8 Months Ago</time>
+                                    <time>{new Date(comment.created_at).toLocaleDateString()}</time>
                                 </span>
                             </header>
                             <p className="mt-4 pl-2 text-sm leading-5 text-gray-600 2xs:pl-4 md:mb-1.5 md:pl-0">

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
+
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 
 use Illuminate\Support\Facades\Route;
@@ -19,12 +21,6 @@ use Illuminate\Support\Facades\Route;
 
 // General
 Route::get('/', [PostController::class, 'index'])->name('home');
-Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
-
-// Searches
-Route::get('/search', [PostController::class, 'search']);
-Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
-Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
 // New Users
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
@@ -37,6 +33,15 @@ Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
 // ↳ Auth middleware is assigned to anyone who IS logged in as a user.
+
+// Searches
+Route::get('/search', [PostController::class, 'search']);
+Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
+Route::get('/search?author={author:url}', [PostController::class, 'search']);
+
+// Posts x Comments
+Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
+Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
 
 /*
 Old Get Req:
