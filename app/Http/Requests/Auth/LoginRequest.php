@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
@@ -18,15 +20,32 @@ class LoginRequest extends FormRequest
     }
 
     /*
+    Configure the validator instance.
+    @param  \Illuminate\Validation\Validator  $validator
+    @return void
+    */
+
+    /*
+    function withValidator($validator)
+    {
+        dd($validator);
+        $validator->after(fn($validator) => Hash::check($this, $this->user()->password));
+        return;
+    }
+    */
+
+    /*
     Get the validation rules that apply to the request.
     @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
     */
 
     public function rules(): array
     {
+        // extract(request()->input());
+
         return [
             'email' => ['required', 'email', Rule::exists('users', 'email')],
-            'password' => ['required']
+            'password' => ['required'],
         ];
     }
 
@@ -35,12 +54,11 @@ class LoginRequest extends FormRequest
     @return array<string, string>
     */
 
-    
     public function messages(): array
     {
         return [
-            'email' => 'The email provided could not be verified.',
-            'password' => 'The password provided could not be verified.',
+            'email' => 'This email address could not be verified.',
+            'password' => 'This password could not be verified.',
         ];
     }
 }

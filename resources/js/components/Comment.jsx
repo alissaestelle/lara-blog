@@ -1,5 +1,7 @@
 import Avatar, { genConfig } from 'react-nice-avatar';
+
 import gradients from '../gradients.js';
+import moment from "moment";
 
 const Comment = () => {
     let users = window.users;
@@ -36,7 +38,7 @@ const Comment = () => {
                             <header className="flex flex-col md:hidden">
                                 <p className="text-sm">@{handles[key]}</p>
                                 <span className="text-xs">
-                                    <time>{comment.created_at}</time>
+                                    <time>{moment(comment.created_at).format("LLL")}</time>
                                 </span>
                             </header>
                         </div>
@@ -44,7 +46,7 @@ const Comment = () => {
                             <header className="hidden md:mt-1.5 md:flex md:flex-col">
                                 <p className="text-sm">@{handles[key]}</p>
                                 <span className="text-xs">
-                                    <time>{new Date(comment.created_at).toLocaleDateString()}</time>
+                                    <time>{moment(comment.created_at).format("LLL")}</time>
                                 </span>
                             </header>
                             <p className="mt-4 pl-2 text-sm leading-5 text-gray-600 2xs:pl-4 md:mb-1.5 md:pl-0">

@@ -18,7 +18,7 @@
 
         <div class="flex justify-center gap-x-2 w-full base:hidden">
             <span class="text-xs font-bold uppercase text-[#D875C7]">Welcome, {{ $user }}</span>
-            <form method="POST" action="/logout" class="flex">
+            <form method="POST" action="/logout" class="flex items-center">
                 @csrf
                 <button type="submit" class="text-xs font-bold uppercase text-gray-400">
                     Log Out
@@ -58,7 +58,7 @@
             @endphp
 
             <span class="text-xs font-bold uppercase text-[#D875C7]">Welcome, {{ $user }}</span>
-            <form method="POST" action="/logout" class="flex">
+            <form method="POST" action="/logout" class="flex items-center">
                 @csrf
                 <button type="submit" class="text-xs font-bold uppercase text-gray-400">
                     Log Out

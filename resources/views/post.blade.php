@@ -113,17 +113,26 @@
                             Comments
                         </p>
                         <div id="react-comments"></div>
-                        <form method="POST" action="/posts/{{ $post->url }}/comments" class="relative">
+                        <form
+                            method="POST"
+                            action="/posts/{{ $post->url }}/comments"
+                            class="mb-0 relative">
                             @csrf
+                            @if ($userID)
+                                <input type="hidden" name="userID" value="{{ $userID }}" />
+                            @endif
+
                             <div
                                 class="mt-8 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-fuchsia-800/20">
-                                <label for="body" class="sr-only">Body</label>
-                                <textarea
-                                    rows="3"
-                                    name="body"
-                                    id="body"
-                                    class="px-3 py-2 block w-full resize-none border-0 text-gray-900 placeholder:text-xs placeholder:font-medium placeholder:uppercase placeholder:tracking-wide placeholder:text-gray-400 placeholder:pt-1 focus:outline-none sm:text-sm sm:leading-6"
-                                    placeholder="Add a Comment"></textarea>
+                                <div>
+                                    <label for="body" class="sr-only">Body</label>
+                                    <textarea
+                                        rows="3"
+                                        name="body"
+                                        id="body"
+                                        class="px-3 py-2 block w-full resize-none border-0 text-gray-900 placeholder:text-xs placeholder:font-medium placeholder:uppercase placeholder:tracking-wide placeholder:text-gray-400 placeholder:pt-1 focus:outline-none sm:text-sm sm:leading-6"
+                                        placeholder="Add a Comment"></textarea>
+                                </div>
                                 <div
                                     class="p-2 flex items-center justify-between space-x-3 border-t border-gray-200 sm:px-3">
                                     <div class="flex">
@@ -156,6 +165,13 @@
                                 </div>
                             </div>
                         </form>
+
+                        @error('userID')
+                            <p class="p-2 text-red-500 text-xs">{{ $message }}</p>
+                        @enderror
+                        {{-- @error('body')
+                            <p class="p-2 text-red-500 text-xs">{{ $message }}</p>
+                        @enderror --}}
                     </div>
                 </article>
             </div>

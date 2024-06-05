@@ -38,6 +38,7 @@ class UserFactory extends Factory
             '.' => ''
         ]);
 
+        
         $url = str_replace(["'", ' '], ['', '-'], $strName);
         $username = str_replace(["'", ' '], ['', '.'], $strName);
         $email = explode('.', $username);

@@ -15,25 +15,26 @@ class PostController extends Controller
         ]);
     }
 
-    function search(Request $req)
+    function search(Request $request)
     {
-        $filters = $req->all();
+        $filters = $request->all();
         // dd($req->all());
 
         return view('posts', [
             'posts' => Post::latest()->filter($filters)->paginate()->withQueryString(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
-            'results' => collect($req->all()),
+            'results' => collect($request->all()),
         ]);
     }
 
-    function postDetails(Post $post)
+    function postDetails(Post $post, Request $request)
     {
         // Post::where('url', $post)->find()
 
         return view('post', [
             'post' => $post,
             'comments' => $post->comments,
+            'userID' => $request->session()->get('userID')
         ]);
     }
 }

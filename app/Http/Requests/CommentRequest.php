@@ -25,7 +25,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userID' => ['required', Rule::exists('users', 'id')],
+            'userID' => ['required'],
             'body' => ['required'],
         ];
     }
@@ -35,10 +35,12 @@ class CommentRequest extends FormRequest
     @return array<string, string>
     */
 
+    
     public function messages(): array
     {
         return [
-            'userID' => 'Create an account to comment on posts.',
+            'userID' => 'You must have an account to comment on posts.',
+            'body' => 'A body field is required.',
         ];
     }
 }
