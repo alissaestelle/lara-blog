@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CommentRule;
+
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password;
 
 class CommentRequest extends FormRequest
 {
@@ -25,7 +26,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userID' => ['bail', 'required'],
+            'userID' => [new CommentRule()],
             'body' => ['required'],
         ];
     }
@@ -39,7 +40,6 @@ class CommentRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'userID' => 'You must have an account to comment on posts.',
             'body' => 'A body field is required.',
         ];
     }

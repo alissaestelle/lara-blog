@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Rules;
+
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
+
+class CommentRule implements ValidationRule
+{
+    /*
+    Run the validation rule.
+    @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+    */
+
+    public function validate(string $attribute, mixed $value, Closure $fail): void
+    {
+        $value = session()->has('userID') ? session()->get('userID') : false;
+
+        if (!$value) {
+            $fail('You must have an account to comment on posts.');
+        }
+    }
+}

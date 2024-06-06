@@ -33,8 +33,7 @@ class PostController extends Controller
 
         return view('post', [
             'post' => $post,
-            'comments' => $post->comments,
-            'userID' => $request->session()->get('userID')
+            'comments' => $post->comments
         ]);
     }
 }

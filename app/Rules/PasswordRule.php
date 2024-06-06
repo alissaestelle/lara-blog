@@ -23,6 +23,11 @@ class PasswordRule implements ValidationRule
         $user = User::where('email', $email)->first();
         $match = Hash::check($value, $user->password);
 
-        $match ? auth()->login($user) : $fail('This password could not be verified.');
+        if ($match) {
+            auth()->login($user);
+            session(['userID' => $user->id]);
+        } else {
+            $fail('This password could not be verified.');
+        };
     }
 }

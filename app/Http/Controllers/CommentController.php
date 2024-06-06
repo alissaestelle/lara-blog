@@ -9,21 +9,15 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    function store(Post $post, Request $request)
+    function store(Post $post, CommentRequest $request)
     {
-        $request->stopOnFirstFailure() ?: $request->validated();
+        extract($request->validated());
 
-        if ($request) {
-            extract($request->input());
+        $comment = [
+            'userID' => $userID,
+            'body' => $body,
+        ];
 
-            $comment = [
-                'userID' => $userID,
-                'body' => $body,
-            ];
-
-            $post->comments()->create($comment);
-
-            return back();
-        }
+        $post->comments()->create($comment);
     }
 }

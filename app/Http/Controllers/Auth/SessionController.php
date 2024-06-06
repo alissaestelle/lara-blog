@@ -27,6 +27,7 @@ class SessionController extends Controller
     function destroy()
     {
         auth()->logout();
+        session()->forget('userID');
 
         return redirect('/')
             ->with('success', 'You have successfully logged out.')

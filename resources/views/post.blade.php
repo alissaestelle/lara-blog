@@ -118,9 +118,8 @@
                             action="/posts/{{ $post->url }}/comments"
                             class="mb-0 relative">
                             @csrf
-                            @if ($userID)
-                                <input type="hidden" name="userID" value="{{ $userID }}" />
-                            @endif
+                            
+                            <input type="hidden" name="userID" value="" />
 
                             <div
                                 class="mt-8 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-fuchsia-800/20">
