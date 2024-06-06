@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 
+use App\Models\User;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -16,15 +18,7 @@ class SessionController extends Controller
     }
 
     function store(LoginRequest $request): RedirectResponse
-    {
-        $attributes = $request->validated();
-        
-        $validator = auth()->attempt($attributes);
-
-        if ($validator) {
-            $request->session()->put('userID', auth()->user()->id);
-        }
-        
+    {        
         $request->session()->regenerate();
 
         return redirect('/')->with('success', 'You have successfully logged in.')->with('theme', 'text-[#B779AC] bg-[#F6EEF5]/25 border border-[#B779AC]');
@@ -32,7 +26,6 @@ class SessionController extends Controller
 
     function destroy()
     {
-        session()->forget('userID');
         auth()->logout();
 
         return redirect('/')

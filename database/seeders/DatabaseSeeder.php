@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Tag::factory(10)->create();
-        Post::factory(50)->create();
-        Comment::factory(100)->create();
+        Post::factory(25)->create();
+        Comment::factory(50)->create();
     }
 }

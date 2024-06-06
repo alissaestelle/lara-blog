@@ -9,12 +9,11 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    function store(Post $post, CommentRequest $request)
+    function store(Post $post, Request $request)
     {
+        $request->stopOnFirstFailure() ?: $request->validated();
 
-        $validator = $request->stopOnFirstFailure() ?: $request->validated();
-
-        if ($validator) {
+        if ($request) {
             extract($request->input());
 
             $comment = [

@@ -25,7 +25,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userID' => ['required'],
+            'userID' => ['bail', 'required'],
             'body' => ['required'],
         ];
     }
