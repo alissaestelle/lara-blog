@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
         return view('index', [
             'posts' => Post::latest()->paginate()->withQueryString(),
@@ -30,10 +30,12 @@ class PostController extends Controller
     function postDetails(Post $post, Request $request)
     {
         // Post::where('url', $post)->find()
+        $userID = $request->session()->has('userID') ? $request->session()->get('userID') : '';
 
         return view('post', [
             'post' => $post,
-            'comments' => $post->comments
+            'comments' => $post->comments,
+            'userID' => $userID,
         ]);
     }
 }

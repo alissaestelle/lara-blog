@@ -9,6 +9,8 @@ use Illuminate\Validation\Rule;
 
 class CommentRequest extends FormRequest
 {
+    protected $stopOnFirstFailure = true;
+    
     /*
     Determine if the user is authorized to make this request.
     */
@@ -26,7 +28,7 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userID' => [new CommentRule()],
+            'userID' => ['bail', new CommentRule()],
             'body' => ['required'],
         ];
     }
@@ -40,6 +42,7 @@ class CommentRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'userID' => 'You must have an account to comment on posts.',
             'body' => 'A body field is required.',
         ];
     }

@@ -14,8 +14,6 @@ class CommentRule implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $value = session()->has('userID') ? session()->get('userID') : false;
-
         if (!$value) {
             $fail('You must have an account to comment on posts.');
         }

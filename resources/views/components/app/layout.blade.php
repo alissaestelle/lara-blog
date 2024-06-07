@@ -14,7 +14,6 @@
     @php
         $message = session()->has('success') ? session()->get('success') : '';
         $theme = session()->has('theme') ? session()->get('theme') : '';
-        // dump(session());
     @endphp
 
     <body>

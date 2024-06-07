@@ -21,13 +21,13 @@ class PasswordRule implements ValidationRule
         extract(request()->input());
 
         $user = User::where('email', $email)->first();
-        $match = Hash::check($value, $user->password);
+        $match = isset($user) ? Hash::check($value, $user->password) : false;
 
         if ($match) {
             auth()->login($user);
             session(['userID' => $user->id]);
         } else {
             $fail('This password could not be verified.');
-        };
+        }
     }
 }

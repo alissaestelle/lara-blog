@@ -63,7 +63,7 @@
                 </p>
             </div>
 
-            {{-- Footer for Mobile --}}
+            {{-- Footer: Mobile --}}
             <footer
                 class="mt-4 w-full max-w-80 mx-auto xs:grid xs:grid-cols-3 xs:max-w-none base:hidden">
                 <a href="/search?author={{ $post->author->url }}" class="col-span-2 shrink-0">
@@ -83,7 +83,7 @@
                 </div>
             </footer>
 
-            {{-- Footer for Desktop --}}
+            {{-- Footer: Desktop --}}
             <footer class="hidden base:mt-6 base:w-full base:flex base:justify-between">
                 <a href="/search?author={{ $post->author->url }}">
                     <div

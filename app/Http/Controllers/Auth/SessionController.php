@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 
-use App\Models\User;
-
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -18,7 +16,7 @@ class SessionController extends Controller
     }
 
     function store(LoginRequest $request): RedirectResponse
-    {        
+    {
         $request->session()->regenerate();
 
         return redirect('/')->with('success', 'You have successfully logged in.')->with('theme', 'text-[#B779AC] bg-[#F6EEF5]/25 border border-[#B779AC]');

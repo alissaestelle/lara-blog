@@ -8,6 +8,8 @@ use Illuminate\Validation\Rule;
 
 class LoginRequest extends FormRequest
 {
+    protected $stopOnFirstFailure = true;
+    
     /*
     Determine if the user is authorized to make this request.
     */
@@ -25,7 +27,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', Rule::exists('users', 'email')],
+            'email' => ['bail', 'required', 'email', Rule::exists('users', 'email')],
             'password' => ['required', new PasswordRule()],
         ];
     }

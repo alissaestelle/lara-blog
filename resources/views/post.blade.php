@@ -3,9 +3,10 @@
         <x-app.nav />
     </x-slot>
     <x-slot:main>
-        <div class="px-6 border-t border-gray-200 lg:mx-8">
+        <div id="test" class="px-6 border-t border-gray-200 lg:mx-8">
             <div class="base:mx-5 md:mx-6">
-                <article
+                {{-- Article Nav Bar: Mobile --}}
+                <div
                     class="my-7 w-full flex flex-col sm:grid sm:grid-cols-6 xs:px-6 sm:px-4 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-12">
                     <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                         <a
@@ -39,6 +40,7 @@
                         </div>
                     </div>
 
+                    {{-- Article Nav Bar: Desktop --}}
                     <div
                         class="hidden sm:col-start-3 sm:col-span-4 sm:w-full sm:flex sm:items-center sm:justify-between">
                         <a
@@ -72,6 +74,9 @@
                         </div>
                     </div>
 
+                    {{-- Article --}}
+                    {{-- <article> --}}
+                    {{-- Left Sidebar: Image x Author x Date --}}
                     <div class="mt-8 md:mt-12 sm:col-span-2">
                         <img
                             src="/images/posts/{{ $post->image }}"
@@ -90,6 +95,7 @@
                         </div>
                     </div>
 
+                    {{-- Main Section: Title x Body --}}
                     <div class="sm:col-start-3 sm:col-span-4">
                         <div class="my-7 sm:my-12">
                             <h3
@@ -105,7 +111,9 @@
                             </p>
                         </div>
                     </div>
+                    {{-- </article> --}}
 
+                    {{-- ** React Comments Section ** --}}
                     <div class="sm:col-start-3 sm:col-span-4">
                         <p
                             class="mb-2 pl-0.5 font-mono text-xl font-medium leading-6 text-gray-900 hover:text-gray-600"
@@ -113,16 +121,19 @@
                             Comments
                         </p>
                         <div id="react-comments"></div>
+                    </div>
+
+                    {{-- Comment Form --}}
+                    <div class="sm:col-start-3 sm:col-span-4">
                         <form
                             method="POST"
                             action="/posts/{{ $post->url }}/comments"
+                            id="comment-form"
                             class="mb-0 relative">
                             @csrf
-                            
-                            <input type="hidden" name="userID" value="" />
-
+                            <input type="hidden" name="userID" value="{{ $userID }}" />
                             <div
-                                class="mt-8 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-fuchsia-800/20">
+                                class="mt-4 overflow-hidden rounded-xl border border-gray-300 shadow-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-fuchsia-800/20">
                                 <div>
                                     <label for="body" class="sr-only">Body</label>
                                     <textarea
@@ -164,15 +175,19 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
 
+                    {{-- Comment Validation Errs --}}
+                    <div class="sm:col-start-3 sm:col-span-4">
                         @error('userID')
                             <p class="p-2 text-red-500 text-xs">{{ $message }}</p>
                         @enderror
-                        {{-- @error('body')
+
+                        @error('body')
                             <p class="p-2 text-red-500 text-xs">{{ $message }}</p>
-                        @enderror --}}
+                        @enderror
                     </div>
-                </article>
+                </div>
             </div>
         </div>
     </x-slot>

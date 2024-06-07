@@ -19,5 +19,7 @@ class CommentController extends Controller
         ];
 
         $post->comments()->create($comment);
+
+        return back();
     }
 }
