@@ -8,6 +8,8 @@ use App\Http\Controllers\PostController;
 
 use Illuminate\Support\Facades\Route;
 
+use MailchimpMarketing\ApiClient;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,25 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Mailchimp
+Route::get('/lists', function () {
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us17',
+    ]);
+
+    // $response = $mailchimp->lists->getAllLists();
+    // $response = $mailchimp->lists->getList('36f96b67a3');
+    // $response = $mailchimp->lists->getListMembersInfo('36f96b67a3');
+    $response = $mailchimp->lists->addListMember('36f96b67a3', [
+        'email_address' => 'mildflowerchild@gmail.com',
+        'status' => 'subscribed'
+    ]);
+    dd($response);
+});
 
 // General
 Route::get('/', [PostController::class, 'index'])->name('home');
