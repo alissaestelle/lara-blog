@@ -8,6 +8,7 @@ use App\Models\User;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class PasswordRule implements ValidationRule
 {
@@ -20,12 +21,14 @@ class PasswordRule implements ValidationRule
     {
         extract(request()->input());
 
+        // dd(request());
+
         $user = User::where('email', $email)->first();
         $match = isset($user) ? Hash::check($value, $user->password) : false;
 
         if ($match) {
             auth()->login($user);
-            session(['userID' => $user->id]);
+            session(['userID' => Crypt::encryptString($user->id)]);
         } else {
             $fail('This password could not be verified.');
         }

@@ -75,7 +75,7 @@
                     </div>
 
                     {{-- Article --}}
-                    {{-- <article> --}}
+
                     {{-- Left Sidebar: Image x Author x Date --}}
                     <div class="mt-8 md:mt-12 sm:col-span-2">
                         <img
@@ -111,7 +111,6 @@
                             </p>
                         </div>
                     </div>
-                    {{-- </article> --}}
 
                     {{-- ** React Comments Section ** --}}
                     <div class="sm:col-start-3 sm:col-span-4">

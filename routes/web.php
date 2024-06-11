@@ -5,10 +5,9 @@ use App\Http\Controllers\Auth\SessionController;
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MailChimpController;
 
 use Illuminate\Support\Facades\Route;
-
-use MailchimpMarketing\ApiClient;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,23 +20,20 @@ use MailchimpMarketing\ApiClient;
 |
 */
 
-// Mailchimp
+// Mailchimp API Tests
 Route::get('/lists', function () {
-    $mailchimp = new \MailchimpMarketing\ApiClient();
+    $mailchimp = new Mailchimp();
 
     $mailchimp->setConfig([
         'apiKey' => config('services.mailchimp.key'),
         'server' => 'us17',
     ]);
 
-    // $response = $mailchimp->lists->getAllLists();
-    // $response = $mailchimp->lists->getList('36f96b67a3');
-    // $response = $mailchimp->lists->getListMembersInfo('36f96b67a3');
-    $response = $mailchimp->lists->addListMember('36f96b67a3', [
-        'email_address' => 'mildflowerchild@gmail.com',
-        'status' => 'subscribed'
-    ]);
-    dd($response);
+    // $allLists = $mailchimp->lists->getAllLists();
+    // $thisList = $mailchimp->lists->getList('36f96b67a3');
+    // $members = $mailchimp->lists->getListMembersInfo('36f96b67a3');
+
+    // dd($members);
 });
 
 // General
@@ -63,6 +59,9 @@ Route::get('/search?author={author:url}', [PostController::class, 'search']);
 // Posts x Comments
 Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
 Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
+
+// Subscribers
+Route::post('/subscribe', [MailChimpController::class, 'store']);
 
 /*
 Old Get Req:
