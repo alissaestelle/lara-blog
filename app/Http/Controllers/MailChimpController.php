@@ -33,9 +33,9 @@ class MailChimpController extends Controller
             // $res = $mailchimp->searchMembers->search($email);
             // $res = $res->exact_matches->total_items;
 
-            // return ValidationException::withMessages([
-            //     'email' => 'This email address could not be verified.',
-            // ]);
+            throw ValidationException::withMessages([
+                'email' => 'This email address could not be verified.',
+            ]);
         }
 
         return redirect('/')
