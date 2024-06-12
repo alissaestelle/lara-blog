@@ -2,37 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Newsletter;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
-use MailchimpMarketing\ApiClient as Mailchimp;
-
-class MailChimpController extends Controller
+class NewsletterController extends Controller
 {
-    function store(Request $request)
+    function __invoke(Request $request, Newsletter $newsletter)
     {
         $attributes = $request->validate(['email' => 'required|email']);
         extract($attributes);
 
-        $mailchimp = new Mailchimp();
-
-        $mailchimp->setConfig([
-            'apiKey' => config('services.mailchimp.key'),
-            'server' => 'us17',
-        ]);
-
         try {
-            $mailchimp->lists->addListMember('36f96b67a3', [
-                'email_address' => $email,
-                'status' => 'subscribed',
-            ]);
+            $newsletter->subscribe($email);
         } catch (\Throwable $th) {
-            // Log::error($th->getMessage());
-
-            // $res = $mailchimp->searchMembers->search($email);
-            // $res = $res->exact_matches->total_items;
-
             throw ValidationException::withMessages([
                 'email' => 'This email address could not be verified.',
             ]);

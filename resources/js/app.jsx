@@ -18,6 +18,8 @@ if (reactElem) {
     );
 }
 
+/*
 if (email) {
     email.setAttribute("size", email.placeholder.length - 1);
 }
+*/

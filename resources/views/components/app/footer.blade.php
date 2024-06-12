@@ -12,16 +12,18 @@
                 class="text-sm rounded-full base:flex base:flex-row base:items-center base:justify-between base:bg-white lg:bg-gray-200">
                 @csrf
                 <div
-                    class="py-2 pl-4 flex flex-nowrap items-center text-left rounded-full bg-white lg:py-3 lg:pl-7 lg:grow lg:bg-transparent">
+                    class="py-2 pl-4 flex flex-nowrap items-center max-h-[44px] text-left rounded-full bg-white lg:py-3 lg:pl-7 lg:grow lg:bg-transparent">
                     <label for="email" class="hidden"></label>
                     <input
                         id="email"
                         type="text"
                         name="email"
                         placeholder="Email Address"
+                        {{-- oninput="resize()" --}}
                         class="bg-transparent focus-within:outline-none" />
                     @error('email')
                         <p
+                            id="email-alert"
                             class="hidden pt-0 pr-1 grow text-xs text-center text-red-500 lg:block">
                             {{ $message }}
                         </p>
@@ -47,3 +49,20 @@
         @enderror
     </div>
 </footer>
+
+<script>
+    /*
+    const resize = () => {
+        let alert = document.getElementById('email-alert') ?? false;
+        let input = email.value.length;
+        let placeholder = email.placeholder.length - 1;
+
+        if (alert) {
+            alert.style.visibility = 'hidden';
+            alert.style.flexGrow = "0";
+            alert.style.width = '0';
+        }
+        email.size = input > placeholder ? input : placeholder;
+    };
+    */
+</script>

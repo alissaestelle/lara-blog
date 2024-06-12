@@ -12,7 +12,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        //
+        app()->bind('apiKey', fn () => config('services.mailchimp.key'));
+        app()->bind('listID', fn () => config('services.mailchimp.lists.subscribers'));
     }
 
     /*

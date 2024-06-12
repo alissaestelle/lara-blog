@@ -4,8 +4,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionController;
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\MailChimpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -61,7 +61,7 @@ Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
 Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
 
 // Subscribers
-Route::post('/subscribe', [MailChimpController::class, 'store']);
+Route::post('/subscribe', NewsletterController::class);
 
 /*
 Old Get Req:
