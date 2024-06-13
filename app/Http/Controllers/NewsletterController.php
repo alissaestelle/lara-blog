@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Services\Newsletter;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 class NewsletterController extends Controller
@@ -17,10 +19,15 @@ class NewsletterController extends Controller
 
         try {
             $newsletter->subscribe($email);
-        } catch (\Throwable $th) {
-            throw ValidationException::withMessages([
-                'email' => 'This email address could not be verified.',
-            ]);
+        } catch (RequestException $e) {
+            $res = json_decode($e->getResponse()->getBody());
+
+            $errMsg =
+                $res->title === 'Member Exists'
+                    ? ['email.exists' => "Oops! You're already subscribed."]
+                    : ['email.invalid' => 'This email address could not be verified.'];
+
+            throw ValidationException::withMessages($errMsg);
         }
 
         return redirect('/')
@@ -28,3 +35,5 @@ class NewsletterController extends Controller
             ->with('theme', 'text-sky-600 bg-sky-50/25 border border-sky-600');
     }
 }
+
+// Note: If a Newsletter instance is not provided as the second parameter, Laravel will create one via manual instructions in the service provider.
