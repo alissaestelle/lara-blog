@@ -8,7 +8,7 @@
         <div class="mx-auto w-[80%] relative inline-block xs:w-[60%]">
             <form
                 method="POST"
-                action="/subscribe"
+                action="/subscribe#newsletter"
                 class="text-sm rounded-full base:flex base:flex-row base:items-center base:justify-between base:bg-white lg:bg-gray-200">
                 @csrf
                 <div

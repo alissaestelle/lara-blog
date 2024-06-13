@@ -17,17 +17,10 @@ class NewsletterController extends Controller
         $attributes = $request->validate(['email' => 'required|email']);
         extract($attributes);
 
-        try {
-            $newsletter->subscribe($email);
-        } catch (RequestException $e) {
-            $res = json_decode($e->getResponse()->getBody());
+        $response = $newsletter->subscribe($email);
 
-            $errMsg =
-                $res->title === 'Member Exists'
-                    ? ['email.exists' => "Oops! You're already subscribed."]
-                    : ['email.invalid' => 'This email address could not be verified.'];
-
-            throw ValidationException::withMessages($errMsg);
+        if ($response[0] === 400) {
+            throw ValidationException::withMessages($response[1]);
         }
 
         return redirect('/')
@@ -36,4 +29,23 @@ class NewsletterController extends Controller
     }
 }
 
+
 // Note: If a Newsletter instance is not provided as the second parameter, Laravel will create one via manual instructions in the service provider.
+
+
+// Logic was moved to the Newsletter class in the event that the JSON responses have different properties. This is only meant as a temporary solution.
+
+/*
+try {
+    $response = $newsletter->subscribe($email);
+} catch (RequestException $e) {
+    $res = json_decode($e->getResponse()->getBody());
+
+    $errMsg =
+        $res->title === 'Member Exists'
+            ? ['email.exists' => "Oops! You're already subscribed."]
+            : ['email.invalid' => 'This email address could not be verified.'];
+
+    throw ValidationException::withMessages($errMsg);
+}
+*/

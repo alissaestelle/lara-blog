@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Newsletter;
+use App\Services\MailchimpNewsletter as Mailchimp;
 use Illuminate\Support\ServiceProvider;
 
 use MailchimpMarketing\ApiClient;
@@ -22,12 +23,12 @@ class AppServiceProvider extends ServiceProvider
             $apiKey = config('services.mailchimp.key');
             $listID = config('services.mailchimp.lists.subscribers');
 
-            $mailchimp = (new ApiClient)->setConfig([
+            $instance = (new ApiClient)->setConfig([
                 'apiKey' => $apiKey,
                 'server' => 'us17',
             ]);
 
-            return new Newsletter($mailchimp, $listID);
+            return new Mailchimp($instance, $listID);
         });
     }
 
