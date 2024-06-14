@@ -17,7 +17,7 @@
     @endphp
 
     <body>
-        <div class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
+        <div id="home" class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
             <header class="px-6 flex-none relative lg:px-8">
                 {{ $nav }}
                 @if (isset($message))

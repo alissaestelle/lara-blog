@@ -3,10 +3,16 @@
 namespace App\Providers;
 
 use App\Services\Newsletter;
+
+use App\Services\DripNewsletter as Drip;
 use App\Services\MailchimpNewsletter as Mailchimp;
+
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 use MailchimpMarketing\ApiClient;
+use PDO;
+use stdClass;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,9 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        // app()->bind('apiKey', fn () => config('services.mailchimp.key'));
-        // app()->bind('listID', fn () => config('services.mailchimp.lists.subscribers'));
-
+        // Mailchimp Template (Real)
         app()->bind(Newsletter::class, function () {
             $apiKey = config('services.mailchimp.key');
             $listID = config('services.mailchimp.lists.subscribers');
@@ -29,6 +33,14 @@ class AppServiceProvider extends ServiceProvider
             ]);
 
             return new Mailchimp($instance, $listID);
+        });
+
+        // Drip Template (Fake Example)
+        app()->bind(Newsletter::class, function () {
+            $instance = new stdClass();
+            $dripKey = Str::password();
+
+            return new Drip($instance, $dripKey);
         });
     }
 

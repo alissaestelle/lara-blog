@@ -23,14 +23,14 @@
                     @error('email.invalid')
                         <p
                             id="email-alert"
-                            class="hidden pt-0 pr-1 grow text-xs text-center text-red-500 lg:block">
+                            class="hidden pt-0 pr-1 text-xs text-center text-red-500 lg:block lg:grow">
                             {{ $message }}
                         </p>
                     @enderror
                     @error('email.exists')
                         <p
                             id="email-alert"
-                            class="hidden pt-0 pr-1 grow text-xs text-center text-blue-500 md:block">
+                            class="hidden pt-0 pr-1 text-xs text-center text-blue-500 md:block md:grow">
                             {{ $message }}
                         </p>
                     @enderror

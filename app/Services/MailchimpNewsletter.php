@@ -5,6 +5,8 @@ namespace App\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
+use Illuminate\Validation\ValidationException;
+
 use MailchimpMarketing\ApiClient;
 
 class MailchimpNewsletter implements Newsletter
@@ -16,21 +18,19 @@ class MailchimpNewsletter implements Newsletter
     function subscribe($email)
     {
         try {
-            $results = $this->mailchimp->lists->addListMember($this->listID, [
+            $response = $this->mailchimp->lists->addListMember($this->listID, [
                 'email_address' => $email,
                 'status' => 'subscribed',
             ]);
-
-            $response = [200, $results];
         } catch (RequestException $e) {
             $exception = json_decode($e->getResponse()->getBody());
 
-            $exception =
+            $errMsg =
                 $exception->title === 'Member Exists'
                     ? ['email.exists' => "Oops! You're already subscribed."]
                     : ['email.invalid' => 'This email address could not be verified.'];
 
-            $response = [400, $exception];
+            throw ValidationException::withMessages($errMsg);
         }
 
         return $response;

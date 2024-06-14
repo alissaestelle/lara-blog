@@ -19,11 +19,7 @@ class NewsletterController extends Controller
 
         $response = $newsletter->subscribe($email);
 
-        if ($response[0] === 400) {
-            throw ValidationException::withMessages($response[1]);
-        }
-
-        return redirect('/')
+        return redirect('/#home')
             ->with('success', 'You have successfully subscribed to this newsletter.')
             ->with('theme', 'text-sky-600 bg-sky-50/25 border border-sky-600');
     }
