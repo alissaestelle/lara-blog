@@ -60,8 +60,10 @@ Route::get('/search?author={author:url}', [PostController::class, 'search']);
 Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
 Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
 
+Route::get('/admin/post/create', [PostController::class, 'create']);
+
 // Subscribers
-Route::post('/subscribe', NewsletterController::class); 
+Route::post('/subscribe', NewsletterController::class);
 // ↳ NewsletterController is a single-service controller, meaning it only contains one method (unlike standard controllers which contain many). This controller is auto-instantiated via the __invoke() method (located in NewsletterController.php)
 
 

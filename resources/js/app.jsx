@@ -6,6 +6,8 @@ import ReactDOM from "react-dom/client";
 
 import Comment from "./components/Comment";
 
+import.meta.glob(['../images/**']);
+
 window.Alpine = Alpine;
 Alpine.start();
 

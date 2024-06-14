@@ -38,4 +38,9 @@ class PostController extends Controller
             'userID' => $userID,
         ]);
     }
+
+    function create()
+    {
+        return view('admin.post');
+    }
 }

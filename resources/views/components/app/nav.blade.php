@@ -3,7 +3,8 @@
     
     {{-- Left Nav: Mobile --}}
     <a href="/" class="w-full base:hidden">
-        <img src="../images/howls.png" alt="Calcifer" class="mx-auto w-fit h-12" />
+        <img src="{{ Vite::asset('resources/images/howls.png') }}" alt="Calcifer" class="mx-auto w-fit h-12">
+        {{-- <img src="../images/howls.png" alt="Calcifer" class="mx-auto w-fit h-12" /> --}}
     </a>
     <a href="/" class="text-xs font-bold uppercase base:hidden">Resources</a>
     <a href="/" class="text-xs font-bold uppercase base:hidden">Archive</a>
@@ -42,7 +43,8 @@
     {{-- Left Nav: Desktop --}}
     <div class="hidden base:flex base:items-center base:gap-x-4">
         <a href="/" class="shrink-0">
-            <img src="../images/howls.png" alt="Calcifer" class="w-fit h-10 base:mx-0" />
+            <img src="{{ Vite::asset('resources/images/howls.png') }}" alt="Calcifer" class="mx-auto w-fit h-12">
+            {{-- <img src="../images/howls.png" alt="Calcifer" class="w-fit h-10 base:mx-0" /> --}}
         </a>
         <a href="/" class="text-xs font-bold uppercase">Resources</a>
         <a href="/" class="text-xs font-bold uppercase">Archive</a>
