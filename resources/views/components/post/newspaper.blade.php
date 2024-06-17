@@ -1,10 +1,15 @@
+@php
+    $aew = 'resources/images/aew.png';
+    $postImg = "resources/images/posts/$post->image";
+@endphp
+
 <article
     class="bg-[#D8BFD8]/25 transition-colors duration-300 border border-fuchsia-800/20 rounded-xl hover:bg-[#D8BFD8]/50">
     <div class="px-5 py-6 flex flex-col h-full gap-y-4 xs:px-4 xs:py-5 md:px-5 md:py-6">
         <div class="md:self-stretch">
             <a href="/posts/{{ $post->url }}">
                 <img
-                    src="../images/posts/{{ $post->image }}"
+                    src="{{ Vite::asset($postImg) }}"
                     alt="{{ $post->title }}"
                     class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 md:object-center lg:h-52" />
             </a>
@@ -55,7 +60,10 @@
             <footer class="hidden sm:h-full sm:flex sm:items-center sm:justify-between">
                 <a href="/search?author={{ $post->author->url }}">
                     <div class="flex items-center gap-x-4 text-sm">
-                        <img src="../images/aew.png" class="h-12 w-12" alt="AE" />
+                        <img
+                            src="{{ Vite::asset($aew) }}"
+                            class="h-12 w-12"
+                            alt="AE" />
                         <h5 class="font-medium">{{ $post->author->name }}</h5>
                     </div>
                 </a>

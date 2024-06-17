@@ -1,10 +1,13 @@
+@php
+    $howls = 'resources/images/howls.png';
+@endphp
+
 <nav
     class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-5 base:py-6 base:flex-nowrap base:gap-y-0 lg:">
     
     {{-- Left Nav: Mobile --}}
     <a href="/" class="w-full base:hidden">
-        <img src="{{ Vite::asset('resources/images/howls.png') }}" alt="Calcifer" class="mx-auto w-fit h-12">
-        {{-- <img src="../images/howls.png" alt="Calcifer" class="mx-auto w-fit h-12" /> --}}
+        <img src="{{ Vite::asset($howls) }}" alt="Calcifer" class="mx-auto w-fit h-12">
     </a>
     <a href="/" class="text-xs font-bold uppercase base:hidden">Resources</a>
     <a href="/" class="text-xs font-bold uppercase base:hidden">Archive</a>
@@ -43,8 +46,7 @@
     {{-- Left Nav: Desktop --}}
     <div class="hidden base:flex base:items-center base:gap-x-4">
         <a href="/" class="shrink-0">
-            <img src="{{ Vite::asset('resources/images/howls.png') }}" alt="Calcifer" class="mx-auto w-fit h-12">
-            {{-- <img src="../images/howls.png" alt="Calcifer" class="w-fit h-10 base:mx-0" /> --}}
+            <img src="{{ Vite::asset($howls) }}" alt="Calcifer" class="mx-auto w-fit h-12">
         </a>
         <a href="/" class="text-xs font-bold uppercase">Resources</a>
         <a href="/" class="text-xs font-bold uppercase">Archive</a>

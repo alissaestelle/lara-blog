@@ -1,7 +1,11 @@
+@php
+    $postImg = "resources/images/posts/$post->image";
+@endphp
+
 <article class="mx-auto flex flex-col items-start w-full max-w-80">
     <a href="/posts/{{ $post->url }}" class="self-stretch w-full">
         <img
-            src="/images/posts/{{ $post->image }}"
+            src="{{ Vite::asset($postImg) }}"
             class="h-32 w-full object-cover object-center rounded-xl xs:h-28 xs:object-bottom sm:h-32 md:h-40 md:object-center"
             alt="{{ $post->title }}" />
     </a>

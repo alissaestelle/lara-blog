@@ -1,3 +1,7 @@
+@php
+    $postImg = "resources/images/posts/$post->image";
+@endphp
+
 <x-app.layout>
     <x-slot:nav>
         <x-app.nav />
@@ -79,7 +83,7 @@
                     {{-- Left Sidebar: Image x Author x Date --}}
                     <div class="mt-8 md:mt-12 sm:col-span-2">
                         <img
-                            src="/images/posts/{{ $post->image }}"
+                            src="{{ Vite::asset($postImg) }}"
                             alt="{{ $post->title }}"
                             class="h-40 w-full object-cover object-center rounded-xl md:h-36 lg:h-48" />
                         <div class="mt-3 flex flex-col gap-y-1 items-end text-xs">

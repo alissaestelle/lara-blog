@@ -1,10 +1,15 @@
+@php
+    $aew = 'resources/images/aew.png';
+    $moonCastle = '/resources/images/moon-castle.png'
+@endphp
+
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
     <div class="px-5 py-6 flex flex-col gap-y-4 base:flex-row base:flex-wrap">
         <div class="flex-1 base:self-center">
             <a href="/posts/{{ $post->url }}">
                 <div class="base:pr-6 lg:pr-8">
                     <img
-                        src="../images/moon-castle.png"
+                        src="{{ Vite::asset($moonCastle) }}"
                         alt="Moon Castle"
                         class="h-40 w-full object-cover object-bottom rounded-xl xs:h-48 base:h-52" />
                 </div>
@@ -68,7 +73,7 @@
                 class="mt-4 w-full max-w-80 mx-auto xs:grid xs:grid-cols-3 xs:max-w-none base:hidden">
                 <a href="/search?author={{ $post->author->url }}" class="col-span-2 shrink-0">
                     <div class="mb-6 flex gap-x-3 items-center xs:mb-0">
-                        <img src="../images/aew.png" class="h-12 w-12" alt="AE" />
+                        <img src="{{ Vite::asset($aew) }}" class="h-12 w-12" alt="AE" />
                         <div class="text-sm 2xl:text-base">
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
                             <h6>Text Here</h6>
@@ -89,7 +94,7 @@
                     <div
                         class="flex items-center gap-x-4 text-sm md:gap-x-3 lg:gap-x-4"
                         class="shrink-0 block">
-                        <img src="../images/aew.png" class="h-12 w-12" alt="AE" />
+                        <img src="{{ Vite::asset($aew) }}" class="h-12 w-12" alt="AE" />
                         <div class="flex-1">
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
                             <h6>Text Here</h6>
