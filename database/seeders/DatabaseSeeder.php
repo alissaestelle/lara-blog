@@ -23,4 +23,10 @@ class DatabaseSeeder extends Seeder
         Post::factory(25)->create();
         Comment::factory(50)->create();
     }
+
+    public function seed()
+    {
+        $users = User::factory(10)->create();
+        return $users;
+    }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 
+use Database\Seeders\DatabaseSeeder;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +22,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Mailchimp API Tests
+/* TEST ROUTES START */
+
+// Database Seeder
+Route::get('/seed', function () {
+    $users = new DatabaseSeeder();
+
+    // $results = $users->seed();
+    // dump($users);
+
+    return view('seeder', [
+        'users' => $results,
+    ]);
+
+});
+
+// Mailchimp
 Route::get('/lists', function () {
     $mailchimp = new Mailchimp();
 
@@ -35,6 +52,8 @@ Route::get('/lists', function () {
 
     // dd($members);
 });
+
+/* TEST ROUTES END */
 
 // General
 Route::get('/', [PostController::class, 'index'])->name('home');
