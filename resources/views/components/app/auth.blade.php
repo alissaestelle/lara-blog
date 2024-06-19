@@ -15,7 +15,7 @@
             {{ $nav }}
         </header>
         <main class="mx-auto px-6 flex-grow lg:px-8">
-            <div class="h-10 base:h-0"></div>
+            <div class="h-6 base:h-0"></div>
             {{ $main }}
         </main>
     </body>

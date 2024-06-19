@@ -32,7 +32,7 @@ const Comment = () => {
                 <div
                     key={comment.id}
                     className="mb-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
-                    <div className="flex flex-col xs:pl-2 md:flex-row md:gap-4 lg:px-2">
+                    <div className="flex flex-col xs:pl-2 md:pl-1.5 md:flex-row md:gap-4 lg:px-2">
                         <div className="flex items-center gap-3 md:shrink-0 md:self-start">
                             {newAvatar()}
                             {/* {newAvatar(avatars[key])} */}

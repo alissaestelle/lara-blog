@@ -15,6 +15,8 @@ class Admin
 
     public function handle(Request $request, Closure $next): Response
     {
+        // dump($request->path());
+
         if (auth()->user()?->id !== 10) {
             abort(403);
             // abort(Response::HTTP_FORBIDDEN);

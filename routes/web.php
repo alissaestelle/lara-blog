@@ -49,7 +49,7 @@ Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
 // Admin
-Route::get('/admin/post/create', [PostController::class, 'create']);
+Route::get('/admin/post/create', [PostController::class, 'create'])->middleware('admin');
 
 // Auth → Users
 Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);

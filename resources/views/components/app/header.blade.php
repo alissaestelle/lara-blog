@@ -4,11 +4,11 @@
 @endphp
 
 <div
-    class="mx-auto w-full flex flex-col gap-y-4 text-center base:px-5 base:py-6 base:text-left lg:mx-0">
+    class="mx-auto w-full flex flex-col text-center base:px-5 base:py-6 base:text-left lg:mx-0">
     <div>
         <a href="/">
             <h2
-                class="font-mono mt-3 text-3xl font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl"
+                class="font-mono mt-0 text-3xl font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl md:mt-3"
                 style="font-family: 'Courier New', Courier, monospace">
                 Untitled #777
             </h2>

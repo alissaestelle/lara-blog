@@ -17,17 +17,18 @@
     @endphp
 
     <body>
-        <div id="home" class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
-            <header class="px-6 flex-none relative lg:px-8">
+        <div class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
+            <header class="px-6 flex-none h-[180px] relative xs:h-[200] md:h-auto lg:px-8">
                 {{ $nav }}
-                @if (isset($message))
-                    <x-ui.alert class="{{ $theme }}">
-                        {{ $message }}
-                    </x-ui.alert>
-                @endif
+                <div class="relative">
+                    @if ($message)
+                        <x-ui.alert class="{{ $theme }}">
+                            {{ $message }}
+                        </x-ui.alert>
+                    @endif
+                </div>
             </header>
             <main class="flex-grow">
-                <div class="h-10 base:h-0"></div>
                 {{ $main }}
             </main>
             {{ $footer }}

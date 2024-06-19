@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -42,13 +43,9 @@ class PostController extends Controller
 
     function create()
     {
-        /*
-        if (auth()->guest()) {
-            abort(403);
-            abort(Response::HTTP_FORBIDDEN);
-        }
-        */
-
-        return view('posts.create');
+        $tags = Tag::all();
+        return view('posts.create', [
+            'tags' => $tags
+        ]);
     }
 }

@@ -3,7 +3,7 @@
 @endphp
 
 <nav
-    class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 base:justify-between xs:px-5 base:py-6 base:flex-nowrap base:gap-y-0 lg:">
+    class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-2 base:justify-between xs:px-5 base:py-6 base:flex-nowrap base:gap-y-0">
     
     {{-- Left Nav: Mobile --}}
     <a href="/" class="w-full base:hidden">
@@ -33,13 +33,6 @@
         <div class="flex justify-center gap-x-2 w-full text-xs font-bold uppercase base:hidden">
             <a href="/register">Register</a>
             <a href="/login">Log In</a>
-        </div>
-        <div class="mt-1 w-full text-center base:hidden">
-            <a
-                href="#newsletter"
-                class="px-4 py-2 w-full bg-blue-500 text-xs font-semibold text-white uppercase rounded-full">
-                Subscribe for Updates
-            </a>
         </div>
     @endauth
 

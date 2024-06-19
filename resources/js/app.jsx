@@ -1,12 +1,11 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
-import Avatar, { genConfig } from 'react-nice-avatar';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Comment from './components/Comment';
-import gradients from './gradients.js';
+import User from './components/User';
 
 import.meta.glob(['../images/**']);
 
@@ -14,12 +13,17 @@ window.Alpine = Alpine;
 Alpine.start();
 
 // const users = window.users ?? 0;
-const reactElem = document.getElementById('react-comments');
+const reactComments = document.getElementById('react-comments');
+const reactUser = document.getElementById('react-user');
 const email = document.getElementById('email') ?? false;
 const alert = document.getElementById('email-alert') ?? false;
 
-if (reactElem) {
-    ReactDOM.createRoot(reactElem).render(<Comment />);
+if (reactUser) {
+    ReactDOM.createRoot(reactUser).render(<User />);
+}
+
+if (reactComments) {
+    ReactDOM.createRoot(reactComments).render(<Comment />);
 }
 
 if (email && alert) {

@@ -1,5 +1,5 @@
 @php
-$queryStr = http_build_query(request()->except('tag'));
+    $queryStr = http_build_query(request()->except('tag'));
 @endphp
 
 {{-- ALPINE DEMO --}}
@@ -8,24 +8,22 @@ $queryStr = http_build_query(request()->except('tag'));
     <x-slot:trigger>
         <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm text-sm font-medium">
             {{ $tag->name ?? 'Tags' }}
-            <x-ui.svg name='↓'>
+            <x-ui.svg name="↓">
                 {{ $slot }}
             </x-ui.svg>
         </button>
-        </x-slot>
-        <x-slot:event>
-            <x-ui.anchor href="/">
-                All
-            </x-ui.anchor>
-            {{-- Highlight Selection If URL ID === Current ID --}}
-            @foreach ($tags as $t)
+    </x-slot>
+    <x-slot:event>
+        <x-ui.anchor href="/">All</x-ui.anchor>
+        {{-- Highlight Selection If URL ID === Current ID --}}
+        @foreach ($tags as $t)
             @php
-            $params = $queryStr ? "tag={$t->url}&{$queryStr}" : "tag={$t->url}"
+                $params = $queryStr ? "tag={$t->url}&{$queryStr}" : "tag={$t->url}"
             @endphp
-            <x-ui.anchor active="{{ isset($tag) && $tag->is($t) }}"
-                         href="/search?{{ $params }}">
+
+            <x-ui.anchor active="{{ isset($tag) && $tag->is($t) }}" href="/search?{{ $params }}">
                 {{ $t->name }}
             </x-ui.anchor>
-            @endforeach
-            </x-slot>
+        @endforeach
+    </x-slot>
 </x-ui.dropdown>

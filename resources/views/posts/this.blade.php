@@ -6,8 +6,9 @@
     <x-slot:nav>
         <x-app.nav />
     </x-slot>
+
     <x-slot:main>
-        <div id="test" class="px-6 border-t border-gray-200 lg:mx-8">
+        <div class="px-6 border-t border-gray-200 lg:mx-8">
             <div class="base:mx-5 md:mx-6">
                 {{-- Article Nav Bar: Mobile --}}
                 <div
