@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 import avatar from 'react-nice-avatar';
 
 // const { genConfig } = avatar;
+// console.log(genConfig());
 
 export default defineConfig({
     plugins: [
@@ -14,5 +15,3 @@ export default defineConfig({
         react(),
     ],
 });
-
-// console.log(genConfig());

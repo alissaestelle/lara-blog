@@ -13,8 +13,8 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /*
-     * Seed the application's database.
-     */
+    Seed the application's database.
+    */
 
     public function run(): void
     {
@@ -22,11 +22,5 @@ class DatabaseSeeder extends Seeder
         Tag::factory(10)->create();
         Post::factory(25)->create();
         Comment::factory(50)->create();
-    }
-
-    public function seed()
-    {
-        $users = User::factory(10)->create();
-        return $users;
     }
 }

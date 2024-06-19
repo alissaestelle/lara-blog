@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -20,7 +21,7 @@ class PostController extends Controller
         $filters = $request->all();
         // dd($req->all());
 
-        return view('posts', [
+        return view('posts.index', [
             'posts' => Post::latest()->filter($filters)->paginate()->withQueryString(),
             // ↳ filter() is an alias for scopeFilter() located in the Post model.
             'results' => collect($request->all()),
@@ -32,7 +33,7 @@ class PostController extends Controller
         // Post::where('url', $post)->find()
         $userID = $request->session()->has('userID') ? $request->session()->get('userID') : '';
 
-        return view('post', [
+        return view('posts.this', [
             'post' => $post,
             'comments' => $post->comments,
             'userID' => $userID,
@@ -41,6 +42,13 @@ class PostController extends Controller
 
     function create()
     {
-        return view('admin.post');
+        /*
+        if (auth()->guest()) {
+            abort(403);
+            abort(Response::HTTP_FORBIDDEN);
+        }
+        */
+
+        return view('posts.create');
     }
 }

@@ -5,27 +5,6 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-?>
-
-<!-- <script type="text/javascript">
-    import Avatar, { genConfig } from 'react-nice-avatar';
-    import gradients from './gradients.js';
-
-    const newAvatar = () => {
-    let config = genConfig();
-
-    let gradient = gradients[Math.floor(Math.random() * gradients.length)];
-    let colors = [config.bgColor, gradient];
-    let thisColor = colors[Math.floor(Math.random() * colors.length)];
-
-    config.bgColor = thisColor;
-
-    return {...config};
-    }
-</script> -->
-
-<?php 
-
 /*
 @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
 */

@@ -7,15 +7,9 @@
             <div class="3xs:h-20"></div>
 
             <x-app.header />
-
-            <div id="test">
-                {{-- {{ $users }} --}}
-            </div>
         </div>
     </x-slot>
     <x-slot:footer>
         <x-app.footer />
     </x-slot>
 </x-app.layout>
-
-<script></script>

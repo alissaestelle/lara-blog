@@ -22,22 +22,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* TEST ROUTES START */
+/* AUTH ROUTES START */
 
-// Database Seeder
-Route::get('/seed', function () {
-    $users = new DatabaseSeeder();
+// New Users
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+// ↳ Guest middleware is assigned to anyone who is NOT logged in as a user.
 
-    // $results = $users->seed();
-    // dump($users);
+// Existing Users
+Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
+Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
+Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
+// ↳ Auth middleware is assigned to anyone who IS logged in as a user.
 
-    return view('seeder', [
-        'users' => $results,
-    ]);
+/* AUTH ROUTES END */
 
-});
+/* POST ROUTES START */
 
-// Mailchimp
+// General
+Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
+
+// Searches
+Route::get('/search', [PostController::class, 'search']);
+Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
+Route::get('/search?author={author:url}', [PostController::class, 'search']);
+
+// Admin
+Route::get('/admin/post/create', [PostController::class, 'create']);
+
+// Auth → Users
+Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
+
+/* POST ROUTES END */
+
+/* NEWSLETTER ROUTES START */
+
+// Mailchimp Test
 Route::get('/lists', function () {
     $mailchimp = new Mailchimp();
 
@@ -53,42 +74,14 @@ Route::get('/lists', function () {
     // dd($members);
 });
 
-/* TEST ROUTES END */
-
-// General
-Route::get('/', [PostController::class, 'index'])->name('home');
-
-// New Users
-Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
-// ↳ Guest middleware is assigned to anyone who is NOT logged in as a user.
-
-// Existing Users
-Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
-Route::post('/login', [SessionController::class, 'store'])->middleware('guest');
-
-Route::post('/logout', [SessionController::class, 'destroy'])->middleware('auth');
-// ↳ Auth middleware is assigned to anyone who IS logged in as a user.
-
-// Searches
-Route::get('/search', [PostController::class, 'search']);
-Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
-Route::get('/search?author={author:url}', [PostController::class, 'search']);
-
-// Posts x Comments
-Route::get('/posts/{post:url}', [PostController::class, 'postDetails']);
-Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
-
-Route::get('/admin/post/create', [PostController::class, 'create']);
+// Drip Test/Example
+// ↳ Route::post('/drip', NewsletterController::class);
 
 // Subscribers
 Route::post('/subscribe', NewsletterController::class);
 // ↳ NewsletterController is a single-service controller, meaning it only contains one method (unlike standard controllers which contain many). This controller is auto-instantiated via the __invoke() method (located in NewsletterController.php)
 
-
-// Test/Example
-// Route::post('/drip', NewsletterController::class);
-
+/* NEWSLETTER ROUTES END */
 
 /*
 Old Get Req:

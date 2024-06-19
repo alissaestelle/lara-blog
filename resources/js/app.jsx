@@ -18,35 +18,6 @@ const reactElem = document.getElementById('react-comments');
 const email = document.getElementById('email') ?? false;
 const alert = document.getElementById('email-alert') ?? false;
 
-// let config = genConfig();
-// const test = document.getElementById('test');
-
-// let avatars;
-
-/*
-if (typeof users === 'object') {
-    avatars = Object.entries(users).map(([k, v]) => {
-        let config = genConfig();
-
-        let gradient = gradients[Math.floor(Math.random() * gradients.length)];
-        let colors = [config.bgColor, gradient];
-        let thisColor = colors[Math.floor(Math.random() * colors.length)];
-
-        config.bgColor = thisColor;
-
-        let user = [
-            ['name', v],
-            ['config', config],
-        ];
-
-        user = Object.fromEntries(user);
-        user.id = parseInt(k);
-
-        return user;
-    });
-}
-*/
-
 if (reactElem) {
     ReactDOM.createRoot(reactElem).render(<Comment />);
 }
@@ -67,3 +38,30 @@ if (email && alert) {
 
     email.oninput = resize;
 }
+
+/*
+let avatars = [];
+let config = genConfig();
+
+if (typeof users === 'object') {
+    Object.entries(users).map(([k, v]) => {
+        let config = genConfig();
+
+        let gradient = gradients[Math.floor(Math.random() * gradients.length)];
+        let colors = [config.bgColor, gradient];
+        let thisColor = colors[Math.floor(Math.random() * colors.length)];
+
+        config.bgColor = thisColor;
+
+        let user = [
+            ['name', v],
+            ['config', config],
+        ];
+
+        user = Object.fromEntries(user);
+        user.id = parseInt(k);
+
+        avatars.push(user);
+    });
+}
+*/
