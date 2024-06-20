@@ -6,7 +6,7 @@
 {{-- See Dropdown Component --}}
 <x-ui.dropdown>
     <x-slot:trigger>
-        <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm text-sm font-medium">
+        <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm font-medium">
             {{ $tag->name ?? 'Tags' }}
             <x-ui.svg name="↓">
                 {{ $slot }}

@@ -74,9 +74,10 @@
 
                     <form
                         action="POST"
+                        href="/admin/post/store"
                         class="sm:col-span-6 sm:grid sm:grid-cols-6 sm:gap-x-8 lg:gap-x-12">
                         @csrf
-                        {{-- Left Sidebar: Image x Author x Date --}}
+                        {{-- Left Sidebar: Image Upload x Tags --}}
                         <div class="mt-8 md:mt-12 sm:col-span-2">
                             <div>
                                 <label for="image" class="hidden"></label>
@@ -114,6 +115,25 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @if ($tags->count() > 0)
+                                <div class="mt-4 flex items-center gap-4">
+                                    <span class="text-sm font-medium">Tags</span>
+                                    <div
+                                        class="py-2 pl-3 pr-4 inline-flex w-full text-sm font-medium bg-gray-100 rounded-xl">
+                                        <select name="tag" class="w-full bg-transparent">
+                                            @foreach ($tags as $t)
+                                                <option value="{{ $t->url }}">
+                                                    {{ $t->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <x-ui.svg name="↓"></x-ui.svg>
+                            {{-- <x-ui.svg name="↓">{{ $slot }}</x-ui.svg> --}}
                         </div>
 
                         {{-- Main Section: Title x Body --}}
