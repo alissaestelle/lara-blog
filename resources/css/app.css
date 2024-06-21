@@ -6,9 +6,16 @@ html {
     scroll-behavior: smooth;
 }
 
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0;
+}
+
 .element {
     position: relative;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-weight: 500;
     line-height: 1.5rem;
 }
@@ -104,15 +111,15 @@ html {
         transform: translateY(0);
     }
     25% {
-        transform: translateY(-200px)
+        transform: translateY(-200px);
     }
     50% {
-        transform: translateY(-400px)
+        transform: translateY(-400px);
     }
     75% {
-        transform: translateY(-600px)
+        transform: translateY(-600px);
     }
     100% {
-        transform: translateY(-800px)
+        transform: translateY(-800px);
     }
 }

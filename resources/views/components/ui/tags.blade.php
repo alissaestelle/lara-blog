@@ -6,13 +6,12 @@
 {{-- See Dropdown Component --}}
 <x-ui.dropdown>
     <x-slot:trigger>
-        <button class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm font-medium">
+        <div class="py-2 pl-3 pr-9 mr-9 inline-flex w-full text-sm font-medium">
             {{ $tag->name ?? 'Tags' }}
-            <x-ui.svg name="↓">
-                {{ $slot }}
-            </x-ui.svg>
-        </button>
+            <x-ui.svg name="↓" />
+        </div>
     </x-slot>
+
     <x-slot:event>
         <x-ui.anchor href="/">All</x-ui.anchor>
         {{-- Highlight Selection If URL ID === Current ID --}}

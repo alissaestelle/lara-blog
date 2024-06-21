@@ -1,5 +1,3 @@
-{{-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius --}}
-
 @if ($name === '↓')
     <svg
         class="transform -rotate-90 absolute pointer-events-auto"

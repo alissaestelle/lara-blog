@@ -6,11 +6,11 @@
         <div class="3xs:h-20"></div>
         <x-app.header />
         @if ($posts->count())
-            <div class="mx-auto pb-12 w-full border-t border-gray-200 base:px-5">
+            <div class="px-6 pb-12 w-full border-t border-gray-200 lg:px-8">
                 <div
-                    class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-8 xs:gap-y-16 lg:gap-x-10">
+                    class="px-2 flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-6 xs:gap-y-16 md:mx-5 lg:gap-x-10">
                     <div class="pt-12 xs:col-span-3">
-                        <div class="element flex text-2xl">
+                        <div class="element px-2 flex text-2xl">
                             @if ($results->count())
                                 <p>Posts by</p>
                                 @foreach ($results as $tag)

@@ -4,7 +4,7 @@
 @endphp
 
 <div
-    class="mx-auto w-full flex flex-col text-center base:px-5 base:py-6 base:text-left lg:mx-0">
+    class="mx-auto w-full flex flex-col text-center base:px-5 base:py-6 base:text-left md:px-11 lg:mx-0">
     <div>
         <a href="/">
             <h2

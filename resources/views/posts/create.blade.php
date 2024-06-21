@@ -26,7 +26,7 @@
                             </svg>
                             Back to Posts
                         </a>
-                        <div class="flex flex-col gap-y-1 3xs:flex-row 3xs:gap-x-2">
+                        <div class="flex gap-2">
                             <span
                                 class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300 text-center">
                                 Tag
@@ -58,7 +58,7 @@
                             </svg>
                             Back to Posts
                         </a>
-                        <div class="flex gap-x-2">
+                        <div class="flex gap-2">
                             <span
                                 class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300">
                                 Tag
@@ -117,23 +117,23 @@
                             </div>
 
                             @if ($tags->count() > 0)
-                                <div class="mt-4 flex items-center gap-4">
-                                    <span class="text-sm font-medium">Tags</span>
+                                <div class="mt-4 flex items-center text-sm font-medium">
                                     <div
-                                        class="py-2 pl-3 pr-4 inline-flex w-full text-sm font-medium bg-gray-100 rounded-xl">
-                                        <select name="tag" class="w-full bg-transparent">
+                                        class="px-3 py-2 relative flex w-full bg-gray-100 rounded-xl">
+                                        <select
+                                            name="tag"
+                                            class="custom-select w-full bg-transparent rounded-xl cursor-pointer focus:outline-none">
+                                            <option>Tags</option>
                                             @foreach ($tags as $t)
-                                                <option value="{{ $t->url }}">
+                                                <option value="{{ $t->url }}" class="w-full text-lg">
                                                     {{ $t->name }}
                                                 </option>
                                             @endforeach
                                         </select>
+                                        <x-ui.svg name="↓" />
                                     </div>
                                 </div>
                             @endif
-
-                            <x-ui.svg name="↓"></x-ui.svg>
-                            {{-- <x-ui.svg name="↓">{{ $slot }}</x-ui.svg> --}}
                         </div>
 
                         {{-- Main Section: Title x Body --}}
