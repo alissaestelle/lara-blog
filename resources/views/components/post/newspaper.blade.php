@@ -11,7 +11,7 @@
                 <img
                     src="{{ Vite::asset($postImg) }}"
                     alt="{{ $post->title }}"
-                    class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-48 md:object-center lg:h-52" />
+                    class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-40 md:object-center lg:h-48" />
             </a>
         </div>
 

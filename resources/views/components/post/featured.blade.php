@@ -4,14 +4,14 @@
 @endphp
 
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
-    <div class="px-5 py-6 flex flex-col gap-y-4 base:flex-row base:flex-wrap">
+    <div class="p-5 py-6 flex flex-col gap-y-4 md:py-4 base:flex-row base:flex-wrap lg:py-6">
         <div class="flex-1 base:self-center">
             <a href="/posts/{{ $post->url }}">
                 <div class="base:pr-6 lg:pr-8">
                     <img
                         src="{{ Vite::asset($moonCastle) }}"
                         alt="Moon Castle"
-                        class="h-40 w-full object-cover object-bottom rounded-xl xs:h-48 base:h-52" />
+                        class="h-40 w-full object-cover object-bottom rounded-xl xs:h-48 lg:h-56" />
                 </div>
             </a>
         </div>

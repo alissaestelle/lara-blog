@@ -116,7 +116,7 @@
                                 </div>
                             </div>
 
-                            {{-- @if ($tags->count() > 0)
+                            @if ($tags->count() > 0)
                                 <div class="mt-4 flex items-center font-medium">
                                     <div
                                         class="px-3 py-2 relative flex w-full bg-gray-100 rounded-xl">
@@ -133,112 +133,82 @@
                                         <x-ui.svg name="↓" />
                                     </div>
                                 </div>
-                            @endif --}}
+                            @endif
 
-
-                            <div class="mt-4 pr-1 py-1.5 relative flex w-full bg-gray-100 rounded-xl">
-                                @if ($tags->count() > 0)
-                                <x-ui.dropdown>
-                                    <x-slot:trigger>
-                                <label
-                                    id="tags"
-                                    type="hidden"
-                                    {{-- class="block text-sm font-medium leading-6 text-gray-900" --}}
-                                    >
-                                </label>
-                                    <button
-                                        type="button"
-                                        class="w-full"
-                                        {{-- class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6" --}}
-                                        aria-haspopup="tag-list"
-                                        aria-expanded="true"
-                                        aria-labelledby="tags">
-                                        <div class="flex">
-                                            {{-- <img
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                                class="h-5 w-5 flex-shrink-0 rounded-full" /> --}}
-                                            <span class="ml-3 block truncate">Tags</span>
-                                        </div>
-                                        <span
-                                            class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                                            <svg
-                                                class="h-5 w-5 text-gray-400"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                                aria-hidden="true">
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </x-slot>
-    
-                                    {{--
-                                        Select popover, show/hide based on select state.
-                                        
-                                        Entering: ""
-                                        From: ""
-                                        To: ""
-                                        Leaving: "transition ease-in duration-100"
-                                        From: "opacity-100"
-                                        To: "opacity-0"
-                                    --}}
-    
-                                    <x-slot:event>
-                                    <ul
-                                        tabindex="-1"
-                                        role="tag-list"
-                                        aria-labelledby="tags"
-                                        {{-- aria-activedescendant="listbox-option-3" --}}
-                                        >
-                                        {{--
-                                            Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-                                            
-                                            Highlighted: "bg-indigo-600 text-white", Not Highlighted: "text-gray-900"
-                                        --}}
-
-                                        @foreach ($tags as $t)
-                                        <li
-                                            {{-- class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" --}}
-                                            id="listbox-option-{{ $t->id }}"
-                                            role="option"
-                                            value="{{ $t->id }}">
-                                            <div class="flex">
-                                                {{-- Selected: "font-semibold", Not Selected: "font-normal" --}}
-                                                <span class="ml-3 block truncate font-normal">
-                                                    {{ $t->name }}
-                                                </span>
-                                            </div>
-    
-                                            {{--
-                                                Checkmark, only display for selected option.
-                                                
-                                                Highlighted: "text-white", Not Highlighted: "text-indigo-600"
-                                            --}}
-    
+                            @if ($tags->count() > 0)
+                                <div x-cloak x-data="{ show: false }">
+                                    <label
+                                        for="tags"
+                                        {{-- id="tag-menu" --}}
+                                        type="hidden"
+                                        class="block text-sm font-medium leading-6 text-gray-900"></label>
+                                    <div
+                                        @click="show = !show"
+                                        @click.away="show = false"
+                                        class="relative mt-4 rounded-xl bg-gray-100">
+                                        <div
+                                            class="pr-10 pl-3 py-1.5 relative w-full rounded-xl text-left text-gray-900 font-medium shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm sm:leading-6">
+                                            <span id="tag-label" class="block truncate">Tags</span>
                                             <span
-                                                class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
+                                                class="pr-2 absolute inset-y-0 right-0 flex items-center pointer-events-none">
                                                 <svg
-                                                    class="h-5 w-5"
+                                                    class="h-5 w-5 text-gray-900"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
                                                     aria-hidden="true">
                                                     <path
                                                         fill-rule="evenodd"
-                                                        d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                        d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
                                                         clip-rule="evenodd" />
                                                 </svg>
                                             </span>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </x-slot>
-                                </x-ui.dropdown>
-                                @endif
-                            </div>
+                                        </div>
+
+                                        {{--
+                                            Select popover, show/hide based on select state.
+                                            
+                                            Entering: ""
+                                            From: ""
+                                            To: ""
+                                            Leaving: "transition ease-in duration-100"
+                                            From: "opacity-100"
+                                            To: "opacity-0"
+                                        --}}
+
+                                        <ul
+                                            x-show="show"
+                                            id="tags-list"
+                                            class="mt-2 py-1 absolute z-10 max-h-60 w-full overflow-auto rounded-xl bg-gray-100 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+
+                                            @foreach ($tags as $t)
+                                                <li
+                                                    class="pr-9 pl-3 py-2 relative w-full cursor-default select-none text-gray-900 hover:bg-[#D8BFD8] focus:bg-[#D8BFD8]">
+                                                    <input
+                                                        id=""
+                                                        type="hidden"
+                                                        value="{{ $t->id }}" />
+                                                    <span class="block truncate font-normal hover:text-white focus:text-white">
+                                                        {{ $t->name }}
+                                                    </span>
+                                                    <span
+                                                        class="pr-4 absolute inset-y-0 right-0 flex items-center text-gray-100 hover:text-gray-100 focus:text-gray-100">
+                                                        <svg
+                                                            class="h-5 w-5 text-gray-100 hover:text-gray-100 focus:text-gray-100"
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                fill-rule="evenodd"
+                                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
 
                         {{-- Main Section: Title x Body --}}
@@ -305,6 +275,32 @@
     </x-slot>
 </x-app.layout>
 
-<script>
-    let 
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
+
+<script type="text/javascript">
+    const tagsList = document.getElementById('tags-list');
+
+    tagsList.addEventListener('click', e => {
+        const tagLabel = document.getElementById('tag-label');
+        const listItem = e.target.closest("li");
+        const input = listItem.children[0];
+        const span = listItem.children[1].innerText;
+
+        input.setAttribute("id", "tags");
+        tagLabel.innerText = span;
+
+        listItem.style.backgroundColor = '#D8BFD8';
+        listItem.style.color = 'white';
+    });
+
+    // const options = Array.from(elements.options);
+
+    // console.log(elements.options);
+    // const options = Object.entries(Object.values(elements.options));
+
+    // const options = [...elements.options].map((e) => e.value);
 </script>

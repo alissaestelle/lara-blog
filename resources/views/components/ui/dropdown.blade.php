@@ -1,4 +1,4 @@
-<div class="flex-2 w-full text-left relative xs:flex-1 base:max-w-fit" x-data="{ show: false }">
+<div x-data="{ show: false }" class="flex-2 w-full text-left relative xs:flex-1 base:max-w-fit">
     {{-- TRIGGER --}}
     <div class="bg-gray-100 rounded-xl">
         <div @click="show = !show" @click.away="show = false">
