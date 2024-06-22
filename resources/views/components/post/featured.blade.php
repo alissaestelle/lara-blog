@@ -1,6 +1,6 @@
 @php
     $aew = 'resources/images/aew.png';
-    $moonCastle = '/resources/images/moon-castle.png'
+    $moonCastle = 'resources/images/moon-castle.png'
 @endphp
 
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
