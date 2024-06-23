@@ -80,7 +80,6 @@
                         {{-- Left Sidebar: Image Upload x Tags --}}
                         <div class="mt-8 md:mt-12 sm:col-span-2">
                             <div>
-                                <label for="image" class="hidden"></label>
                                 <div
                                     class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                     <div class="text-center">
@@ -97,15 +96,21 @@
                                         <div
                                             class="mt-4 flex flex-col text-sm leading-5 text-gray-600">
                                             <label
-                                                for="file-upload"
+                                                for="image"
                                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none hover:text-indigo-400">
+                                                <div id="upload-file">
                                                 <span>Upload a File</span>
-                                                <input
-                                                    name="file-upload"
-                                                    type="file"
-                                                    class="sr-only" />
+                                                <p class="text-xs leading-5">or Drag and Drop</p>
+                                            </div>
                                             </label>
-                                            <p class="text-xs leading-5">or Drag and Drop</p>
+                                            <div class="flex items-center justify-center">
+                                            <input
+                                                id="image"
+                                                type="file"
+                                                accept="image/*"
+                                                class="hidden"
+                                                {{-- class="sr-only" --}} />
+                                            </div>
                                         </div>
                                         <div
                                             class="mt-2 flex flex-col italic text-xs leading-4 text-gray-400">
@@ -117,38 +122,19 @@
                             </div>
 
                             @if ($tags->count() > 0)
-                                <div class="mt-4 flex items-center font-medium">
-                                    <div
-                                        class="px-3 py-2 relative flex w-full bg-gray-100 rounded-xl">
-                                        <select
-                                            name="tag"
-                                            class="custom-select w-full bg-transparent rounded-xl cursor-pointer text-sm focus:outline-none">
-                                            <option>Tags</option>
-                                            @foreach ($tags as $t)
-                                                <option value="{{ $t->url }}">
-                                                    {{ $t->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        <x-ui.svg name="↓" />
-                                    </div>
-                                </div>
-                            @endif
-
-                            @if ($tags->count() > 0)
                                 <div x-cloak x-data="{ show: false }">
-                                    <label
-                                        for="tags"
-                                        {{-- id="tag-menu" --}}
-                                        type="hidden"
-                                        class="block text-sm font-medium leading-6 text-gray-900"></label>
+                                    <label for="tags" type="hidden"></label>
                                     <div
                                         @click="show = !show"
                                         @click.away="show = false"
                                         class="relative mt-4 rounded-xl bg-gray-100">
                                         <div
-                                            class="pr-10 pl-3 py-1.5 relative w-full rounded-xl text-left text-gray-900 font-medium shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm sm:leading-6">
-                                            <span id="tag-label" class="block truncate">Tags</span>
+                                            class="pr-10 pl-3 py-1.5 relative w-full rounded-xl text-left font-medium shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm sm:leading-6">
+                                            <span
+                                                id="tag-label"
+                                                class="block truncate text-gray-900">
+                                                Tags
+                                            </span>
                                             <span
                                                 class="pr-2 absolute inset-y-0 right-0 flex items-center pointer-events-none">
                                                 <svg
@@ -164,39 +150,25 @@
                                             </span>
                                         </div>
 
-                                        {{--
-                                            Select popover, show/hide based on select state.
-                                            
-                                            Entering: ""
-                                            From: ""
-                                            To: ""
-                                            Leaving: "transition ease-in duration-100"
-                                            From: "opacity-100"
-                                            To: "opacity-0"
-                                        --}}
-
                                         <ul
                                             x-show="show"
                                             id="tags-list"
                                             class="mt-2 py-1 absolute z-10 max-h-60 w-full overflow-auto rounded-xl bg-gray-100 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-
                                             @foreach ($tags as $t)
                                                 <li
-                                                    class="pr-9 pl-3 py-2 relative w-full cursor-default select-none text-gray-900 hover:bg-[#D8BFD8] focus:bg-[#D8BFD8]">
-                                                    <input
-                                                        id=""
-                                                        type="hidden"
-                                                        value="{{ $t->id }}" />
-                                                    <span class="block truncate font-normal hover:text-white focus:text-white">
+                                                    class="pr-9 pl-3 py-2 relative w-full cursor-default select-none hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
+                                                    <input type="hidden" value="{{ $t->id }}" />
+                                                    <span class="block truncate font-normal">
                                                         {{ $t->name }}
                                                     </span>
                                                     <span
-                                                        class="pr-4 absolute inset-y-0 right-0 flex items-center text-gray-100 hover:text-gray-100 focus:text-gray-100">
+                                                        class="pr-4 absolute inset-y-0 right-0 flex items-center text-gray-100">
                                                         <svg
-                                                            class="h-5 w-5 text-gray-100 hover:text-gray-100 focus:text-gray-100"
+                                                            id="checkmark"
+                                                            class="hidden h-5 w-5"
                                                             viewBox="0 0 20 20"
                                                             fill="currentColor"
-                                                            aria-hidden="true">
+                                                            {{-- aria-hidden="true" --}}>
                                                             <path
                                                                 fill-rule="evenodd"
                                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
@@ -279,28 +251,36 @@
     [x-cloak] {
         display: none !important;
     }
+
+    input::file-selector-button {
+        display: none;
+    }
 </style>
 
 <script type="text/javascript">
     const tagsList = document.getElementById('tags-list');
+    const fileInput = document.getElementById("image");
 
-    tagsList.addEventListener('click', e => {
+    fileInput.addEventListener('change', (e) => {
+        const uploadFile = document.getElementById("upload-file");
+        const span = uploadFile.children[0];
+        const p = uploadFile.children[1];
+
+        span.innerText = e.target.files[0].name;
+        p.style.display = "none";
+    });
+
+    tagsList.addEventListener('click', (e) => {
         const tagLabel = document.getElementById('tag-label');
-        const listItem = e.target.closest("li");
+
+        const listItem = e.target.closest('li');
         const input = listItem.children[0];
         const span = listItem.children[1].innerText;
 
-        input.setAttribute("id", "tags");
+        input.setAttribute('id', 'tags');
         tagLabel.innerText = span;
 
         listItem.style.backgroundColor = '#D8BFD8';
         listItem.style.color = 'white';
     });
-
-    // const options = Array.from(elements.options);
-
-    // console.log(elements.options);
-    // const options = Object.entries(Object.values(elements.options));
-
-    // const options = [...elements.options].map((e) => e.value);
 </script>
