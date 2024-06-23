@@ -1,7 +1,3 @@
-@php
-    $userID = session()->has('userID') ? session()->get('userID') : '';
-@endphp
-
 <x-app.layout>
     <x-slot:nav>
         <x-app.nav />
@@ -81,7 +77,7 @@
                         enctype="multipart/form-data"
                         class="sm:col-span-6 sm:grid sm:grid-cols-6 sm:gap-x-8 lg:gap-x-12">
                         @csrf
-                        <input type="hidden" name="authorID" value="{{ $userID }}">
+                        <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
                         {{-- Left Sidebar: Image Upload x Tags --}}
                         <div class="mt-8 md:mt-12 sm:col-span-2">
                             <div>
@@ -116,8 +112,7 @@
                                                     name="image"
                                                     type="file"
                                                     accept="image/*"
-                                                    class="hidden"
-                                                    {{-- class="sr-only" --}} />
+                                                    class="hidden" />
                                             </div>
                                         </div>
                                         <div
@@ -126,6 +121,11 @@
                                             <p>10MB Max</p>
                                         </div>
                                     </div>
+                                    @error('image')
+                                        <p class="text-red-500 text-xs mt-1 pl-1">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -178,8 +178,7 @@
                                                             id="checkmark"
                                                             class="hidden h-5 w-5"
                                                             viewBox="0 0 20 20"
-                                                            fill="currentColor"
-                                                            {{-- aria-hidden="true" --}}>
+                                                            fill="currentColor">
                                                             <path
                                                                 fill-rule="evenodd"
                                                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
@@ -207,6 +206,7 @@
                                         value=""
                                         class="p-1 block w-full border-0 bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 focus:outline-none"
                                         placeholder="Add Title Here" />
+                                    <input name="url" type="hidden" value="temporary-url" />
                                 </div>
                                 <div class="mt-4 flex items-center gap-4">
                                     <div id="react-user"></div>
@@ -224,7 +224,6 @@
                                 </div>
                                 <div
                                     class="mt-12 leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm text-sm">
-                                    {{-- <img class="h-40 w-full object-cover object-center rounded-xl md:h-36 lg:h-48" /> --}}
                                     <label for="body" class="hidden"></label>
                                     <div class="overflow-hidden">
                                         <textarea

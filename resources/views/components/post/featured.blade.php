@@ -1,6 +1,5 @@
 @php
     $aew = 'resources/images/aew.png';
-    $moonCastle = 'resources/images/moon-castle.png'
 @endphp
 
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
@@ -9,9 +8,9 @@
             <a href="/posts/{{ $post->url }}">
                 <div class="base:pr-6 lg:pr-8">
                     <img
-                        src="{{ Vite::asset($moonCastle) }}"
+                        src="{{ Vite::image($post->image) }}"
                         alt="Moon Castle"
-                        class="h-40 w-full object-cover object-bottom rounded-xl xs:h-48 lg:h-56" />
+                        class="h-40 w-full object-cover rounded-xl xs:h-48 lg:h-56" />
                 </div>
             </a>
         </div>

@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
-import laravel from "laravel-vite-plugin";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
 import avatar from 'react-nice-avatar';
 
 // const { genConfig } = avatar;
@@ -9,8 +9,15 @@ import avatar from 'react-nice-avatar';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ["resources/css/app.css", "resources/js/app.jsx"],
-            refresh: true,
+            input: ['resources/css/app.css', 'resources/js/app.jsx'],
+            refresh: [
+                'app/View/Components/**',
+                'lang/**',
+                'resources/lang/**',
+                'resources/images/**',
+                'resources/views/**',
+                'routes/**',
+            ],
         }),
         react(),
     ],

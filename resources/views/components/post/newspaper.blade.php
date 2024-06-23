@@ -1,6 +1,5 @@
 @php
     $aew = 'resources/images/aew.png';
-    $postImg = "resources/images/posts/$post->image";
 @endphp
 
 <article
@@ -9,7 +8,7 @@
         <div class="md:self-stretch">
             <a href="/posts/{{ $post->url }}">
                 <img
-                    src="{{ Vite::asset($postImg) }}"
+                    src="{{ Vite::image($post->image) }}"
                     alt="{{ $post->title }}"
                     class="h-40 w-full object-cover object-bottom rounded-xl xs:h-32 md:h-40 md:object-center lg:h-48" />
             </a>

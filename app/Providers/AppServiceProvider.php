@@ -7,6 +7,7 @@ use App\Services\Newsletter;
 use App\Services\DripNewsletter as Drip;
 use App\Services\MailchimpNewsletter as Mailchimp;
 
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $apiKey = config('services.mailchimp.key');
             $listID = config('services.mailchimp.lists.subscribers');
 
-            $instance = (new ApiClient)->setConfig([
+            $instance = (new ApiClient())->setConfig([
                 'apiKey' => $apiKey,
                 'server' => 'us17',
             ]);
@@ -50,5 +51,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Vite::macro('image', fn(string $asset) => $this->asset("resources/images/posts/{$asset}"));
     }
 }

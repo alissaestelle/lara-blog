@@ -29,8 +29,22 @@ class PostRequest extends FormRequest
             'authorID' => ['required', new PostRule()],
             'tagID' => ['required', Rule::exists('tags', 'id')],
             'title' => ['required'],
+            'image' => ['file', 'image', 'max:10240'],
+            'url' => ['required', Rule::unique('posts', 'url')],
             'excerpt' => ['required'],
             'body' => ['required'],
+        ];
+    }
+
+    /*
+    Get the error messages for the defined validation rules.
+    @return array<string, string>
+    */
+
+    public function messages(): array
+    {
+        return [
+            'image' => 'Oops! This file is too large.',
         ];
     }
 }

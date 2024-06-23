@@ -10,19 +10,20 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+use Illuminate\Support\Str;
+
 class PostController extends Controller
 {
-    function index(Request $request)
+    public function index(Request $request)
     {
         return view('index', [
             'posts' => Post::latest()->paginate()->withQueryString(),
         ]);
     }
 
-    function search(Request $request)
+    public function search(Request $request)
     {
         $filters = $request->all();
-        // dd($req->all());
 
         return view('posts.index', [
             'posts' => Post::latest()->filter($filters)->paginate()->withQueryString(),
@@ -31,7 +32,7 @@ class PostController extends Controller
         ]);
     }
 
-    function postDetails(Post $post, Request $request)
+    public function postDetails(Post $post, Request $request)
     {
         // Post::where('url', $post)->find()
         $userID = $request->session()->has('userID') ? $request->session()->get('userID') : '';
@@ -43,44 +44,38 @@ class PostController extends Controller
         ]);
     }
 
-    function create()
+    public function create()
     {
         $tags = Tag::all();
+
         return view('posts.create', [
             'tags' => $tags,
         ]);
     }
 
-    function store(PostRequest $request)
+    public function store(PostRequest $request)
     {
-        /*
-        $attributes = $request->validate([
-            'tagID' => ['required', Rule::exists('tags', 'id')],
-            'title' => ['required'],
-            'excerpt' => ['required'],
-            'body' => ['required'],
-        ]);
-        */
+        $attr = $request->all();
+        $attr['url'] = Str::slug($attr['title']);
 
-        $imgPath = $request->hasFile('image') ? $request->image : false;
+        $imgFile = $request->hasFile('image') ? $request->image : false;
 
-        if ($imgPath) {
-            /* 
-            $time = time();
-            $extension = $imgPath->getClientOriginalExtension();
-            $fileName = "$time.$extension";
-            */
+        if ($imgFile) {
+            // $time = time();
+            // $uniqID = uniqid();
 
-            /* 
-            $path = $request->image->path();
-            $extension = $request->image->extension();
-            */
+            $fileName = $imgFile->getClientOriginalName();
+            $extension = $imgFile->getClientOriginalExtension();
 
-            $savedPath = $imgPath->move('uploads/images');
-            // $savedPath = $imgPath->store('uploads/images');
+            $fileName = pathinfo($fileName, PATHINFO_FILENAME);
+            $fileName = Str::slug($fileName);
+            $imgPath = "{$fileName}.{$extension}";
+
+            $imgFile->storeAs('posts', $imgPath, 'resources');
+            $attr['image'] = $imgPath;
         }
 
-        // Post::create([]);
+        Post::create($attr);
 
         return back();
     }

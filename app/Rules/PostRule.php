@@ -15,11 +15,8 @@ class PostRule implements ValidationRule
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        extract(request()->input());
-
-        if ($authorID) {
-            $value = Crypt::decryptString($authorID);
-            // dd($value);
+        if (!$value) {
+            $fail('This request could not be completed.');
         }
     }
 }
