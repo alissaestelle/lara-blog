@@ -1,6 +1,5 @@
 @php
     $userID = session()->has('userID') ? session()->get('userID') : '';
-    dump($userID);
 @endphp
 
 <x-app.layout>

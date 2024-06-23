@@ -81,5 +81,7 @@ class PostController extends Controller
         }
 
         // Post::create([]);
+
+        return back();
     }
 }

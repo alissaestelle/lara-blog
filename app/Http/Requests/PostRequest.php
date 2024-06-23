@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\PostRule;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostRequest extends FormRequest
 {

@@ -19,7 +19,7 @@ class PostRule implements ValidationRule
 
         if ($authorID) {
             $value = Crypt::decryptString($authorID);
-            dd($value);
+            // dd($value);
         }
     }
 }
