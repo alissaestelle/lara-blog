@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
+
 use App\Models\Post;
 use App\Models\Tag;
 
@@ -34,7 +36,7 @@ class PostController extends Controller
         // Post::where('url', $post)->find()
         $userID = $request->session()->has('userID') ? $request->session()->get('userID') : '';
 
-        return view('posts.this', [
+        return view('posts.details', [
             'post' => $post,
             'comments' => $post->comments,
             'userID' => $userID,
@@ -45,7 +47,39 @@ class PostController extends Controller
     {
         $tags = Tag::all();
         return view('posts.create', [
-            'tags' => $tags
+            'tags' => $tags,
         ]);
+    }
+
+    function store(PostRequest $request)
+    {
+        /*
+        $attributes = $request->validate([
+            'tagID' => ['required', Rule::exists('tags', 'id')],
+            'title' => ['required'],
+            'excerpt' => ['required'],
+            'body' => ['required'],
+        ]);
+        */
+
+        $imgPath = $request->hasFile('image') ? $request->image : false;
+
+        if ($imgPath) {
+            /* 
+            $time = time();
+            $extension = $imgPath->getClientOriginalExtension();
+            $fileName = "$time.$extension";
+            */
+
+            /* 
+            $path = $request->image->path();
+            $extension = $request->image->extension();
+            */
+
+            $savedPath = $imgPath->move('uploads/images');
+            // $savedPath = $imgPath->store('uploads/images');
+        }
+
+        // Post::create([]);
     }
 }

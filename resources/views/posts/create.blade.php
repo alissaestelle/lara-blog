@@ -1,3 +1,8 @@
+@php
+    $userID = session()->has('userID') ? session()->get('userID') : '';
+    dump($userID);
+@endphp
+
 <x-app.layout>
     <x-slot:nav>
         <x-app.nav />
@@ -5,9 +10,9 @@
     <x-slot:main>
         <div class="px-6 border-t border-gray-200 lg:mx-8">
             <div class="base:mx-5 md:mx-6">
-                {{-- Article Nav Bar: Mobile --}}
                 <div
                     class="my-7 w-full flex flex-col xs:px-6 sm:px-4 sm:grid sm:grid-cols-6 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-12">
+                    {{-- Article Nav Bar: Mobile --}}
                     <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                         <a
                             href="/"
@@ -71,12 +76,13 @@
                     </div>
 
                     {{-- Post Form --}}
-
                     <form
-                        action="POST"
-                        href="/admin/post/store"
+                        method="POST"
+                        action="/admin/post/store"
+                        enctype="multipart/form-data"
                         class="sm:col-span-6 sm:grid sm:grid-cols-6 sm:gap-x-8 lg:gap-x-12">
                         @csrf
+                        <input type="hidden" name="authorID" value="{{ $userID }}">
                         {{-- Left Sidebar: Image Upload x Tags --}}
                         <div class="mt-8 md:mt-12 sm:col-span-2">
                             <div>
@@ -99,17 +105,20 @@
                                                 for="image"
                                                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none hover:text-indigo-400">
                                                 <div id="upload-file">
-                                                <span>Upload a File</span>
-                                                <p class="text-xs leading-5">or Drag and Drop</p>
-                                            </div>
+                                                    <span>Upload a File</span>
+                                                    <p class="text-xs leading-5">
+                                                        or Drag and Drop
+                                                    </p>
+                                                </div>
                                             </label>
                                             <div class="flex items-center justify-center">
-                                            <input
-                                                id="image"
-                                                type="file"
-                                                accept="image/*"
-                                                class="hidden"
-                                                {{-- class="sr-only" --}} />
+                                                <input
+                                                    id="image"
+                                                    name="image"
+                                                    type="file"
+                                                    accept="image/*"
+                                                    class="hidden"
+                                                    {{-- class="sr-only" --}} />
                                             </div>
                                         </div>
                                         <div
@@ -157,7 +166,10 @@
                                             @foreach ($tags as $t)
                                                 <li
                                                     class="pr-9 pl-3 py-2 relative w-full cursor-default select-none hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                                                    <input type="hidden" value="{{ $t->id }}" />
+                                                    <input
+                                                        name="tagID"
+                                                        type="hidden"
+                                                        value="{{ $t->id }}" />
                                                     <span class="block truncate font-normal">
                                                         {{ $t->name }}
                                                     </span>
@@ -191,8 +203,8 @@
                                     style="font-family: 'Courier New', Courier, monospace">
                                     <label for="title" class="hidden"></label>
                                     <input
-                                        type="text"
                                         name="title"
+                                        type="text"
                                         value=""
                                         class="p-1 block w-full border-0 bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 focus:outline-none"
                                         placeholder="Add Title Here" />
@@ -256,31 +268,3 @@
         display: none;
     }
 </style>
-
-<script type="text/javascript">
-    const tagsList = document.getElementById('tags-list');
-    const fileInput = document.getElementById("image");
-
-    fileInput.addEventListener('change', (e) => {
-        const uploadFile = document.getElementById("upload-file");
-        const span = uploadFile.children[0];
-        const p = uploadFile.children[1];
-
-        span.innerText = e.target.files[0].name;
-        p.style.display = "none";
-    });
-
-    tagsList.addEventListener('click', (e) => {
-        const tagLabel = document.getElementById('tag-label');
-
-        const listItem = e.target.closest('li');
-        const input = listItem.children[0];
-        const span = listItem.children[1].innerText;
-
-        input.setAttribute('id', 'tags');
-        tagLabel.innerText = span;
-
-        listItem.style.backgroundColor = '#D8BFD8';
-        listItem.style.color = 'white';
-    });
-</script>

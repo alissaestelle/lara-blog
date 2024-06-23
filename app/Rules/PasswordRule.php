@@ -21,8 +21,6 @@ class PasswordRule implements ValidationRule
     {
         extract(request()->input());
 
-        // dd(request());
-
         $user = User::where('email', $email)->first();
         $match = isset($user) ? Hash::check($value, $user->password) : false;
 

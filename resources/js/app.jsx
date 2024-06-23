@@ -15,8 +15,11 @@ Alpine.start();
 // const users = window.users ?? 0;
 const reactComments = document.getElementById('react-comments');
 const reactUser = document.getElementById('react-user');
-const email = document.getElementById('email') ?? false;
-const alert = document.getElementById('email-alert') ?? false;
+const email = document.getElementById('email');
+const alert = document.getElementById('email-alert');
+
+const tagsList = document.getElementById('tags-list');
+const uploadImg = document.getElementById('image') ?? false;
 
 if (reactUser) {
     ReactDOM.createRoot(reactUser).render(<User />);
@@ -41,6 +44,34 @@ if (email && alert) {
     };
 
     email.oninput = resize;
+}
+
+if (uploadImg) {
+    uploadImg.addEventListener('change', (e) => {
+        const input = document.getElementById('upload-file');
+        const span = input.children[0];
+        const p = input.children[1];
+
+        uploadImg.setAttribute('value', e.target.value);
+        span.innerText = e.target.files[0].name;
+        p.style.display = 'none';
+    });
+}
+
+if (tagsList) {
+    tagsList.addEventListener('click', (e) => {
+        const tagLabel = document.getElementById('tag-label');
+
+        const listItem = e.target.closest('li');
+        const input = listItem.children[0];
+        const span = listItem.children[1].innerText;
+
+        input.setAttribute('id', 'tags');
+        tagLabel.innerText = span;
+
+        listItem.style.backgroundColor = '#D8BFD8';
+        listItem.style.color = 'white';
+    });
 }
 
 /*
