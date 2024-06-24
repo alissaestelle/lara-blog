@@ -56,14 +56,16 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $attr = $request->all();
-        $attr['url'] = Str::slug($attr['title']);
+        $url = $attr['url'];
 
+        // $chars = Str::random(5);
+        $uniqID = uniqid();
+        $duplicate = Post::where('url', '=', $url)->get();
+
+        $attr['url'] = $duplicate ? "{$url}-{$uniqID}" : $url;
         $imgFile = $request->hasFile('image') ? $request->image : false;
 
         if ($imgFile) {
-            // $time = time();
-            // $uniqID = uniqid();
-
             $fileName = $imgFile->getClientOriginalName();
             $extension = $imgFile->getClientOriginalExtension();
 
@@ -77,6 +79,8 @@ class PostController extends Controller
 
         Post::create($attr);
 
-        return back();
+        return redirect('/')
+            ->with('success', 'Your post is now live.')
+            ->with('theme', 'text-[#B779AC] bg-[#F6EEF5]/25 border border-[#B779AC]');
     }
 }

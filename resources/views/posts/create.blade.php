@@ -201,12 +201,13 @@
                                     style="font-family: 'Courier New', Courier, monospace">
                                     <label for="title" class="hidden"></label>
                                     <input
+                                        id="title"
                                         name="title"
                                         type="text"
                                         value=""
                                         class="p-1 block w-full border-0 bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 focus:outline-none"
                                         placeholder="Add Title Here" />
-                                    <input name="url" type="hidden" value="temporary-url" />
+                                    <input id="url" name="url" type="hidden" />
                                 </div>
                                 <div class="mt-4 flex items-center gap-4">
                                     <div id="react-user"></div>

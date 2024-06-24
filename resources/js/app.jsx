@@ -18,8 +18,9 @@ const reactUser = document.getElementById('react-user');
 const email = document.getElementById('email');
 const alert = document.getElementById('email-alert');
 
-const tagsList = document.getElementById('tags-list');
+const title = document.getElementById('title') ?? false;
 const uploadImg = document.getElementById('image') ?? false;
+const tagsList = document.getElementById('tags-list');
 
 if (reactUser) {
     ReactDOM.createRoot(reactUser).render(<User />);
@@ -44,6 +45,19 @@ if (email && alert) {
     };
 
     email.oninput = resize;
+}
+
+if (title) {
+    title.addEventListener('input', (e) => {
+        const url = document.getElementById('url');
+        let text = e.target.value;
+
+        text = text.toLowerCase().trim();
+        text = text.replace(/[^a-z0-9\s-]/g, ' ').trim();
+        text = text.replace(/[\s-]+/g, '-');
+
+        url.setAttribute('value', text);
+    });
 }
 
 if (uploadImg) {

@@ -30,7 +30,8 @@ class PostRequest extends FormRequest
             'tagID' => ['required', Rule::exists('tags', 'id')],
             'title' => ['required'],
             'image' => ['file', 'image', 'max:10240'],
-            'url' => ['required', Rule::unique('posts', 'url')],
+            'url' => ['required'],
+            // 'url' => ['required', Rule::unique('posts', 'url')],
             'excerpt' => ['required'],
             'body' => ['required'],
         ];
@@ -45,6 +46,7 @@ class PostRequest extends FormRequest
     {
         return [
             'image' => 'Oops! This file is too large.',
+            'url' => 'This url has already been taken.',
         ];
     }
 }
