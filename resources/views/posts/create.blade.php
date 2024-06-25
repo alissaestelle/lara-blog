@@ -82,7 +82,7 @@
                         <div class="mt-8 md:mt-12 sm:col-span-2">
                             <div>
                                 <div
-                                    class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                    class="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                     <div class="text-center">
                                         <svg
                                             class="mx-auto h-12 w-12 text-gray-300"
@@ -122,7 +122,7 @@
                                         </div>
                                     </div>
                                     @error('image')
-                                        <p class="text-red-500 text-xs mt-1 pl-1">
+                                        <p class="mt-2 text-xs text-red-500 text-center">
                                             {{ $message }}
                                         </p>
                                     @enderror
@@ -165,10 +165,7 @@
                                             @foreach ($tags as $t)
                                                 <li
                                                     class="pr-9 pl-3 py-2 relative w-full cursor-default select-none hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                                                    <input
-                                                        name="tagID"
-                                                        type="hidden"
-                                                        value="{{ $t->id }}" />
+                                                    <input type="hidden" value="{{ $t->id }}" />
                                                     <span class="block truncate font-normal">
                                                         {{ $t->name }}
                                                     </span>
@@ -189,6 +186,11 @@
                                             @endforeach
                                         </ul>
                                     </div>
+                                    @error('tagID')
+                                        <p class="mt-2 pl-1 text-xs text-red-500 text-center">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
                                 </div>
                             @endif
                         </div>
@@ -197,16 +199,16 @@
                         <div class="sm:col-start-3 sm:col-span-4">
                             <div class="my-7 sm:my-12">
                                 <div
-                                    class="font-mono text-3xl font-medium border-b border-gray-200"
+                                    class="font-mono text-3xl font-medium border-b border-gray-200 focus-within:outline-none"
                                     style="font-family: 'Courier New', Courier, monospace">
                                     <label for="title" class="hidden"></label>
                                     <input
                                         id="title"
                                         name="title"
                                         type="text"
-                                        value=""
-                                        class="p-1 block w-full border-0 bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 focus:outline-none"
-                                        placeholder="Add Title Here" />
+                                        value="{{ old('title') }}"
+                                        class="p-1 block w-full border-0 border-transparent bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 placeholder:whitespace-normal focus-visible:outline-none @error('title') placeholder:text-red-500 @enderror"
+                                        placeholder="@error('title') {{ $message }} @else Add Title Here @enderror" />
                                     <input id="url" name="url" type="hidden" />
                                 </div>
                                 <div class="mt-4 flex items-center gap-4">
@@ -215,11 +217,13 @@
                                         class="w-full leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm">
                                         <label for="excerpt" class="hidden"></label>
                                         <div class="overflow-hidden">
+                                            {{-- format-ignore-start --}}
                                             <textarea
                                                 name="excerpt"
                                                 rows="2"
-                                                class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide focus:outline-none"
-                                                placeholder="Add an Excerpt"></textarea>
+                                                class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus-visible:outline-none @error('excerpt') placeholder:text-red-500 @enderror"
+                                                placeholder="@error('excerpt') {{ $message }} @else Add an Excerpt @enderror">{{ old('excerpt') }}</textarea>
+                                            {{-- format-ignore-end --}}
                                         </div>
                                     </div>
                                 </div>
@@ -227,11 +231,13 @@
                                     class="mt-12 leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm text-sm">
                                     <label for="body" class="hidden"></label>
                                     <div class="overflow-hidden">
+                                        {{-- format-ignore-start --}}
                                         <textarea
                                             name="body"
                                             rows="10"
-                                            class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide focus:outline-none"
-                                            placeholder="Add Content Here"></textarea>
+                                            class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus:outline-none @error('body') placeholder:text-red-500 @enderror"
+                                            placeholder="@error('body') {{ $message }} @else Add Content Here @enderror">{{ old('body') }}</textarea>
+                                        {{-- format-ignore-end --}}
                                     </div>
                                 </div>
                                 <div class="mt-4 pr-0.5 flex justify-end gap-4 text-sm">

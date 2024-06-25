@@ -80,7 +80,7 @@ if (tagsList) {
         const input = listItem.children[0];
         const span = listItem.children[1].innerText;
 
-        input.setAttribute('id', 'tags');
+        input.setAttribute('name', 'tagID');
         tagLabel.innerText = span;
 
         listItem.style.backgroundColor = '#D8BFD8';

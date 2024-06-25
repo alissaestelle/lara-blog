@@ -58,9 +58,8 @@ class PostController extends Controller
         $attr = $request->all();
         $url = $attr['url'];
 
-        // $chars = Str::random(5);
         $uniqID = uniqid();
-        $duplicate = Post::where('url', '=', $url)->get();
+        $duplicate = Post::where('url', '=', $url)->count();
 
         $attr['url'] = $duplicate ? "{$url}-{$uniqID}" : $url;
         $imgFile = $request->hasFile('image') ? $request->image : false;

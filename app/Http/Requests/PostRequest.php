@@ -29,7 +29,7 @@ class PostRequest extends FormRequest
             'authorID' => ['required', new PostRule()],
             'tagID' => ['required', Rule::exists('tags', 'id')],
             'title' => ['required'],
-            'image' => ['file', 'image', 'max:10240'],
+            'image' => ['required', 'file', 'image', 'max:10240'],
             'url' => ['required'],
             // 'url' => ['required', Rule::unique('posts', 'url')],
             'excerpt' => ['required'],
@@ -45,6 +45,7 @@ class PostRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'tagID' => 'A tag selection is required.',
             'image' => 'Oops! This file is too large.',
             'url' => 'This url has already been taken.',
         ];
