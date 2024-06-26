@@ -12,7 +12,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
 use MailchimpMarketing\ApiClient;
-use PDO;
 use stdClass;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
             $apiKey = config('services.mailchimp.key');
             $listID = config('services.mailchimp.lists.subscribers');
 
-            $instance = (new ApiClient())->setConfig([
+            $instance = (new ApiClient)->setConfig([
                 'apiKey' => $apiKey,
                 'server' => 'us17',
             ]);
@@ -37,12 +36,12 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // Drip Template (Fake Example)
-        app()->bind(Newsletter::class, function () {
-            $instance = new stdClass();
-            $dripKey = Str::password();
+        // app()->bind(Newsletter::class, function () {
+        //     $instance = new stdClass();
+        //     $dripKey = Str::password();
 
-            return new Drip($instance, $dripKey);
-        });
+        //     return new Drip($instance, $dripKey);
+        // });
     }
 
     /*

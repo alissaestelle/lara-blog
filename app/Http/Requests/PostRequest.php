@@ -31,7 +31,6 @@ class PostRequest extends FormRequest
             'title' => ['required'],
             'image' => ['required', 'file', 'image', 'max:10240'],
             'url' => ['required'],
-            // 'url' => ['required', Rule::unique('posts', 'url')],
             'excerpt' => ['required'],
             'body' => ['required'],
         ];
@@ -46,7 +45,7 @@ class PostRequest extends FormRequest
     {
         return [
             'tagID' => 'A tag selection is required.',
-            'image' => 'Oops! This file is too large.',
+            'image.max:10240' => 'Oops! This file is too large.',
             'url' => 'This url has already been taken.',
         ];
     }

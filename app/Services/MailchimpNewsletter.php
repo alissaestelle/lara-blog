@@ -28,7 +28,7 @@ class MailchimpNewsletter implements Newsletter
             $errMsg =
                 $exception->title === 'Member Exists'
                     ? ['email.exists' => "Oops! You're already subscribed."]
-                    : ['email.invalid' => 'This email address could not be verified.'];
+                    : ['email' => 'This email address could not be verified.'];
 
             throw ValidationException::withMessages($errMsg);
         }

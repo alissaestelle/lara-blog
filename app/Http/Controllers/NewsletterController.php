@@ -14,10 +14,10 @@ class NewsletterController extends Controller
 {
     function __invoke(Request $request, Newsletter $newsletter)
     {
-        $attributes = $request->validate(['email' => 'required|email']);
+        $attributes = $request->validate(['email' => 'required']);
         extract($attributes);
 
-        $response = $newsletter->subscribe($email);
+        $newsletter->subscribe($email);
 
         return redirect('/#home')
             ->with('success', 'You have successfully subscribed to this newsletter.')

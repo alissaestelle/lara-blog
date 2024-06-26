@@ -24,26 +24,29 @@
                         name="email"
                         placeholder="Email Address"
                         class="grow bg-transparent focus-within:outline-none" />
-                    @error('email.invalid')
+
+                    @error('email')
                         <p
                             id="email-alert"
-                            class="hidden pt-0 pr-1 text-xs text-center text-red-500 lg:block lg:grow">
+                            class="hidden pt-0 mr-2 text-xs text-center text-red-500 md:block md:grow">
                             {{ $message }}
                         </p>
                     @enderror
+
                     @error('email.exists')
                         <p
                             id="email-alert"
-                            class="hidden pt-0 pr-1 text-xs text-center text-blue-500 md:block md:grow">
+                            class="hidden pt-0 mr-2 text-xs text-center text-blue-500 md:block md:grow">
                             {{ $message }}
                         </p>
                     @enderror
                 </div>
-                @error('email.invalid')
+                @error('email')
                     <p class="pt-2 text-red-500 text-xs md:hidden">
                         {{ $message }}
                     </p>
                 @enderror
+
                 @error('email.exists')
                     <p class="pt-2 text-blue-500 text-xs md:hidden">
                         {{ $message }}
@@ -57,10 +60,5 @@
                 </button>
             </form>
         </div>
-        @error('email.invalid')
-            <p class="hidden pt-3 text-xs text-center text-red-500 md:block lg:hidden">
-                {{ $message }}
-            </p>
-        @enderror
     </div>
 </footer>

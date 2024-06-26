@@ -165,7 +165,7 @@
                                             @foreach ($tags as $t)
                                                 <li
                                                     class="pr-9 pl-3 py-2 relative w-full cursor-default select-none hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                                                    <input type="hidden" value="{{ $t->id }}" />
+                                                    <input id="{{ $t->id }}" type="hidden" value="{{ $t->id }}" />
                                                     <span class="block truncate font-normal">
                                                         {{ $t->name }}
                                                     </span>
@@ -273,3 +273,21 @@
         display: none;
     }
 </style>
+
+<script>
+    const oldTag = @json(old('tagID')) ?? false;
+
+    if (oldTag) {
+        const selection = document.getElementById(oldTag);
+        const tagLabel = document.getElementById('tag-label');
+
+        let listItem = selection.parentElement;
+        let tagName = selection.nextElementSibling.innerText;
+        
+        tagName = tagName.replace(/(\r\n|\n|\r)/g, "");
+        tagLabel.innerText = tagName;
+        
+        listItem.style.backgroundColor = '#D8BFD8';
+        listItem.style.color = 'white';
+    }
+</script>

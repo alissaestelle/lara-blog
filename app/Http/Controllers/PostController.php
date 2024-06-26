@@ -7,9 +7,10 @@ use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Tag;
 
+// use Faker\Generator as Faker;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -53,28 +54,41 @@ class PostController extends Controller
         ]);
     }
 
+    protected function postURL($url)
+    {
+        $duplicate = Post::where('url', '=', $url)->count();
+
+        if ($duplicate) {
+            $words = \Faker\Factory::create()->unique()->words(2);
+            $words = "{$words[0]}-{$words[1]}";
+
+            $url = "{$url}-{$words}";
+            $this->postURL($url);
+        }
+
+        return $url;
+    }
+
+    protected function postImage($image)
+    {
+        $fileName = $image->getClientOriginalName();
+        $extension = $image->getClientOriginalExtension();
+
+        $fileName = pathinfo($fileName, PATHINFO_FILENAME);
+        $fileName = Str::slug($fileName);
+        $imgPath = "{$fileName}.{$extension}";
+
+        $image->storeAs('posts', $imgPath, 'resources');
+
+        return $imgPath;
+    }
+
     public function store(PostRequest $request)
     {
         $attr = $request->all();
-        $url = $attr['url'];
 
-        $uniqID = uniqid();
-        $duplicate = Post::where('url', '=', $url)->count();
-
-        $attr['url'] = $duplicate ? "{$url}-{$uniqID}" : $url;
-        $imgFile = $request->hasFile('image') ? $request->image : false;
-
-        if ($imgFile) {
-            $fileName = $imgFile->getClientOriginalName();
-            $extension = $imgFile->getClientOriginalExtension();
-
-            $fileName = pathinfo($fileName, PATHINFO_FILENAME);
-            $fileName = Str::slug($fileName);
-            $imgPath = "{$fileName}.{$extension}";
-
-            $imgFile->storeAs('posts', $imgPath, 'resources');
-            $attr['image'] = $imgPath;
-        }
+        $attr['url'] = $this->postURL($attr['url']);
+        $attr['image'] = $this->postImage($attr['image']);
 
         Post::create($attr);
 

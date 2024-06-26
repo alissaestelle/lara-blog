@@ -8,8 +8,8 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 
 use Database\Seeders\DatabaseSeeder;
-
 use Illuminate\Support\Facades\Route;
+use MailchimpMarketing\ApiClient as Mailchimp;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +68,8 @@ Route::get('/lists', function () {
         'server' => 'us17',
     ]);
 
+    dd($mailchimp);
+
     // $allLists = $mailchimp->lists->getAllLists();
     // $thisList = $mailchimp->lists->getList('36f96b67a3');
     // $members = $mailchimp->lists->getListMembersInfo('36f96b67a3');
@@ -76,7 +78,9 @@ Route::get('/lists', function () {
 });
 
 // Drip Test/Example
-// ↳ Route::post('/drip', NewsletterController::class);
+// ↳ 
+
+Route::post('/drip', NewsletterController::class);
 
 // Subscribers
 Route::post('/subscribe', NewsletterController::class);
