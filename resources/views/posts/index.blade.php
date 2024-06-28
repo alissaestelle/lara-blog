@@ -6,10 +6,10 @@
         <div class="3xs:h-20"></div>
         <x-app.header />
         @if ($posts->count())
-            <div class="px-6 pb-12 w-full border-t border-gray-200 lg:px-8">
+            <div class="pb-12 w-full border-t border-gray-200">
                 <div
-                    class="px-2 flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:mx-5 md:gap-x-6 lg:gap-x-8">
-                    <div class="pt-12 xs:col-span-3">
+                    class="px-2 flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:gap-x-6 lg:gap-x-8">
+                    <div class="pt-10 xs:col-span-3">
                         <div class="element px-2 flex text-2xl">
                             @if ($results->count())
                                 <p>Posts by</p>

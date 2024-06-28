@@ -3,22 +3,22 @@
         <x-app.nav />
     </x-slot>
     <x-slot:main>
-        <div class="px-6 lg:px-8">
+        <div>
             <div class="3xs:h-20"></div>
 
             <x-app.header />
 
             @if ($posts->count())
-                <div class="md:mx-5">
+                <div>
                     {{-- Featured Post --}}
-                    <div class="mx-auto px-2 w-full">
+                    <div class="mx-auto w-full xs:px-2.5 md:mt-2">
                         @if ($posts->count() >= 1)
                             <x-post.featured :post="$posts[0]" />
                         @endif
 
                         {{-- News Column Posts --}}
                         <div
-                            class="pt-8 mb-12 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8">
+                            class="mb-12 pt-10 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8">
                             @if ($posts->count() >= 2)
                                 <x-post.newspaper :post="$posts[1]" />
                             @endif
@@ -33,7 +33,7 @@
                 {{-- Posts Index --}}
                 <div class="py-12 border-t border-gray-200">
                     <div
-                        class="px-2 flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:mx-5 md:gap-x-6 lg:gap-x-8">
+                        class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:mx-2.5 md:gap-x-6 lg:gap-x-8">
                         @foreach ($posts->skip(3) as $post)
                             <x-post :$post />
                         @endforeach

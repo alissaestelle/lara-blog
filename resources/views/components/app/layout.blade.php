@@ -18,7 +18,7 @@
 
     <body>
         <div class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
-            <header class="px-6 flex-none h-[180px] relative xs:h-[200] md:h-auto lg:px-8">
+            <header class="px-6 flex-none h-[180px] relative xs:h-[200] md:h-auto lg:px-10">
                 {{ $nav }}
                 <div class="relative">
                     @if ($message)
@@ -28,7 +28,7 @@
                     @endif
                 </div>
             </header>
-            <main class="flex-grow">
+            <main class="px-6 flex-grow lg:px-10">
                 {{ $main }}
             </main>
             {{ $footer }}

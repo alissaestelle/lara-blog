@@ -1,4 +1,4 @@
-<article class="mx-auto flex flex-col items-start w-full 2xs:px-2">
+<article class="mx-auto flex flex-col items-start w-full px-0.5">
     <a href="/posts/{{ $post->url }}" class="self-stretch w-full">
         <img
             src="{{ Vite::image($post->image) }}"

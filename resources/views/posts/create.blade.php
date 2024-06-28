@@ -109,8 +109,8 @@
                                             <div class="flex items-center justify-center">
                                                 <input
                                                     id="image"
-                                                    name="image"
                                                     type="file"
+                                                    name="image"
                                                     accept="image/*"
                                                     class="hidden" />
                                             </div>
@@ -204,12 +204,12 @@
                                     <label for="title" class="hidden"></label>
                                     <input
                                         id="title"
-                                        name="title"
                                         type="text"
+                                        name="title"
                                         value="{{ old('title') }}"
                                         class="p-1 block w-full border-0 border-transparent bg-transparent text-gray-900 leading-6 placeholder:font-['Courier New'] placeholder:text-3xl placeholder:text-gray-400 placeholder:whitespace-normal focus-visible:outline-none @error('title') placeholder:text-red-500 @enderror"
                                         placeholder="@error('title') {{ $message }} @else Add Title Here @enderror" />
-                                    <input id="url" name="url" type="hidden" />
+                                    <input id="url" type="hidden" name="url" />
                                 </div>
                                 <div class="mt-4 flex items-center gap-4">
                                     <div id="react-user"></div>
