@@ -7,15 +7,15 @@
 
         <title>Lara-Blog</title>
 
-        @vite('resources/css/app.css')
+        @viteReactRefresh
+        @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     </head>
 
-    <body class="mx-auto flex flex-col h-screen gap-y-12 bg-white max-w-5xl">
-        <header class="px-6 relative flex-none lg:px-10">
+    <body class="mx-auto flex flex-col h-screen bg-white max-w-5xl">
+        <header class="px-6 relative flex-none h-[180px] xs:h-[200] md:h-auto lg:px-10">
             {{ $nav }}
         </header>
-        <main class="mx-auto px-6 flex-grow lg:px-10">
-            <div class="h-6 base:h-0"></div>
+        <main class="px-6 flex-grow lg:px-10">
             {{ $main }}
         </main>
     </body>

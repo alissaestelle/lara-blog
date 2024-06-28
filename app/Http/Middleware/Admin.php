@@ -17,7 +17,7 @@ class Admin
     {
         // dump($request->path());
 
-        if (auth()->user()?->id !== 10) {
+        if (auth()->user()?->id !== 1) {
             abort(403);
             // abort(Response::HTTP_FORBIDDEN);
         };

@@ -3,8 +3,8 @@
         <x-app.nav />
     </x-slot>
     <x-slot:main>
-        <div class="px-6 border-t border-gray-200 lg:mx-8">
-            <div class="base:mx-5 md:mx-6">
+        <div class="border-t border-gray-200">
+            <div class="base:mx-5">
                 <div
                     class="my-7 w-full flex flex-col xs:px-6 sm:px-4 sm:grid sm:grid-cols-6 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-12">
                     {{-- Article Nav Bar: Mobile --}}
@@ -228,7 +228,7 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="mt-12 leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm text-sm">
+                                    class="mt-12 flex leading-6 text-sm text-gray-600 border border-gray-200 shadow-sm rounded-lg">
                                     <label for="body" class="hidden"></label>
                                     <div class="overflow-hidden">
                                         {{-- format-ignore-start --}}

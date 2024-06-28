@@ -3,7 +3,8 @@
         <x-app.nav />
     </x-slot>
     <x-slot:main>
-        <div class="relative w-full min-w-[300px] xs:min-w-[400px] sm:xs:min-w-[500px] lg:mb-32">
+        <div
+            class="mt-10 mx-auto relative w-full min-w-[300px] xs:min-w-[400px] sm:min-w-[500px] md:xs:min-w-0 md:xs:max-w-[500px] lg:mb-32">
             <h2
                 class="mb-4 relative font-mono text-3xl text-center font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">

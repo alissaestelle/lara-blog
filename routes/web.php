@@ -53,6 +53,7 @@ Route::get('/admin/post/create', [PostController::class, 'create'])->middleware(
 Route::post('/admin/post/store', [PostController::class, 'store'])->middleware('admin');
 
 // Auth → Users
+Route::get('/profile', [SessionController::class, 'profile'])->middleware('auth');
 Route::post('/posts/{post:url}/comments', [CommentController::class, 'store']);
 
 /* POST ROUTES END */

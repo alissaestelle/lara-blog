@@ -20,7 +20,32 @@
         @endphp
 
         <div class="flex justify-center gap-x-2 w-full base:hidden">
-            <span class="text-xs font-bold uppercase text-[#D875C7]">Welcome, {{ $user }}</span>
+            {{-- <div id="user-menu-mobile" class="relative flex">
+                <x-ui.dropdown>
+                    <x-slot:trigger> --}}
+                        <span
+                            id="welcome-mobile"
+                            class="text-xs font-bold uppercase text-[#D875C7]">
+                            Welcome, {{ $user }}
+                            {{-- Welcome, A --}}
+                        </span>
+                    {{-- </x-slot>
+                    <x-slot:event>
+                        <div
+                            class="px-3 py-1.5 flex flex-col text-xs font-bold uppercase text-right text-cyan-600/75 bg-white border border-[#D875C7]/75 rounded-xl">
+                            <a href="/admin/post/create" class="hover:text-cyan-600/50">Admin</a>
+                            <a href="#" class="hover:text-cyan-600/50">Profile</a>
+                            <a href="#" class="hover:text-cyan-600/50">Settings</a>
+                            <button
+                                form="logout-mobile"
+                                type="submit"
+                                class="text-xs font-bold uppercase text-right hover:text-cyan-600/50">
+                                Log Out
+                            </button>
+                        </div>
+                    </x-slot>
+                </x-ui.dropdown>
+            </div> --}}
             <form method="POST" action="/logout" class="mb-0 flex items-center">
                 @csrf
                 <button type="submit" class="text-xs font-bold uppercase text-gray-400">
@@ -53,17 +78,31 @@
                 $user = explode(' ', $name)[0];
             @endphp
 
-            <div class="flex">
+            <div id="user-menu-dt" class="relative flex">
                 <x-ui.dropdown>
                     <x-slot:trigger>
-                        <span class="text-xs font-bold uppercase text-[#D875C7]">
+                        <span id="welcome-dt" class="text-xs font-bold uppercase text-[#D875C7]">
                             Welcome, {{ $user }}
+                            {{-- Welcome, A --}}
                         </span>
                     </x-slot>
-                    <x-slot:event></x-slot>
+                    <x-slot:event>
+                        <div
+                            class="px-3 py-1.5 flex flex-col text-xs font-bold uppercase text-right text-gray-400 border border-gray-300 rounded-xl">
+                            <a href="/admin/post/create">Admin</a>
+                            <a href="/profile">Profile</a>
+                            <a href="#">Settings</a>
+                            <button
+                                form="logout-dt"
+                                type="submit"
+                                class="text-xs font-bold uppercase text-right">
+                                Log Out
+                            </button>
+                        </div>
+                    </x-slot>
                 </x-ui.dropdown>
             </div>
-            <form method="POST" action="/logout" class="mb-0 flex items-center">
+            <form id="logout-dt" method="POST" action="/logout" class="mb-0 flex items-center">
                 @csrf
                 <button type="submit" class="text-xs font-bold uppercase text-gray-400">
                     Log Out

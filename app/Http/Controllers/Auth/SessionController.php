@@ -31,4 +31,9 @@ class SessionController extends Controller
             ->with('success', 'You have successfully logged out.')
             ->with('theme', 'text-[#B779AC] bg-[#F6EEF5]/25 border border-[#B779AC]');
     }
+
+    function profile()
+    {
+        return view('user.profile');
+    }
 }

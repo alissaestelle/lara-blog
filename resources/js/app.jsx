@@ -15,6 +15,8 @@ Alpine.start();
 // const users = window.users ?? 0;
 const reactComments = document.getElementById('react-comments');
 const reactUser = document.getElementById('react-user');
+
+const lgWelcome = document.getElementById('welcome-dt');
 const email = document.getElementById('email');
 const alert = document.getElementById('email-alert');
 
@@ -29,6 +31,20 @@ if (reactUser) {
 if (reactComments) {
     ReactDOM.createRoot(reactComments).render(<Comment />);
 }
+
+/* Nav Bar: User Dropdown Menu */
+
+if (lgWelcome) {
+    let lgUserMenu = document.getElementById('user-menu-dt').children[0].children[1];
+    let lgMenuSize = lgWelcome.offsetWidth * 1.5;
+    let lgLeftMargin = lgWelcome.offsetWidth / 2.65;
+
+    lgUserMenu.style.left = `-${lgLeftMargin}px`;
+    lgUserMenu.style.marginTop = '1.5rem';
+    lgUserMenu.style.width = `${lgMenuSize}px`;
+}
+
+/* Footer: Subscribe Form */
 
 if (email && alert) {
     email.setAttribute('size', email.placeholder.length - 1);
@@ -47,6 +63,9 @@ if (email && alert) {
     email.oninput = resize;
 }
 
+/* Admin: Blog Post Start */
+
+// Title Field
 if (title) {
     title.addEventListener('input', (e) => {
         const url = document.getElementById('url');
@@ -60,6 +79,7 @@ if (title) {
     });
 }
 
+// Image Field
 if (uploadImg) {
     uploadImg.addEventListener('change', (e) => {
         const input = document.getElementById('upload-file');
@@ -72,6 +92,7 @@ if (uploadImg) {
     });
 }
 
+// Tags Dropdown Menu
 if (tagsList) {
     tagsList.addEventListener('click', (e) => {
         const tagLabel = document.getElementById('tag-label');
@@ -88,7 +109,24 @@ if (tagsList) {
     });
 }
 
+/* Admin: Blog Post End */
+
+
 /*
+Mobile Nav Bar User Dropdown Code
+
+let smWelcome = document.getElementById('welcome-mobile');
+let smUserMenu = document.getElementById('user-menu-mobile');
+
+smUserMenu.style.left = '-10px';
+smUserMenu.style.marginTop = '1.5rem';
+smUserMenu.style.width = '200px';
+*/
+
+
+/*
+Store Avatar Obj to DB Code
+
 let avatars = [];
 let config = genConfig();
 

@@ -9,6 +9,7 @@ use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,17 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        User::factory(10)->create();
+        User::factory(1)->create([
+            'name' => 'Alissa Wiley',
+            'username' => 'alissa.estelle',
+            'url' => 'alissa-estelle',
+            'email' => 'alissa@wiley.com',
+            'verified' => now(),
+            'password' => '12345678',
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::factory(9)->create();
         Tag::factory(10)->create();
         Post::factory(25)->create();
         Comment::factory(50)->create();
