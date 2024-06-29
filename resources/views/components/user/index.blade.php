@@ -209,23 +209,24 @@
 
                     <div class="pt-2 border-b border-gray-200">
                         <p
-                            class="pb-2 font-mono text-2xl font-medium"
+                            class="pb-2 font-mono text-3xl font-medium"
                             style="font-family: 'Courier New', Courier, monospace">
-                            Profile Settings
+                            User Settings
                         </p>
                     </div>
 
-                    <div class="flex gap-10 mt-10 tracking-wide">
-                        <div>
+                    {{-- <div class="flex gap-10 mt-10 tracking-wide"> --}}
+                        <div class="mt-10 pl-1">
                             <label
                                 for="photo"
-                                class="pl-1 block leading-6 text-sm font-medium text-gray-900">
-                                Photo
+                                class="block leading-6 font-mono font-medium text-xl text-gray-900"
+                            style="font-family: 'Courier New', Courier, monospace">
+                                Profile Photo
                             </label>
                             <div class="mt-2 flex items-center gap-x-3">
                                 <svg
-                                    class="h-12 w-12 text-gray-300"
-                                    viewBox="2 2 21 21"
+                                    class="h-24 w-24 text-gray-300"
+                                    viewBox="2 1 21 21"
                                     fill="currentColor"
                                     aria-hidden="true">
                                     <path
@@ -241,7 +242,7 @@
                             </div>
                         </div>
 
-                        <div class="grow w-full flex flex-col">
+                        <div class="mt-6 pl-1 grow w-full flex flex-col">
                             <label
                                 for="username"
                                 class="block leading-6 text-sm font-medium text-gray-900">
@@ -265,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {{-- </div> --}}
 
                     {{--
                         <div class="mt-10">

@@ -137,7 +137,7 @@
                                         @click.away="show = false"
                                         class="relative mt-4 rounded-xl bg-gray-100">
                                         <div
-                                            class="pr-10 pl-3 py-1.5 relative w-full rounded-xl text-left font-medium shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm sm:leading-6">
+                                            class="pr-10 pl-3 py-1.5 relative w-full rounded-xl text-left font-medium cursor-pointer shadow-sm ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm sm:leading-6">
                                             <span
                                                 id="tag-label"
                                                 class="block truncate text-gray-900">

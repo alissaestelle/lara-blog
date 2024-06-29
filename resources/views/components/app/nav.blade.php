@@ -81,7 +81,7 @@
             <div id="user-menu-dt" class="relative flex">
                 <x-ui.dropdown>
                     <x-slot:trigger>
-                        <span id="welcome-dt" class="text-xs font-bold uppercase text-[#D875C7]">
+                        <span id="welcome-dt" class="text-xs font-bold uppercase text-[#D875C7] cursor-pointer">
                             Welcome, {{ $user }}
                             {{-- Welcome, A --}}
                         </span>
