@@ -31,7 +31,7 @@
                 </div>
 
                 {{-- Posts Index --}}
-                <div class="py-12 border-t border-gray-200">
+                <div class="py-12 border-t border-gray-200 xs:px-2.5">
                     <div
                         class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:mx-2.5 md:gap-x-6 lg:gap-x-8">
                         @foreach ($posts->skip(3) as $post)

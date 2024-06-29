@@ -4,14 +4,14 @@
     </x-slot>
     <x-slot:main>
         <div
-            class="mt-10 mx-auto relative w-full min-w-[300px] xs:min-w-[400px] sm:min-w-[500px] md:xs:min-w-0 md:xs:max-w-[500px] lg:mb-32">
+            class="mt-4 mx-auto relative w-full lg:mb-32">
             <h2
                 class="mb-4 relative font-mono text-3xl text-center font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">
                 register.
             </h2>
             <div
-                class="px-8 py-6 w-full text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl sm:px-20 sm:py-10">
+                class="mx-auto px-8 py-6 w-full text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl 2xs:min-w-[300px] xs:min-w-0 xs:max-w-[400px] sm:px-20 sm:py-10 sm:max-w-[500px]">
                 <form method="POST" action="/register">
                     @csrf
                     <div class="mb-5">
