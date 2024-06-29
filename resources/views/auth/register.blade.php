@@ -4,7 +4,7 @@
     </x-slot>
     <x-slot:main>
         <div
-            class="mt-4 mx-auto relative w-full lg:mb-32">
+            class="mx-auto relative w-full lg:mb-32">
             <h2
                 class="mb-4 relative font-mono text-3xl text-center font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">

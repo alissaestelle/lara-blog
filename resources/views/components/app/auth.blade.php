@@ -11,12 +11,13 @@
         @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     </head>
 
-    <body class="mx-auto flex flex-col h-screen bg-white max-w-5xl">
-        <header class="px-6 relative flex-none h-[180px] md:h-auto lg:px-10">
+    <body class="mx-auto flex flex-col gap-10 h-screen bg-white overflow-y-scroll max-w-5xl">
+        <header class="px-6 relative flex-none lg:px-10">
             {{ $nav }}
         </header>
-        <main class="px-6 flex-grow lg:px-10">
+        <main class="px-6 relative flex-grow lg:px-10">
             {{ $main }}
         </main>
+        <footer></footer>
     </body>
 </html>
