@@ -3,14 +3,14 @@
 @endphp
 
 <article class="bg-gray-100 border border-black border-opacity-5 rounded-xl">
-    <div class="p-5 py-6 flex flex-col gap-y-4 md:py-4 base:flex-row base:flex-wrap lg:py-6">
-        <div class="flex-1 base:self-center">
+    <div class="px-5 py-6 flex flex-col gap-4 xs:px-4 xs:py-5 sm:flex-row sm:flex-wrap md:px-5 md:py-6">
+        <div class="sm:self-center sm:flex-1">
             <a href="/posts/{{ $post->url }}">
-                <div class="base:pr-6 lg:pr-8">
+                <div class="md:pr-6 lg:pr-8">
                     <img
                         src="{{ Vite::image($post->image) }}"
                         alt="Moon Castle"
-                        class="h-40 w-full object-cover rounded-xl xs:h-48 lg:h-56" />
+                        class="h-40 w-full object-cover rounded-xl xs:h-48 sm:h-36 lg:h-56" />
                 </div>
             </a>
         </div>
@@ -34,14 +34,14 @@
                 </div>
 
                 {{-- Title x Date --}}
-                <div class="mt-4">
+                <div class="mt-2">
                     <a href="/posts/{{ $post->url }}">
                         <h1 class="text-lg font-medium md:text-lg lg:text-2xl">
                             {{ $post->title }}
                         </h1>
                     </a>
 
-                    <span class="block mt-2 text-gray-400 text-xs md:mt-1">
+                    <span class="block text-gray-400 text-xs md:mt-2">
                         Published
                         <time datetime="{{ $post->published }}">
                             {{ date('F jS, Y', strtotime($post->published)) }}
@@ -56,7 +56,7 @@
             </header>
 
             {{-- Excerpt --}}
-            <div class="mt-2 text-sm line-clamp-3">
+            <div class="mt-2 text-sm line-clamp-2 md:line-clamp-3">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -69,9 +69,9 @@
 
             {{-- Footer: Mobile --}}
             <footer
-                class="mt-4 w-full max-w-80 mx-auto xs:grid xs:grid-cols-3 xs:max-w-none base:hidden">
+                class="mt-4 max-w-80 xs:flex xs:gap-2 xs:max-w-none base:hidden">
                 <a href="/search?author={{ $post->author->url }}" class="col-span-2 shrink-0">
-                    <div class="mb-6 flex gap-x-3 items-center xs:mb-0">
+                    <div class="flex gap-2 items-center w-fit">
                         <img src="{{ Vite::asset($aew) }}" class="h-12 w-12" alt="AE" />
                         <div class="text-sm 2xl:text-base">
                             <h5 class="font-bold">{{ $post->author->name }}</h5>
@@ -79,12 +79,6 @@
                         </div>
                     </div>
                 </a>
-                <div
-                    class="mx-auto py-1 text-center w-[60%] transition-colors duration-300 rounded-full bg-gray-200 hover:bg-gray-300 2xs:mx-auto xs:mr-0 xs:self-center xs:w-full">
-                    <a href="/posts/{{ $post->url }}" class="font-medium text-sm sm:text-base">
-                        Read More
-                    </a>
-                </div>
             </footer>
 
             {{-- Footer: Desktop --}}
@@ -103,7 +97,7 @@
                 <div class="self-center">
                     <a
                         href="/posts/{{ $post->url }}"
-                        class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300 md:px-6 lg:px-8">
+                        class="px-8 py-2 block text-nowrap transition-colors duration-300 bg-gray-200 text-sm font-medium rounded-full hover:bg-gray-300 base:px-6 lg:px-8">
                         Read More
                     </a>
                 </div>

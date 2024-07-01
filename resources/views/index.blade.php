@@ -11,14 +11,14 @@
             @if ($posts->count())
                 <div>
                     {{-- Featured Post --}}
-                    <div class="mx-auto w-full xs:px-2.5 md:mt-2">
+                    <div class="mx-auto w-full max-w-80 xs:px-2.5 xs:max-w-none xs:w-auto md:mt-2">
                         @if ($posts->count() >= 1)
                             <x-post.featured :post="$posts[0]" />
                         @endif
 
                         {{-- News Column Posts --}}
                         <div
-                            class="mb-12 pt-10 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-6 xs:gap-y-16 lg:gap-x-8">
+                            class="mb-12 pt-10 flex flex-col gap-y-8 xs:grid xs:grid-cols-2 xs:gap-x-4 xs:gap-y-16 lg:gap-x-8">
                             @if ($posts->count() >= 2)
                                 <x-post.newspaper :post="$posts[1]" />
                             @endif
@@ -33,7 +33,7 @@
                 {{-- Posts Index --}}
                 <div class="py-12 border-t border-gray-200 xs:px-2.5">
                     <div
-                        class="flex flex-col gap-y-8 xs:grid xs:grid-cols-3 xs:gap-x-2 xs:gap-y-16 md:mx-2.5 md:gap-x-6 lg:gap-x-8">
+                        class="mx-auto flex flex-col gap-y-8 w-full max-w-80 xs:max-w-none xs:w-auto xs:grid xs:grid-cols-3 xs:gap-x-4 xs:gap-y-16 md:mx-2.5 md:gap-x-6 lg:gap-x-8">
                         @foreach ($posts->skip(3) as $post)
                             <x-post :$post />
                         @endforeach

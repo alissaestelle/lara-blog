@@ -16,7 +16,8 @@ Alpine.start();
 const reactComments = document.getElementById('react-comments');
 const reactUser = document.getElementById('react-user');
 
-const lgWelcome = document.getElementById('welcome-dt');
+const welcome = document.getElementById('welcome');
+const logout = document.getElementById('logout');
 const email = document.getElementById('email');
 const alert = document.getElementById('email-alert');
 
@@ -34,14 +35,28 @@ if (reactComments) {
 
 /* Nav Bar: User Dropdown Menu */
 
-if (lgWelcome) {
-    let lgUserMenu = document.getElementById('user-menu-dt').children[0].children[1];
-    let lgMenuSize = lgWelcome.offsetWidth * 1.5;
-    let lgLeftMargin = lgWelcome.offsetWidth / 2.65;
+if (welcome) {
+    let screenSize = document.documentElement.clientWidth;
+    let userMenu = document.getElementById('user-menu').children[0].children[1];
 
-    lgUserMenu.style.left = `-${lgLeftMargin}px`;
-    lgUserMenu.style.marginTop = '1.5rem';
-    lgUserMenu.style.width = `${lgMenuSize}px`;
+    let mobileMenu = (welcome.offsetWidth + logout.offsetWidth + 30);
+    let mainMenu = welcome.offsetWidth * 1.5;
+    let leftMargin = welcome.offsetWidth / 2.65;
+
+    userMenu.style.marginTop = '1.5rem';
+    userMenu.style.left = '-0.55rem';
+
+    if (screenSize <= 540) {
+        userMenu.style.width = `${mobileMenu}px`;
+        // userMenu.style.left = '0';
+        userMenu.style.left = '-0.55rem';
+    } 
+    
+    if (screenSize > 540) {
+        userMenu.style.width = `${mainMenu}px`;
+        // userMenu.style.left = '0';
+        userMenu.style.left = `-${leftMargin}px`;
+    }
 }
 
 /* Footer: Subscribe Form */

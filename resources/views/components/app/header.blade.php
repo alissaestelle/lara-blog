@@ -4,7 +4,7 @@
 @endphp
 
 <div
-    class="mx-auto w-full flex flex-col text-center base:px-5 base:py-6 base:text-left md:px-2.5 lg:mx-0">
+    class="mx-auto w-full flex flex-col text-center xs:px-2.5 xs:py-6 xs:text-left base:pt-12 lg:mx-0">
     
     <div>
         <a href="/">
@@ -20,7 +20,7 @@
     </div>
 
     <div
-        class="mx-auto my-8 w-full max-w-80 flex flex-wrap justify-center gap-4 text-sm font-medium xs:mx-2.5 xs:max-w-none xs:w-auto sm:mx-0 base:mb-2 base:max-w-[60%] base:flex-nowrap base:justify-start md:max-w-[65%] lg:max-w-[50%]">
+        class="mx-auto my-8 w-full max-w-80 flex flex-wrap justify-center gap-4 text-sm font-medium xs:mt-6 xs:m-0 xs:max-w-none xs:w-auto base:max-w-[60%] base:flex-nowrap base:justify-start md:max-w-[65%] lg:max-w-[50%]">
 
         <x-ui.tags />
 
