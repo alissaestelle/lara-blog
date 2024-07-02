@@ -3,7 +3,7 @@
 @endphp
 
 <nav
-    class="mx-auto pt-6 flex flex-wrap items-center justify-center gap-2 base:px-2.5 base:py-6 base:justify-between base:flex-nowrap base:gap-0">
+    class="flex flex-wrap items-center justify-center gap-2 mx-auto base:justify-between base:flex-nowrap base:gap-0">
     {{-- Left Nav Links --}}
     <div
         class="flex flex-wrap items-center justify-center gap-2 text-xs font-bold uppercase base:w-auto base:flex-nowrap base:gap-3 md:gap-4">

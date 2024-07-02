@@ -4,7 +4,7 @@
 
 <footer
     id="newsletter"
-    class="mt-4 py-8 flex-none text-center bg-gray-100 border border-black border-opacity-5 md:px-10 md:py-16 lg:mx-8 lg:rounded-xl">
+    class="py-8 flex-none text-center bg-gray-100 border border-black border-opacity-5 md:px-10 md:py-16 lg:rounded-xl">
     <img src="{{ Vite::asset($howls) }}" alt="Calcifer" class="mx-auto -mb-1 w-10" />
     <h5 class="text-xl base:text-3xl">let’s stay in touch</h5>
 

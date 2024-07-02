@@ -4,29 +4,29 @@
 @endphp
 
 <div
-    class="mx-auto w-full flex flex-col text-center xs:px-2.5 xs:py-6 xs:text-left base:pt-12 lg:mx-0">
+    class="flex flex-col gap-4 mx-auto pt-14 px-3.5 pb-3.5 text-center xs:px-0 xs:pb-0 xs:text-left lg:pt-20">
     
     <div>
         <a href="/">
             <h2
-                class="font-mono mt-0 text-3xl font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl md:mt-3"
+                class="mt-0 font-mono text-3xl leading-6 font-medium text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">
                 Untitled #777
             </h2>
         </a>
-        <p class="mt-2 text-lg leading-8 text-gray-600">
+        <p class="mt-1 text-md leading-8 font-light text-gray-600 md:text-lg">
             <span class="italic">exploring a garden of forking paths</span>
         </p>
     </div>
 
     <div
-        class="mx-auto my-8 w-full max-w-80 flex flex-wrap justify-center gap-4 text-sm font-medium xs:mt-6 xs:m-0 xs:max-w-none xs:w-auto base:max-w-[60%] base:flex-nowrap base:justify-start md:max-w-[65%] lg:max-w-[50%]">
+        class="flex flex-wrap justify-center gap-3.5 text-sm font-medium xs:flex-nowrap xs:justify-start">
 
         <x-ui.tags />
 
         {{-- Search --}}
         <div
-            class="relative flex-1 flex items-center w-full border rounded-xl base:basis-1/2 md:flex-2 lg:inline-flex">
+            class="relative flex items-center w-full border rounded-xl md:w-72 lg:inline-flex">
             <form method="GET" action="/search" class="mb-0 w-full">
                 @if ($authorSearch)
                     <input type="hidden" name="author" value="{{ $authorSearch }}" />

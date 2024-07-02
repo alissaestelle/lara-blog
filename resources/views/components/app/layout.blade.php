@@ -17,18 +17,20 @@
     @endphp
 
     <body>
-        <div class="mx-auto flex flex-col h-screen bg-white max-w-5xl lg:mb-6">
-            <header class="px-6 relative flex-none h-[180px] md:h-auto lg:px-10">
-                {{ $nav }}
-                <div class="relative">
+        <div class="flex flex-col mx-auto max-w-4xl h-screen bg-white">
+            <header class="relative flex-none p-7 md:h-auto">
+                <x-app.nav />
                     @if ($message)
+                    <div class="relative">
                         <x-ui.alert class="{{ $theme }}">
                             {{ $message }}
                         </x-ui.alert>
+                    </div>
                     @endif
-                </div>
+                <x-app.header />
             </header>
-            <main class="px-6 flex-grow lg:px-10">
+            <div class="w-full border-t border-gray-200"></div>
+            <main class="flex-grow">
                 {{ $main }}
             </main>
             {{ $footer }}

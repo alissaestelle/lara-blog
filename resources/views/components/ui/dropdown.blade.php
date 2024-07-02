@@ -1,6 +1,6 @@
 <div
     x-data="{ show: false }"
-    class="relative flex w-full xs:flex-1 base:basis-1/2 md:basis-1/4">
+    class="relative flex w-full xs:w-56 md:w-44">
     {{-- TRIGGER --}}
     <div @click="show = !show" @click.away="show = false" class="flex basis-full">
         {{ $trigger }}
