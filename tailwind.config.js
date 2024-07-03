@@ -10,10 +10,9 @@ export default {
     ],
     theme: {
         screens: {
-            '3xs': '300',
             '2xs': '360px',
-            xs: '500px',
-            sm: '600px',
+            xs: '430px',
+            sm: '520px',
             base: '640px',
             md: '768px',
             lg: '1024px',

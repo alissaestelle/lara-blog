@@ -4,7 +4,7 @@
 @endphp
 
 <div
-    class="flex flex-col gap-4 mx-auto pt-14 px-3.5 pb-3.5 text-center xs:px-0 xs:pb-0 xs:text-left lg:pt-20">
+    class="flex flex-col gap-4 mx-auto pt-14 pb-7 text-center 2xs:px-7 xs:px-0 xs:pb-0 xs:text-left lg:pt-20">
     
     <div>
         <a href="/">

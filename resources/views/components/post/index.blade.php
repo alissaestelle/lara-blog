@@ -1,8 +1,8 @@
 <article class="flex flex-col items-start w-full md:max-w-72">
-    <a href="/posts/{{ $post->url }}" class="self-stretch w-full">
+    <a href="/posts/{{ $post->url }}" class="w-full">
         <img
             src="{{ Vite::image($post->image) }}"
-            class="h-40 w-full object-cover rounded-xl xs:object-bottom xs:h-28 md:h-32 md:object-center lg:h-40"
+            class="h-52 w-full object-cover object-center xs:h-32"
             alt="{{ $post->title }}" />
     </a>
 
