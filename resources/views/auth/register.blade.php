@@ -1,17 +1,14 @@
 <x-app.auth>
-    <x-slot:nav>
-        <x-app.nav />
-    </x-slot>
     <x-slot:main>
         <div
-            class="mx-auto relative w-full lg:mb-32">
+            class="relative w-full mx-auto p-7">
             <h2
-                class="mb-4 relative font-mono text-3xl text-center font-medium leading-6 text-gray-900 hover:text-gray-600 base:text-4xl"
+                class="relative mb-4 font-mono text-3xl leading-6 text-center font-medium text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">
                 register.
             </h2>
             <div
-                class="mx-auto px-8 py-6 w-full text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl 2xs:min-w-[300px] xs:min-w-0 xs:max-w-[400px] sm:px-20 sm:py-10 sm:max-w-[500px]">
+                class="w-full mx-auto px-8 py-6 text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl sm:max-w-[400px] md:max-w-[500px]">
                 <form method="POST" action="/register">
                     @csrf
                     <div class="mb-5">

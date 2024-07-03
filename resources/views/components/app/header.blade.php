@@ -4,12 +4,12 @@
 @endphp
 
 <div
-    class="flex flex-col gap-4 mx-auto pt-14 pb-7 text-center 2xs:px-7 xs:px-0 xs:pb-0 xs:text-left lg:pt-20">
+    class="relative flex flex-col gap-4 text-center sm:text-left md:mt-20">
     
-    <div>
+    <div class="sm:pl-1">
         <a href="/">
             <h2
-                class="mt-0 font-mono text-3xl leading-6 font-medium text-gray-900 hover:text-gray-600 base:text-4xl"
+                class="mt-0 font-mono text-3xl leading-6 font-medium text-gray-900 hover:text-gray-600 md:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">
                 Untitled #777
             </h2>
@@ -20,13 +20,15 @@
     </div>
 
     <div
-        class="flex flex-wrap justify-center gap-3.5 text-sm font-medium xs:flex-nowrap xs:justify-start">
+        class="flex flex-wrap justify-center gap-2 px-3 text-sm font-medium xs:px-7 sm:justify-start sm:flex-nowrap sm:px-0 base:gap-3">
 
-        <x-ui.tags />
+        <div class="w-full max-w-72 sm:max-w-none sm:basis-1/2 base:basis-auto base:max-w-52 md:max-w-44">
+            <x-ui.tags />
+        </div>
 
         {{-- Search --}}
         <div
-            class="relative flex items-center w-full border rounded-xl md:w-72 lg:inline-flex">
+            class="relative flex items-center w-full max-w-72 border rounded-xl sm:max-w-none sm:basis-1/2 base:basis-full md:max-w-80 lg:inline-flex">
             <form method="GET" action="/search" class="mb-0 w-full">
                 @if ($authorSearch)
                     <input type="hidden" name="author" value="{{ $authorSearch }}" />

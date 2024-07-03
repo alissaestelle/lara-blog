@@ -2,8 +2,8 @@
     <x-slot:main>
         @if ($posts->count())
             <div class="p-7">
-                <div class="px-3.5 xs:px-0 md:pt-7">
-                    <div class="element flex pb-7 text-xl">
+                {{-- <div class="md:pt-7"> --}}
+                    <div class="element flex pb-7 text-xl base:text-2xl">
                         @if ($results->count())
                             <p class="pl-1">Posts by:</p>
                             @foreach ($results as $tag)
@@ -29,7 +29,7 @@
                     </div>
 
                     <div
-                        class="flex flex-col gap-8 mx-auto xs:grid xs:grid-cols-3 xs:gap-x-6 xs:gap-y-16">
+                        class="flex flex-col gap-10 mx-auto xs:grid xs:grid-cols-2 xs:gap-x-4 xs:gap-y-16 sm:gap-x-6 base:grid-cols-3 lg:gap-x-8">
                         @foreach ($posts as $post)
                             <x-post :$post />
                         @endforeach
@@ -37,7 +37,7 @@
                     <div class="mb-5">
                         {{ $posts->links() }}
                     </div>
-                </div>
+                {{-- </div> --}}
             </div>
         @else
             <p class="p-12 text-xl text-center">No Posts Found 🥲</p>

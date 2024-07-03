@@ -2,7 +2,7 @@
     <a href="/posts/{{ $post->url }}" class="w-full">
         <img
             src="{{ Vite::image($post->image) }}"
-            class="h-52 w-full object-cover object-center xs:h-32"
+            class="h-48 w-full object-cover object-center xs:h-36 lg:h-40"
             alt="{{ $post->title }}" />
     </a>
 
@@ -24,15 +24,14 @@
                 {{ $post->title }}
             </a>
         </h3>
-        <div class="mt-2 text-sm xs:hidden sm:block sm:mt-1">
+        <div class="mt-1 text-sm xs:hidden sm:block">
             By
             <a href="/search?author={{ $post->author->url }}">
                 {{ $post->author->name }}
             </a>
         </div>
 
-        <p
-            class="mt-5 text-gray-600 text-xs line-clamp-3 leading-6 xs:leading-5 sm:leading-6 xs:mt-2 sm:mt-5 sm:text-sm">
+        <p class="mt-2 text-gray-600 text-xs leading-6 line-clamp-3 md:mt-5 sm:text-sm">
             {{ $post->excerpt }}
         </p>
     </div>

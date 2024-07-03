@@ -18,18 +18,21 @@
 
     <body>
         <div class="flex flex-col mx-auto max-w-4xl h-screen bg-white">
-            <header class="relative flex-none p-7 md:h-auto">
+            <header
+                class="flex-none flex flex-col justify-between h-[365px] p-7 sm:h-[325px] md:h-auto">
                 <x-app.nav />
-                    @if ($message)
+
+                @if ($message)
                     <div class="relative">
                         <x-ui.alert class="{{ $theme }}">
                             {{ $message }}
                         </x-ui.alert>
                     </div>
-                    @endif
+                @endif
+
                 <x-app.header />
             </header>
-            <div class="w-full border-t border-gray-200"></div>
+            {{-- <div class="w-full border-t border-gray-200"></div> --}}
             <main class="flex-grow">
                 {{ $main }}
             </main>

@@ -10,8 +10,8 @@ export default {
     ],
     theme: {
         screens: {
-            '2xs': '360px',
-            xs: '430px',
+            // '2xs': '360px',
+            xs: '400px',
             sm: '520px',
             base: '640px',
             md: '768px',
