@@ -3,7 +3,7 @@
         @if ($posts->count())
             <div class="p-7">
                 <div
-                    class="flex flex-col gap-10 mx-auto xs:grid xs:grid-cols-2 xs:gap-x-4 xs:gap-y-16 sm:gap-x-6 base:grid-cols-3 lg:gap-x-8">
+                    class="flex flex-col gap-10 mx-auto sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 base:grid-cols-3 lg:gap-x-8">
                     @foreach ($posts->skip(3) as $post)
                         <x-post :$post />
                     @endforeach

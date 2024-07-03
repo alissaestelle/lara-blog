@@ -1,8 +1,8 @@
-<article class="flex flex-col items-start w-full md:max-w-72">
+<article class="flex flex-col items-start w-full max-w-80 mx-auto">
     <a href="/posts/{{ $post->url }}" class="w-full">
         <img
             src="{{ Vite::image($post->image) }}"
-            class="h-48 w-full object-cover object-center xs:h-36 lg:h-40"
+            class="h-44 w-full object-cover object-center sm:h-40"
             alt="{{ $post->title }}" />
     </a>
 

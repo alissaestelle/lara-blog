@@ -11,15 +11,15 @@ class Image extends Model
 
     protected $index = [
         'academia.png',
-        'aura.png',
         'butterfly.png',
-        'celestial.png',
+        'dude.gif',
         'fleur.png',
         'glimmer.png',
-        'milk.png',
+        'legend.gif',
         'pointe.png',
         'real.png',
         'shadow.png',
+        'zelda-ponyo.jpeg'
     ];
 
     function render()
