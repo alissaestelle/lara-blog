@@ -1,12 +1,13 @@
-<div class="border-t border-gray-200">
+<div>
     <div class="base:ml-5">
         <div
             class="my-7 w-full flex flex-col sm:grid sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
+            
             {{-- Article Nav Bar: Mobile --}}
             <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                 <a
                     href="/"
-                    class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
+                    class="transition-colors duration-300 relative inline-flex items-center text-md whitespace-nowrap hover:text-blue-500">
                     <svg width="20" height="30" viewBox="7 0 20 20">
                         <g fill="none" fill-rule="evenodd">
                             <path
@@ -21,7 +22,7 @@
                     </svg>
                     Back to Posts
                 </a>
-                <div class="flex gap-2">
+                <div class="flex flex-wrap justify-end gap-2">
                     <span
                         class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300 text-center">
                         Tag
@@ -216,56 +217,56 @@
                     </div>
 
                     {{-- <div class="flex gap-10 mt-10 tracking-wide"> --}}
-                        <div class="mt-10 pl-1">
-                            <label
-                                for="photo"
-                                class="block leading-6 font-mono font-medium text-xl text-gray-900"
+                    <div class="mt-10 pl-1">
+                        <label
+                            for="photo"
+                            class="block leading-6 font-mono font-medium text-xl text-gray-900"
                             style="font-family: 'Courier New', Courier, monospace">
-                                Profile Photo
-                            </label>
-                            <div class="mt-2 flex items-center gap-x-3">
-                                <svg
-                                    class="h-24 w-24 text-gray-300"
-                                    viewBox="2 1 21 21"
-                                    fill="currentColor"
-                                    aria-hidden="true">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <button
-                                    type="button"
-                                    class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                    Change
-                                </button>
-                            </div>
+                            Profile Photo
+                        </label>
+                        <div class="mt-2 flex items-center gap-x-3">
+                            <svg
+                                class="h-24 w-24 text-gray-300"
+                                viewBox="2 1 21 21"
+                                fill="currentColor"
+                                aria-hidden="true">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <button
+                                type="button"
+                                class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                                Change
+                            </button>
                         </div>
+                    </div>
 
-                        <div class="mt-6 pl-1 grow w-full flex flex-col">
-                            <label
-                                for="username"
-                                class="block leading-6 text-sm font-medium text-gray-900">
-                                Username
-                            </label>
+                    <div class="mt-6 pl-1 grow w-full flex flex-col">
+                        <label
+                            for="username"
+                            class="block leading-6 text-sm font-medium text-gray-900">
+                            Username
+                        </label>
+                        <div
+                            class="flex w-full h-full items-center leading-6 text-sm text-gray-600">
                             <div
-                                class="flex w-full h-full items-center leading-6 text-sm text-gray-600">
-                                <div
-                                    class="py-2 flex items-center w-full h-auto border-b border-gray-200">
-                                    <span
-                                        class="flex items-center text-gray-500 select-none sm:text-sm">
-                                        workcation.com/
-                                    </span>
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        id="username"
-                                        autocomplete="username"
-                                        class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                        placeholder="janesmith" />
-                                </div>
+                                class="py-2 flex items-center w-full h-auto border-b border-gray-200">
+                                <span
+                                    class="flex items-center text-gray-500 select-none sm:text-sm">
+                                    workcation.com/
+                                </span>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    autocomplete="username"
+                                    class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                    placeholder="janesmith" />
                             </div>
                         </div>
+                    </div>
                     {{-- </div> --}}
 
                     {{--

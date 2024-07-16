@@ -12,12 +12,12 @@
     </head>
 
     <body class="flex flex-col mx-auto max-w-4xl h-screen bg-white">
-        <header class="relative flex-none h-[150px] p-7">
-            <x-app.nav /> 
+        <header class="relative flex-none p-7">
+            <x-app.nav />
         </header>
         <main class="flex-grow">
             {{ $main }}
         </main>
-        <footer></footer>
+        {{ $footer }}
     </body>
 </html>

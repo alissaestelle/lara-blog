@@ -1,7 +1,6 @@
 <x-app.auth>
     <x-slot:main>
-        <div
-            class="relative w-full mx-auto p-7">
+        <div class="relative w-full mx-auto p-7">
             <h2
                 class="relative mb-4 font-mono text-3xl leading-6 text-center font-medium text-gray-900 hover:text-gray-600 base:text-4xl"
                 style="font-family: 'Courier New', Courier, monospace">
@@ -84,5 +83,8 @@
                 </form>
             </div>
         </div>
+    </x-slot>
+    <x-slot:footer>
+        <x-app.footer />
     </x-slot>
 </x-app.auth>

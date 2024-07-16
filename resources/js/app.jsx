@@ -44,17 +44,14 @@ if (welcome) {
     let leftMargin = welcome.offsetWidth / 2.65;
 
     userMenu.style.marginTop = '1.5rem';
-    userMenu.style.left = '-0.55rem';
 
     if (screenSize <= 540) {
         userMenu.style.width = `${mobileMenu}px`;
-        // userMenu.style.left = '0';
-        userMenu.style.left = '-0.55rem';
+        userMenu.style.left = '-0.625rem';
     } 
     
     if (screenSize > 540) {
         userMenu.style.width = `${mainMenu}px`;
-        // userMenu.style.left = '0';
         userMenu.style.left = `-${leftMargin}px`;
     }
 }

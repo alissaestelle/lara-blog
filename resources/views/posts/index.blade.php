@@ -1,8 +1,14 @@
+@php
+    $display = true;
+@endphp
+
 <x-app.layout>
+    <x-slot:header>
+        <x-app.header :$display />
+    </x-slot>
     <x-slot:main>
         @if ($posts->count())
             <div class="p-7">
-                {{-- <div class="md:pt-7"> --}}
                 <div class="element flex max-w-80 mx-auto pb-7 text-xl sm:max-w-none base:text-2xl">
                     @if ($results->count())
                         <p>Posts by:</p>
@@ -37,7 +43,6 @@
                 <div class="mb-5">
                     {{ $posts->links() }}
                 </div>
-                {{-- </div> --}}
             </div>
         @else
             <p class="p-12 text-xl text-center">No Posts Found 🥲</p>

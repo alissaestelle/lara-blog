@@ -1,17 +1,18 @@
-<x-app.layout>
-    <x-slot:nav>
-        <x-app.nav />
-    </x-slot>
+@php
+    $display = true;
+@endphp
+
+<x-app.auth>
     <x-slot:main>
         <div class="border-t border-gray-200">
-            <div class="base:mx-5">
+            <div class="p-7">
                 <div
-                    class="my-7 w-full flex flex-col xs:px-6 sm:px-4 sm:grid sm:grid-cols-6 sm:gap-x-8 md:px-2 lg:px-0 lg:gap-x-12">
+                    class="flex flex-col w-full mx-auto sm:max-w-[400px] base:grid base:grid-cols-6 base:gap-x-8 md:max-w-none lg:gap-x-12">
                     {{-- Article Nav Bar: Mobile --}}
-                    <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
+                    <div class="w-full flex items-center justify-between gap-x-4 base:hidden">
                         <a
                             href="/"
-                            class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
+                            class="transition-colors duration-300 relative inline-flex items-center text-md whitespace-nowrap hover:text-blue-500">
                             <svg width="20" height="30" viewBox="7 0 20 20">
                                 <g fill="none" fill-rule="evenodd">
                                     <path
@@ -26,7 +27,7 @@
                             </svg>
                             Back to Posts
                         </a>
-                        <div class="flex gap-2">
+                        <div class="flex flex-wrap justify-end gap-2">
                             <span
                                 class="px-4 py-1 border border-blue-300 rounded-full text-xs font-medium text-blue-300 text-center">
                                 Tag
@@ -40,7 +41,7 @@
 
                     {{-- Article Nav Bar: Desktop --}}
                     <div
-                        class="hidden sm:col-start-3 sm:col-span-4 sm:w-full sm:flex sm:items-center sm:justify-between">
+                        class="hidden base:col-start-3 base:col-span-4 base:flex base:w-full base:items-center base:justify-between">
                         <a
                             href="/"
                             class="transition-colors duration-300 relative inline-flex items-center text-md hover:text-blue-500">
@@ -75,14 +76,15 @@
                         method="POST"
                         action="/admin/post/store"
                         enctype="multipart/form-data"
-                        class="sm:col-span-6 sm:grid sm:grid-cols-6 sm:gap-x-8 lg:gap-x-12">
+                        class="base:col-span-6 base:grid base:grid-cols-6 base:gap-x-8 lg:gap-x-12">
                         @csrf
                         <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
+
                         {{-- Left Sidebar: Image Upload x Tags --}}
-                        <div class="mt-8 md:mt-12 sm:col-span-2">
+                        <div class="mt-8 base:col-span-2 md:mt-12">
                             <div>
                                 <div
-                                    class="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                    class="flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                                     <div class="text-center">
                                         <svg
                                             class="mx-auto h-12 w-12 text-gray-300"
@@ -165,7 +167,10 @@
                                             @foreach ($tags as $t)
                                                 <li
                                                     class="pr-9 pl-3 py-2 relative w-full cursor-default select-none hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                                                    <input id="{{ $t->id }}" type="hidden" value="{{ $t->id }}" />
+                                                    <input
+                                                        id="{{ $t->id }}"
+                                                        type="hidden"
+                                                        value="{{ $t->id }}" />
                                                     <span class="block truncate font-normal">
                                                         {{ $t->name }}
                                                     </span>
@@ -196,8 +201,8 @@
                         </div>
 
                         {{-- Main Section: Title x Body --}}
-                        <div class="sm:col-start-3 sm:col-span-4">
-                            <div class="my-7 sm:my-12">
+                        <div class="base:col-start-3 base:col-span-4">
+                            <div class="my-7 base:my-12">
                                 <div
                                     class="font-mono text-3xl font-medium border-b border-gray-200 focus-within:outline-none"
                                     style="font-family: 'Courier New', Courier, monospace">
@@ -211,7 +216,7 @@
                                         placeholder="@error('title') {{ $message }} @else Add Title Here @enderror" />
                                     <input id="url" type="hidden" name="url" />
                                 </div>
-                                <div class="mt-4 flex items-center gap-4">
+                                <div class="mt-4 flex items-center gap-3 base:gap-4">
                                     <div id="react-user"></div>
                                     <div
                                         class="w-full leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm">
@@ -222,7 +227,7 @@
                                                 name="excerpt"
                                                 rows="2"
                                                 class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus-visible:outline-none @error('excerpt') placeholder:text-red-500 @enderror"
-                                                placeholder="@error('excerpt') {{ $message }} @else Add an Excerpt @enderror">{{ old('excerpt') }}</textarea>
+                                                placeholder="@error('excerpt') {{ $message }} @elseAdd an Excerpt @enderror">{{ old('excerpt') }}</textarea>
                                             {{-- format-ignore-end --}}
                                         </div>
                                     </div>
@@ -236,7 +241,7 @@
                                             name="body"
                                             rows="10"
                                             class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus:outline-none @error('body') placeholder:text-red-500 @enderror"
-                                            placeholder="@error('body') {{ $message }} @else Add Content Here @enderror">{{ old('body') }}</textarea>
+                                            placeholder="@error('body') {{ $message }} @elseAdd Content Here @enderror">{{ old('body') }}</textarea>
                                         {{-- format-ignore-end --}}
                                     </div>
                                 </div>
@@ -260,9 +265,9 @@
         </div>
     </x-slot>
     <x-slot:footer>
-        <x-app.footer />
+        <x-app.footer :$display />
     </x-slot>
-</x-app.layout>
+</x-app.auth>
 
 <style>
     [x-cloak] {
@@ -283,10 +288,10 @@
 
         let listItem = selection.parentElement;
         let tagName = selection.nextElementSibling.innerText;
-        
-        tagName = tagName.replace(/(\r\n|\n|\r)/g, "");
+
+        tagName = tagName.replace(/(\r\n|\n|\r)/g, '');
         tagLabel.innerText = tagName;
-        
+
         listItem.style.backgroundColor = '#D8BFD8';
         listItem.style.color = 'white';
     }

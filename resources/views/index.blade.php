@@ -1,4 +1,11 @@
+@php
+    $display = true;
+@endphp
+
 <x-app.layout>
+    <x-slot:header>
+        <x-app.header :$display />
+    </x-slot>
     <x-slot:main>
         @if ($posts->count())
             <div class="p-7">

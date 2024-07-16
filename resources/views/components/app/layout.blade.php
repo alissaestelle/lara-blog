@@ -30,9 +30,8 @@
                     </div>
                 @endif
 
-                <x-app.header />
+                {{ $header }}
             </header>
-            {{-- <div class="w-full border-t border-gray-200"></div> --}}
             <main class="flex-grow">
                 {{ $main }}
             </main>
