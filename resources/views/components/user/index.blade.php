@@ -1,8 +1,8 @@
-<div>
-    <div class="base:ml-5">
+<div class="border-t border-gray-200">
+    <div class="p-7">
         <div
             class="my-7 w-full flex flex-col sm:grid sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
-            
+
             {{-- Article Nav Bar: Mobile --}}
             <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                 <a
@@ -244,6 +244,50 @@
                     </div>
 
                     <div class="mt-6 pl-1 grow w-full flex flex-col">
+                        <label
+                            for="username"
+                            class="block leading-6 text-sm font-medium text-gray-900">
+                            Username
+                        </label>
+                        <div
+                            class="flex w-full h-full items-center leading-6 text-sm text-gray-600">
+                            <div
+                                class="py-2 flex items-center w-full h-auto border-b border-gray-200">
+                                <span
+                                    class="flex items-center text-gray-500 select-none sm:text-sm">
+                                    workcation.com/
+                                </span>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    autocomplete="username"
+                                    class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                    placeholder="janesmith" />
+                            </div>
+                        </div>
+                        <label
+                            for="username"
+                            class="block leading-6 text-sm font-medium text-gray-900">
+                            Username
+                        </label>
+                        <div
+                            class="flex w-full h-full items-center leading-6 text-sm text-gray-600">
+                            <div
+                                class="py-2 flex items-center w-full h-auto border-b border-gray-200">
+                                <span
+                                    class="flex items-center text-gray-500 select-none sm:text-sm">
+                                    workcation.com/
+                                </span>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    autocomplete="username"
+                                    class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                    placeholder="janesmith" />
+                            </div>
+                        </div>
                         <label
                             for="username"
                             class="block leading-6 text-sm font-medium text-gray-900">

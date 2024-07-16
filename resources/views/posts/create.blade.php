@@ -221,13 +221,13 @@
                                     <div
                                         class="w-full leading-6 text-gray-600 rounded-lg border border-gray-200 shadow-sm">
                                         <label for="excerpt" class="hidden"></label>
-                                        <div class="overflow-hidden">
+                                        <div class="w-full overflow-hidden">
                                             {{-- format-ignore-start --}}
                                             <textarea
                                                 name="excerpt"
                                                 rows="2"
                                                 class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus-visible:outline-none @error('excerpt') placeholder:text-red-500 @enderror"
-                                                placeholder="@error('excerpt') {{ $message }} @elseAdd an Excerpt @enderror">{{ old('excerpt') }}</textarea>
+                                                placeholder="@error('excerpt') {{ $message }} @else Add an Excerpt @enderror">{{ old('excerpt') }}</textarea>
                                             {{-- format-ignore-end --}}
                                         </div>
                                     </div>
@@ -235,13 +235,13 @@
                                 <div
                                     class="mt-12 flex leading-6 text-sm text-gray-600 border border-gray-200 shadow-sm rounded-lg">
                                     <label for="body" class="hidden"></label>
-                                    <div class="overflow-hidden">
+                                    <div class="w-full overflow-hidden">
                                         {{-- format-ignore-start --}}
                                         <textarea
                                             name="body"
                                             rows="10"
                                             class="px-1.5 py-1 block w-full resize-none bg-transparent font-sans text-gray-900 placeholder:text-gray-400 placeholder:font-light placeholder:tracking-wide placeholder:whitespace-normal focus:outline-none @error('body') placeholder:text-red-500 @enderror"
-                                            placeholder="@error('body') {{ $message }} @elseAdd Content Here @enderror">{{ old('body') }}</textarea>
+                                            placeholder="@error('body') {{ $message }} @else Add Content Here @enderror">{{ old('body') }}</textarea>
                                         {{-- format-ignore-end --}}
                                     </div>
                                 </div>
