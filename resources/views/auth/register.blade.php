@@ -8,8 +8,8 @@
                 register.
             </h2>
             <div
-                class="w-full mx-auto px-8 py-6 text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl sm:max-w-[400px] md:max-w-[500px]">
-                <form method="POST" action="/register">
+                class="w-full mx-auto p-8 text-sm font-medium bg-gray-50 border border-gray-200 rounded-xl sm:max-w-[400px] md:max-w-[500px]">
+                <form method="POST" action="/register" class="md:w-[75%] md:mx-auto">
                     @csrf
                     <div class="mb-5">
                         <label for="name" class="pl-1 block text-xs uppercase tracking-wide">

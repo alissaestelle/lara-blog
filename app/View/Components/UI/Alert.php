@@ -13,7 +13,7 @@ class Alert extends Component
     */
 
     function __construct(
-        public string $default = 'w-fit m-auto px-4 py-2 text-xs font-medium rounded-xl md:absolute md:right-[0.5rem] md:text-sm'
+        public string $default = 'w-fit m-auto px-4 py-2 text-xs font-medium rounded-xl md:absolute md:top-4 md:right-0 md:text-sm'
     ) {
     }
 

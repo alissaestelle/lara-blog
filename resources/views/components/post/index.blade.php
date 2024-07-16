@@ -31,7 +31,7 @@
             </a>
         </div>
 
-        <p class="mt-2 text-gray-600 text-xs leading-6 line-clamp-3 md:mt-5 sm:text-sm">
+        <p class="mt-1 text-gray-600 text-xs leading-6 line-clamp-3 sm:mt-2 md:mt-5 sm:text-sm">
             {{ $post->excerpt }}
         </p>
     </div>
