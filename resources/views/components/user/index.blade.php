@@ -1,7 +1,7 @@
 <div class="h-full mx-7 border-t border-gray-200">
     <div class="h-full p-7 md:p-0">
         <div
-            class="w-full h-full flex flex-col sm:grid sm:grid-cols-3 sm:gap-x-6 md:gap-x-8 lg:gap-x-10">
+            class="w-full h-full flex flex-col sm:grid sm:grid-cols-3 sm:gap-x-6 md:gap-x-8">
             {{--
                 <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                 <a
@@ -35,23 +35,34 @@
             --}}
 
             <aside class="bg-gray-100 border border-black border-opacity-5 border-y-0">
-                <div class="mt-7 px-9 text-center">
+                <div class="mt-7 px-9">
                     <p
                         class="mb-7 font-mono text-2xl font-medium"
                         style="font-family: 'Courier New', Courier, monospace">
                         Side Bar
                     </p>
-                    <p
-                        class="pb-2 font-mono text-sm font-medium text-justify"
-                        style="font-family: 'Courier New', Courier, monospace">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id
-                        diam. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.
-                        Gravida dictum fusce ut placerat orci nulla. Venenatis lectus magna
-                        fringilla urna porttitor rhoncus. Pretium lectus quam id leo in vitae turpis
-                        massa sed. Quis enim lobortis scelerisque fermentum dui faucibus in ornare
-                        quam. Leo in vitae turpis massa sed elementum.
-                    </p>
+
+                    <ul class="font-mono text-lg font-medium text-justify text-left"
+                    style="font-family: 'Courier New', Courier, monospace">
+                        <li class="pb-1">
+                            Home
+                        </li>
+                        <li class="pb-1">
+                            Dashboard
+                        </li>
+                        <li class="pb-1">
+                            Resources
+                        </li>
+                        <li class="pb-1">
+                            Archive
+                        </li>
+                        <li class="pb-1">
+                            Contact
+                        </li>
+                        <li class="pb-1">
+                            Support
+                        </li>
+                    </ul>
                 </div>
             </aside>
 
@@ -195,7 +206,7 @@
                                         id=""
                                         name=""
                                         type="text"
-                                        autocomplete=""
+                                        autocomplete="current-password"
                                         class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
                                         placeholder="" />
                                 </div>
@@ -212,7 +223,7 @@
                                         id=""
                                         name=""
                                         type="text"
-                                        autocomplete=""
+                                        autocomplete="new-password"
                                         class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
                                         placeholder="" />
                                 </div>
@@ -229,7 +240,7 @@
                                         id=""
                                         name=""
                                         type="text"
-                                        autocomplete=""
+                                        autocomplete="confirm-password"
                                         class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
                                         placeholder="" />
                                 </div>
