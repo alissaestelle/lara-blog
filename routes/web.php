@@ -51,6 +51,7 @@ Route::get('/search?author={author:url}', [PostController::class, 'search']);
 // Admin
 Route::get('/admin/post/create', [PostController::class, 'create'])->middleware('admin');
 Route::post('/admin/post/store', [PostController::class, 'store'])->middleware('admin');
+Route::get('/admin/post/edit', [PostController::class, 'edit'])->middleware('admin');
 
 // Auth → Users
 Route::get('/profile', [SessionController::class, 'profile'])->middleware('auth');
