@@ -2,8 +2,12 @@
     $display = true;
 @endphp
 
-<x-app.auth>
+<x-app.layout>
+    <x-slot:header>
+        <x-app.header />
+    </x-slot>
     <x-slot:main>
+        <div class="h-7"></div>
         <div class="border-t border-gray-200">
             <div class="p-7">
                 <div
@@ -195,7 +199,7 @@
     <x-slot:footer>
         <x-app.footer :$display />
     </x-slot>
-</x-app.auth>
+</x-app.layout>
 
 @php
     $users = $comments->map(fn ($comment) => $comment->user->username);

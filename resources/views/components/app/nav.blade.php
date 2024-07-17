@@ -1,5 +1,11 @@
 @php
     $howls = 'resources/images/howls.png';
+
+    $active = 'hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white';
+    $selected = 'bg-[#D8BFD8] text-white';
+
+    $url = request()->is('login') ? '/register' : '/login';
+    $displayText = request()->is('login') ? 'Register' : 'Login';
 @endphp
 
 <nav class="relative">
@@ -41,42 +47,52 @@
                             <div
                                 class="py-1.5 flex flex-col text-xs font-bold uppercase text-right text-gray-400 border border-gray-300 bg-white rounded-xl">
                                 <div
-                                    class="{{ request()->is('admin/post/create') ? 'bg-[#D8BFD8] text-white' : 'hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white' }} py-0.5">
+                                    class="{{ request()->is('admin/post/create') ? $selected : $active }} py-0.5">
                                     <a href="/admin/post/create" class="px-3">New Post</a>
                                 </div>
                                 <div
-                                    class="{{ request()->is('profile') ? 'bg-[#D8BFD8] text-white' : 'hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white' }} py-0.5">
+                                    class="{{ request()->is('profile') ? $selected : $active }} py-0.5">
                                     <a href="/profile" class="px-3">Profile</a>
                                 </div>
                                 <div
-                                    class="{{ request()->is('settings') ? 'bg-[#D8BFD8] text-white' : 'hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white' }} py-0.5">
+                                    class="{{ request()->is('settings') ? $selected : $active }} py-0.5">
                                     <a href="/settings" class="px-3">Settings</a>
                                 </div>
                                 <div
-                                    class="hover:bg-[#D8BFD8] hover:text-white focus:bg-[#D8BFD8] focus:text-white">
-                                    <button
-                                        form="logout"
-                                        type="submit"
-                                        class="px-3 py-0.5 text-xs font-bold uppercase text-right">
-                                        Log Out
-                                    </button>
+                                    class="{{ $active }}">
+                                    <form
+                                        id="logout"
+                                        method="POST"
+                                        action="/logout"
+                                        class="mb-0 flex items-center justify-end">
+                                        @csrf
+                                        <button
+                                            type="submit"
+                                            class="px-3 py-0.5 text-xs font-bold uppercase">
+                                            Log Out
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </x-slot>
                     </x-ui.dropdown>
                 </div>
-                <form id="logout" method="POST" action="/logout" class="mb-0 flex items-center">
-                    @csrf
-                    <button type="submit" class="text-xs font-bold uppercase text-gray-400">
-                        Log Out
-                    </button>
-                </form>
+                <button
+                    form="logout"
+                    type="submit"
+                    class="text-xs font-bold uppercase text-gray-400 md:hidden">
+                    Log Out
+                </button>
+                <a
+                    href="#newsletter"
+                    class="hidden px-4 py-2 w-auto bg-blue-500 text-xs font-semibold text-white uppercase rounded-full md:block">
+                    Subscribe for Updates
+                </a>
             </div>
         @else
             <div
                 class="flex items-center justify-center gap-2 w-full text-xs font-bold uppercase md:justify-end">
-                <a href="/login">Log In</a>
-                <a href="/register">Register</a>
+                <a href="{{ $url }}">{{ $displayText }}</a>
                 <a
                     href="#newsletter"
                     class="hidden px-4 py-2 w-auto bg-blue-500 text-xs font-semibold text-white uppercase rounded-full md:block">
