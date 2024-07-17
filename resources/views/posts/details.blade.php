@@ -8,7 +8,7 @@
     </x-slot>
     <x-slot:main>
         <div class="h-7"></div>
-        <div class="border-t border-gray-200">
+        <div class="mx-7 border-t border-gray-200">
             <div class="p-7">
                 <div
                     class="flex flex-col w-full mx-auto sm:max-w-[400px] base:grid base:grid-cols-6 base:gap-x-8 md:max-w-none lg:gap-x-12">
