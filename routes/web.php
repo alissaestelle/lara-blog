@@ -49,6 +49,7 @@ Route::get('/search?tag={tag:url}', [PostController::class, 'search']);
 Route::get('/search?author={author:url}', [PostController::class, 'search']);
 
 // Admin
+Route::get('/admin/posts', [PostController::class, 'posts'])->middleware('admin');
 Route::get('/admin/post/create', [PostController::class, 'create'])->middleware('admin');
 Route::post('/admin/post/store', [PostController::class, 'store'])->middleware('admin');
 Route::get('/admin/post/edit', [PostController::class, 'edit'])->middleware('admin');
@@ -80,7 +81,7 @@ Route::get('/lists', function () {
 });
 
 // Drip Test/Example
-// ↳ 
+// ↳
 
 Route::post('/drip', NewsletterController::class);
 

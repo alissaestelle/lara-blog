@@ -24,6 +24,6 @@
         @endif
     </x-slot>
     <x-slot:footer>
-        <x-app.footer />
+        <x-app.footer :$display />
     </x-slot>
 </x-app.layout>

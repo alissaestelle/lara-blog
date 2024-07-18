@@ -45,11 +45,20 @@ class PostController extends Controller
         ]);
     }
 
+    /* ADMIN METHODS */
+
+    public function posts(Request $request)
+    {
+        return view('admin.posts.index', [
+            'posts' => Post::latest()->paginate(),
+        ]);
+    }
+
     public function create()
     {
         $tags = Tag::all();
 
-        return view('posts.create', [
+        return view('admin.posts.create', [
             'tags' => $tags,
         ]);
     }
