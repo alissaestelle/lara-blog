@@ -43,13 +43,13 @@
 
                 <div class="border-b border-gray-200 sm:col-span-4">
                     <p
-                        class="pb-2 font-mono text-3xl font-medium"
+                        class="pb-2 font-mono text-3xl font-medium text-center sm:text-left"
                         style="font-family: 'Courier New', Courier, monospace">
                         User Profile
                     </p>
                 </div>
 
-                <aside>
+                <aside class="hidden sm:block">
                     <div class="mt-7">
                         <p
                             class="mb-7 font-mono text-xl font-medium"
@@ -112,7 +112,7 @@
                 </aside>
 
                 <section class="mt-7 px-7 border border-gray-200 rounded-xl sm:col-span-3">
-                    <div class="flex flex-col items-center my-10">
+                    <div class="flex flex-col items-center my-7">
                         <form
                             method="POST"
                             action="/admin/post/store"
@@ -146,7 +146,7 @@
                         </form>
                     </div>
 
-                    <div class="grow flex gap-4 w-full mb-10">
+                    <div class="grow flex flex-col gap-10 w-full mb-10 sm:flex-row sm:gap-4">
                         <form
                             method="POST"
                             action="/admin/post/store"
@@ -154,65 +154,67 @@
                             class="basis-1/2">
                             @csrf
                             <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
-                            <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-6 sm:gap-4">
                                 <p
-                                    class="w-fit leading-6 font-mono font-medium text-xl text-gray-900"
+                                    class="w-fit leading-6 font-mono font-medium text-xl text-gray-900 place-self-center sm:place-self-start"
                                     style="font-family: 'Courier New', Courier, monospace">
                                     Basic Info
                                 </p>
-                                <div class="flex flex-col">
-                                    <label
-                                        for="name"
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        Full Name
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id="name"
-                                            name="name"
-                                            type="text"
-                                            autocomplete="name"
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="Alissa Wiley" />
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex flex-col">
+                                        <label
+                                            for="name"
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            Full Name
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id="name"
+                                                name="name"
+                                                type="text"
+                                                autocomplete="name"
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="Alissa Wiley" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label
-                                        for="username"
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        Username
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id="username"
-                                            name="username"
-                                            type="text"
-                                            autocomplete=""
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="alissa.estelle" />
+                                    <div class="flex flex-col">
+                                        <label
+                                            for="username"
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            Username
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id="username"
+                                                name="username"
+                                                type="text"
+                                                autocomplete=""
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="alissa.estelle" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label
-                                        for="email"
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        Email
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id="email"
-                                            name="email"
-                                            type="text"
-                                            autocomplete="email"
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="alissa@wiley.com" />
+                                    <div class="flex flex-col">
+                                        <label
+                                            for="email"
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            Email
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id="email"
+                                                name="email"
+                                                type="text"
+                                                autocomplete="email"
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="alissa@wiley.com" />
+                                        </div>
                                     </div>
                                 </div>
                                 <button
-                                    class="w-fit my-2 px-5 py-0.5 inline-flex items-center rounded-2xl bg-transparent text-sm text-indigo-600 uppercase tracking-wider font-medium border border-rounded-xl border-indigo-600 hover:bg-violet-200/50 hover:shadow-sm">
+                                    class="place-self-center w-fit my-1 px-5 py-0.5 inline-flex items-center rounded-2xl bg-transparent text-sm text-indigo-600 uppercase tracking-wider font-medium border border-rounded-xl border-indigo-600 hover:bg-violet-200/50 hover:shadow-sm sm:place-self-start">
                                     Update
                                 </button>
                             </div>
@@ -225,65 +227,67 @@
                             class="basis-1/2">
                             @csrf
                             <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
-                            <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-6 sm:gap-4">
                                 <p
-                                    class="w-fit leading-6 font-mono font-medium text-xl text-gray-900"
+                                    class="w-fit leading-6 font-mono font-medium text-xl text-gray-900 place-self-center sm:place-self-start"
                                     style="font-family: 'Courier New', Courier, monospace">
                                     Update Password
                                 </p>
-                                <div class="flex flex-col">
-                                    <label
-                                        for=""
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        Current Password
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id=""
-                                            name=""
-                                            type="text"
-                                            autocomplete="current-password"
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="" />
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex flex-col">
+                                        <label
+                                            for=""
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            Current Password
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id=""
+                                                name=""
+                                                type="text"
+                                                autocomplete="current-password"
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label
-                                        for=""
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        New Password
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id=""
-                                            name=""
-                                            type="text"
-                                            autocomplete="new-password"
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="" />
+                                    <div class="flex flex-col">
+                                        <label
+                                            for=""
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            New Password
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id=""
+                                                name=""
+                                                type="text"
+                                                autocomplete="new-password"
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label
-                                        for=""
-                                        class="block p-1 leading-6 text-sm font-medium text-gray-900">
-                                        Confirm New Password
-                                    </label>
-                                    <div
-                                        class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
-                                        <input
-                                            id=""
-                                            name=""
-                                            type="text"
-                                            autocomplete="confirm-password"
-                                            class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
-                                            placeholder="" />
+                                    <div class="flex flex-col">
+                                        <label
+                                            for=""
+                                            class="block p-1 leading-6 text-sm font-medium text-gray-900">
+                                            Confirm New Password
+                                        </label>
+                                        <div
+                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                            <input
+                                                id=""
+                                                name=""
+                                                type="text"
+                                                autocomplete="confirm-password"
+                                                class="block w-full resize-none bg-transparent font-sans text-sm text-gray-900 placeholder:text-gray-400 placeholder:whitespace-normal placeholder:tracking-wide focus-visible:outline-none"
+                                                placeholder="" />
+                                        </div>
                                     </div>
                                 </div>
                                 <button
-                                    class="w-fit my-2 px-5 py-0.5 inline-flex items-center rounded-2xl bg-transparent text-sm text-indigo-600 uppercase tracking-wider font-medium border border-rounded-xl border-indigo-600 hover:bg-violet-200/50 hover:shadow-sm">
+                                    class="place-self-center w-fit my-1 px-5 py-0.5 inline-flex items-center rounded-2xl bg-transparent text-sm text-indigo-600 uppercase tracking-wider font-medium border border-rounded-xl border-indigo-600 hover:bg-violet-200/50 hover:shadow-sm sm:place-self-start">
                                     Update
                                 </button>
                             </div>
