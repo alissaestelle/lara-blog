@@ -7,8 +7,8 @@
 
 <x-app.auth>
     <x-slot:main>
-        <div class="h-full p-7">
-            <div class="w-full flex flex-col sm:grid sm:grid-cols-6 sm:gap-x-4">
+        <div class="h-full p-7 pb-0">
+            <div class="h-full w-full flex flex-col sm:grid sm:grid-cols-4 sm:grid-rows-layout sm:gap-x-4">
                 {{--
                     <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                     <a
@@ -41,7 +41,7 @@
                     </div>
                 --}}
 
-                <div class="border-b border-gray-200 sm:col-span-6">
+                <div class="border-b border-gray-200 sm:col-span-4">
                     <p
                         class="pb-2 font-mono text-3xl font-medium"
                         style="font-family: 'Courier New', Courier, monospace">
@@ -50,7 +50,7 @@
                 </div>
 
                 <aside>
-                    <div class="mt-7">
+                    <div class="py-7">
                         <p
                             class="mb-7 font-mono text-xl font-medium"
                             style="font-family: 'Courier New', Courier, monospace">
@@ -111,8 +111,8 @@
                     </div>
                 </aside>
 
-                <section class="mt-7 px-7 border border-gray-200 rounded-xl sm:col-span-5">
-                    <div class="py-3">
+                <section class="p-7 pr-0 border-l border-gray-200 sm:col-span-3">
+                    <div class="">
                         {{-- <div class="sm:flex sm:items-center">
                             <div class="sm:flex-auto">
                                 <h1 class="text-base font-semibold leading-6 text-gray-900">
@@ -131,100 +131,98 @@
                                 </button>
                             </div>
                         </div> --}}
-                        <div class="flow-root">
-                            <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div
-                                    class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                    <table class="min-w-full divide-y divide-gray-300 rounded-xl">
-                                        <thead class="bg-gray-50 rounded-xl">
-                                            <tr>
-                                                <th
-                                                    scope="col"
-                                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                                                    Name
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Title
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Status
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                    Role
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                                                    <span class="sr-only">Edit</span>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="divide-y divide-gray-200 bg-white">
-                                            <tr>
-                                                <td
-                                                    class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
-                                                    <div class="flex items-center">
-                                                        <div class="h-11 w-11 flex-shrink-0">
-                                                            <img
-                                                                class="h-11 w-11 rounded-full"
-                                                                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                                alt="" />
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="font-medium text-gray-900">
-                                                                Lindsay Walton
-                                                            </div>
-                                                            <div class="mt-1 text-gray-500">
-                                                                lindsay.walton@example.com
+                        {{-- <div class="flow-root"> --}}
+                            <div class="border border-gray-200 overflow-x-auto">
+                                <table class="divide-y divide-gray-300 rounded-xl">
+                                    <thead class="bg-gray-50 rounded-xl">
+                                        <tr class="h-12">
+                                            <th
+                                                scope="col"
+                                                class="w-10 px-5 text-left text-sm font-semibold text-gray-900">
+                                                Image
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="w-40 px-5 text-left text-sm font-semibold text-gray-900">
+                                                Title
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="w-20 px-5 text-left text-sm font-semibold text-gray-900">
+                                                Author
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="w-20 px-5 text-left text-sm font-semibold text-gray-900">
+                                                Date
+                                            </th>
+                                            <th
+                                                scope="col">
+                                                <span class="sr-only">Edit</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 bg-white">
+                                        @if ($posts->count())
+                                            @foreach ($posts as $post)
+                                                <tr class="h-20">
+                                                    <td
+                                                        class="w-10 px-5 text-sm whitespace-nowrap">
+                                                        <div class="flex items-center gap-3">
+                                                            <div class="h-12 w-12 flex-shrink-0">
+                                                                <img
+                                                                    src="{{ Vite::image($post->image) }}"
+                                                                    class="h-12 w-12 rounded-full"
+                                                                    alt="{{ $post->title }}" />
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td
-                                                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                                    <div class="text-gray-900">
-                                                        Front-end Developer
-                                                    </div>
-                                                    <div class="mt-1 text-gray-500">
-                                                        Optimization
-                                                    </div>
-                                                </td>
-                                                <td
-                                                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                                    <span
-                                                        class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                                        Active
-                                                    </span>
-                                                </td>
-                                                <td
-                                                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                                                    Member
-                                                </td>
-                                                <td
-                                                    class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                    <a
-                                                        href="#"
-                                                        class="text-indigo-600 hover:text-indigo-900">
-                                                        Edit
-                                                        <span class="sr-only">
-                                                            , Lindsay Walton
+                                                    </td>
+                                                    <td
+                                                        class="w-20 px-5 text-sm whitespace-nowrap">
+                                                        <div class="font-medium text-gray-900">
+                                                            {{ $post->title }}
+                                                        </div>
+                                                    </td>
+                                                    <td
+                                                        class="w-40 px-5 text-sm text-gray-500 whitespace-nowrap">
+                                                        <div class="text-gray-900">
+                                                            Front-end Developer
+                                                        </div>
+                                                        <div class="mt-1 text-gray-500">
+                                                            Optimization
+                                                        </div>
+                                                    </td>
+                                                    <td
+                                                        class="w-20 px-5 text-sm text-gray-500 whitespace-nowrap">
+                                                        <span
+                                                            class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                                                            Active
                                                         </span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td
+                                                        class="w-20 px-5 text-sm text-gray-500 whitespace-nowrap">
+                                                        Member
+                                                    </td>
+                                                    <td
+                                                        class="w-20 px-5 relative text-sm font-medium whitespace-nowrap">
+                                                        <a
+                                                            href="#"
+                                                            class="text-indigo-600 hover:text-indigo-900">
+                                                            Edit
+                                                            <span class="sr-only">
+                                                                , Lindsay Walton
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
 
-                                            <!-- More people... -->
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <!-- More people... -->
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </section>
             </div>

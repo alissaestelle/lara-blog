@@ -7,8 +7,8 @@
 
 <x-app.auth>
     <x-slot:main>
-        <div class="h-full p-7">
-            <div class="w-full flex flex-col sm:grid sm:grid-cols-4 sm:gap-x-4">
+        <div class="h-full p-7 pb-0">
+            <div class="h-full w-full flex flex-col sm:grid sm:grid-cols-4 sm:grid-rows-layout sm:gap-x-4">
                 {{--
                     <div class="w-full flex items-center justify-between gap-x-4 sm:hidden">
                     <a
@@ -50,7 +50,7 @@
                 </div>
 
                 <aside class="hidden sm:block">
-                    <div class="mt-7">
+                    <div class="py-7">
                         <p
                             class="mb-7 font-mono text-xl font-medium"
                             style="font-family: 'Courier New', Courier, monospace">
@@ -111,15 +111,18 @@
                     </div>
                 </aside>
 
-                <section class="mt-7 px-7 border border-gray-200 rounded-xl sm:col-span-3">
-                    <div class="flex flex-col items-center my-7">
+                <section class="p-7 pl-14 border-l border-gray-200 sm:col-span-3">
+                    <div class="flex flex-col items-center mb-7">
                         <form
                             method="POST"
                             action="/admin/post/store"
                             enctype="multipart/form-data"
                             class="flex flex-col items-center">
                             @csrf
-                            <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
+                            <input
+                                type="hidden"
+                                name="authorID"
+                                value="{{ auth()->id() }}" />
                             <label
                                 for="photo"
                                 class="w-fit leading-6 font-mono font-medium text-xl text-gray-900"
@@ -137,11 +140,20 @@
                                         d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <button
+                                {{--
+                                    <button
                                     type="button"
                                     class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                     Change
-                                </button>
+                                    </button>
+                                --}}
+                                <div>
+                                    <button
+                                        type="button"
+                                        class="w-fit px-3 py-0.5 inline-flex items-center rounded-2xl bg-transparent text-sm text-indigo-600 uppercase tracking-wider font-medium border border-rounded-xl border-indigo-600 hover:bg-violet-200/50 hover:shadow-sm sm:place-self-start">
+                                        Change
+                                    </button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -153,7 +165,10 @@
                             enctype="multipart/form-data"
                             class="basis-1/2">
                             @csrf
-                            <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
+                            <input
+                                type="hidden"
+                                name="authorID"
+                                value="{{ auth()->id() }}" />
                             <div class="flex flex-col gap-6 sm:gap-4">
                                 <p
                                     class="w-fit leading-6 font-mono font-medium text-xl text-gray-900 place-self-center sm:place-self-start"
@@ -167,8 +182,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             Full Name
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id="name"
                                                 name="name"
@@ -184,8 +198,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             Username
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id="username"
                                                 name="username"
@@ -201,8 +214,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             Email
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id="email"
                                                 name="email"
@@ -226,7 +238,10 @@
                             enctype="multipart/form-data"
                             class="basis-1/2">
                             @csrf
-                            <input type="hidden" name="authorID" value="{{ auth()->id() }}" />
+                            <input
+                                type="hidden"
+                                name="authorID"
+                                value="{{ auth()->id() }}" />
                             <div class="flex flex-col gap-6 sm:gap-4">
                                 <p
                                     class="w-fit leading-6 font-mono font-medium text-xl text-gray-900 place-self-center sm:place-self-start"
@@ -240,8 +255,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             Current Password
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id=""
                                                 name=""
@@ -257,8 +271,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             New Password
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id=""
                                                 name=""
@@ -274,8 +287,7 @@
                                             class="block p-1 leading-6 text-sm font-medium text-gray-900">
                                             Confirm New Password
                                         </label>
-                                        <div
-                                            class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
+                                        <div class="p-2 flex items-center w-full h-auto border border-gray-200 rounded-xl">
                                             <input
                                                 id=""
                                                 name=""
