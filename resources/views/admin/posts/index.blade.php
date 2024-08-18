@@ -143,7 +143,7 @@
                                             </th>
                                             <th
                                                 scope="col"
-                                                class="w-40 px-5 text-left text-sm font-semibold text-gray-900">
+                                                class="w-30 px-5 text-left text-sm font-semibold text-gray-900">
                                                 Title
                                             </th>
                                             <th
@@ -153,12 +153,18 @@
                                             </th>
                                             <th
                                                 scope="col"
-                                                class="w-20 px-5 text-left text-sm font-semibold text-gray-900">
+                                                class="w-40 px-5 text-left text-sm font-semibold text-gray-900">
                                                 Date
                                             </th>
                                             <th
-                                                scope="col">
+                                                scope="col"
+                                                class="w-20 px-5">
                                                 <span class="sr-only">Edit</span>
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                class="w-20 px-5">
+                                                <span class="sr-only">Delete</span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -186,22 +192,14 @@
                                                     <td
                                                         class="w-40 px-5 text-sm text-gray-500 whitespace-nowrap">
                                                         <div class="text-gray-900">
-                                                            Front-end Developer
-                                                        </div>
-                                                        <div class="mt-1 text-gray-500">
-                                                            Optimization
+                                                            {{ $post->author->name }}
                                                         </div>
                                                     </td>
                                                     <td
                                                         class="w-20 px-5 text-sm text-gray-500 whitespace-nowrap">
-                                                        <span
-                                                            class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                                                            Active
-                                                        </span>
-                                                    </td>
-                                                    <td
-                                                        class="w-20 px-5 text-sm text-gray-500 whitespace-nowrap">
-                                                        Member
+                                                        <time datetime="{{ $post->published }}">
+                                                            {{ date('F jS, Y', strtotime($post->published)) }}
+                                                        </time>
                                                     </td>
                                                     <td
                                                         class="w-20 px-5 relative text-sm font-medium whitespace-nowrap">
@@ -210,7 +208,18 @@
                                                             class="text-indigo-600 hover:text-indigo-900">
                                                             Edit
                                                             <span class="sr-only">
-                                                                , Lindsay Walton
+                                                                {{-- {{ $post->author->name }} --}}
+                                                            </span>
+                                                        </a>
+                                                    </td>
+                                                    <td
+                                                        class="w-20 px-5 relative text-sm font-medium whitespace-nowrap">
+                                                        <a
+                                                            href="#"
+                                                            class="text-indigo-600 hover:text-indigo-900">
+                                                            Delete
+                                                            <span class="sr-only">
+                                                                {{-- {{ $post->author->name }} --}}
                                                             </span>
                                                         </a>
                                                     </td>
